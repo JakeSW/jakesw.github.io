@@ -20,13 +20,12 @@
 lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 Jake Stuchbury-Wass
+title:                 JakeSW
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Hydejack is a boutique Jekyll theme for hackers, nerds, and academics,
-  with a focus on personal sites that are meant to impress.
+  I'm a PhD student at Cambridge and this is my personal site with my projects and interests.
 
 # A shorter description for the sidebar.
 tagline:               My personal site
