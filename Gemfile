@@ -10,8 +10,8 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll", "~> 4.1"
 
-#gem 'jekyll-theme-hydejack', '~> 9.1', '>= 9.1.6'
-remote_theme: hydecorp/hydejack@v9
+gem 'jekyll-theme-hydejack', '~> 9.1', '>= 9.1.6'
+#remote_theme: hydecorp/hydejack@v9
 
 # IMPORTANT: The followign gem is used to compile math formulas to 
 # KaTeX during site building.
