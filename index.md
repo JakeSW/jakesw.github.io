@@ -26,4 +26,4 @@ cover: true
 
 <h2 class="h1" style="color: rgb(0,0,0)" id="about">About Me </h2>
 
-Hi! I'm Jake Stuchbury-Wass. I am a PhD Candidate in the Mobile Systems Lab at The University of Cambridge. Feel free to reach out.
+Hi! I'm Jake Stuchbury-Wass. I am a PhD Student in the Mobile Systems group in the Computer Lab at The University of Cambridge supervised by Prof. Cecilia Mascolo . Feel free to reach out.
