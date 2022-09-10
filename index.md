@@ -3,8 +3,9 @@ layout: page
 name: index
 title: Personal Website
 description: >
-  Personal Website of Abir Saha, a PhD Candidate in Technology and Social Behavior at Northwestern University.
+  Personal Website of Jake Stuchbury-Wass
 hide_description: true
+cover: true
 ---
 <!-- <script type="text/javascript">
 	document.getElementsByClassName("page-title")[0].classList.add("sr-only");
