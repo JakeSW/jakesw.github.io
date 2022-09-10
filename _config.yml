@@ -36,7 +36,7 @@ keywords:              [Jake, Stuchbury-Wass, Cambridge, Computer Science]
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-logo:                  /assets/img/logo.png
+logo:                  /assets/img/jake.jpg
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
@@ -73,7 +73,7 @@ legal:
 #    url:               /CHANGELOG/
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2022. All rights reserved.
+copyright:             © 2022 Jake Stuchbury-Wass. All rights reserved.
 
 # Format of the permalinks
 permalink:             /:categories/:year-:month-:day-:title/
