@@ -1,7 +1,7 @@
 ---
 layout: page
 name: index
-title: Personal Website
+title: Home
 description: >
   Personal Website of Jake Stuchbury-Wass
 hide_description: true
