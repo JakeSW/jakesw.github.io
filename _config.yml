@@ -25,13 +25,13 @@ title:                 JakeSW
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  I'm a PhD student at Cambridge and this is my personal site with my projects and interests.
+  I'm a PhD student at Cambridge and this is my personal site with my projects and research.
 
 # A shorter description for the sidebar.
 tagline:               My personal site
 
 # A list of keywords for your blog
-keywords:              []
+keywords:              [Jake, Stuchbury-Wass, Cambridge, Computer Science]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
@@ -42,7 +42,7 @@ logo:                  /assets/img/logo.png
 author:
   # Used by `jekyll-feed`:
   name:                Jake Stuchbury-Wass
-  email:               jakestuchbury@gmail.com
+  email:               js2372@cam.ac.uk
 
   social:
     twitter:         Jake_S_W
@@ -53,14 +53,14 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             Example
-    url:               /example/
-  - title:             Documentation
-    url:               /docs/
   - title:             About
+    url:               /example/
+  - title:             Research
+    url:               /docs/
+  - title:             Blog
     url:               /about/
-  - title:             CV
-    url:               /files/jakesw_cv.pdf
+#  - title:             CV
+#    url:               /files/jakesw_cv.pdf
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -80,7 +80,7 @@ permalink:             /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              10
-paginate_path:         /:num/
+paginate_path:         blog/page-:num/
 
 
 # Theme
@@ -95,7 +95,7 @@ remote_theme: hydecorp/hydejack@v9
  
 # Sidebar image and theme color of the site.
 accent_image:          /assets/img/bg.png
-accent_color:          rgb(79,177,186)
+accent_color:          rgb(133, 176, 154)
 
 # This is used for the `theme-color` meta tag,
 # which changes the background color of the browser UI in certain browsers.
@@ -123,7 +123,7 @@ defaults:
   - scope:
       path:            hyde/
     values:
-      accent_color:    rgb(38,139,210)
+      accent_color:    rgb(133, 176, 154)
       theme_color:     rgb(32,32,32)
       accent_image:
         background:    rgb(32,32,32)
