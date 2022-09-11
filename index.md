@@ -11,18 +11,6 @@ cover: true
 	document.getElementsByClassName("page-title")[0].classList.add("sr-only");
 </script> -->
 
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BL3739P82D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BL3739P82D');
-</script>
-
-
 <style type="text/css">
 	.page-title {
 		position: absolute;
