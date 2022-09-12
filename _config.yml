@@ -48,8 +48,8 @@ author:
     twitter:         Jake_S_W
     github:          JakeSW
     linkedin:        jake-stuchbury-wass
-  # # Used by `jekyll-seo-tag`:
-  # twitter:             <username>
+  # Used by `jekyll-seo-tag`:
+  twitter:             Jake_S_W
 
 # Add links to the sidebar.
 menu:
@@ -94,7 +94,7 @@ remote_theme: hydecorp/hydejack@v9
 # ----------------------------------------------------------------------------------------
  
 # Sidebar image and theme color of the site.
-accent_image:          /assets/img/bg.png
+accent_image:          /assets/img/bg.jpg
 accent_color:          rgb(133, 176, 154)
 
 # This is used for the `theme-color` meta tag,
