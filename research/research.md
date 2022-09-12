@@ -2,15 +2,17 @@
 layout: page
 title: Research
 description: >
-  Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
+  More in-depth cover of my research
 hide_description: true
 sitemap: true
 permalink: /research/
 ---
 
-Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
-Should you think something is missing, [please let me know](mailto:mail@qwtel.com).
-Should you discover a mistake in the docs (or a bug in general) feel free to [open an issue](https://github.com/hydecorp/hydejack/issues) on GitHub.
+I'm in the [Mobile Systems Group](https://mobile-systems.cl.cam.ac.uk/) at Cambridge. My research interests include:
 
-While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable running shell commands and editing text files.
-{:.note}
+-Mobile Systems
+-Machine Learning
+-Distributed sensing
+-Wearables for healthcare
+
+Please reach out if you'd like to collaborate.
