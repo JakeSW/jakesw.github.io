@@ -53,10 +53,10 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             Bio
-    url:               /about/
+  - title:             About
+    url:               /#about_int
   - title:             Research
-    url:               /research/
+    url:               /#research_int
   - title:             Blog
     url:               /blog/
 #  - title:             CV
