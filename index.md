@@ -24,17 +24,17 @@ cover: true
 	}
 </style>
 
-<h2 class="h1" style="color: rgb(0,0,0)" id="about_int">About Me </h2>
+<h2 class="h1" style="color: rgb(0,0,0)" id="about">About Me </h2>
 
 Hi! I'm Jake Stuchbury-Wass. I'm a PhD Student in the [Mobile Systems Group](https://mobile-systems.cl.cam.ac.uk/) in the Computer Lab at The University of Cambridge supervised by [Prof. Cecilia Mascolo](https://www.cl.cam.ac.uk/~cm542/).
 
-<h2 class="h1" style="color: rgb(0,0,0)" id="research_int">Research </h2>
+<h2 class="h1" style="color: rgb(0,0,0)" id="research">Research </h2>
 
 My research interests include:
 
-**Mobile Systems
-*Wearables for healthcare
-*Deep Learning
-*Distributed sensing
+* Mobile Systems
+* Wearables for healthcare
+* Deep Learning
+* Distributed sensing
 
 Please reach out if you'd like to collaborate!
