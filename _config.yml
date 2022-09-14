@@ -54,9 +54,9 @@ author:
 # Add links to the sidebar.
 menu:
   - title:             About
-    url:               /#about_int
+    url:               /#about
   - title:             Research
-    url:               /#research_int
+    url:               /#research
   - title:             Blog
     url:               /blog/
 #  - title:             CV
