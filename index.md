@@ -37,6 +37,6 @@ My research interests include:
 * Deep Learning
 * Distributed sensing
 
-I also enjou tinkering with hardware and building prototypes.
+I also enjoy tinkering with hardware and building prototypes.
 
 Please reach out if you'd like to collaborate!
