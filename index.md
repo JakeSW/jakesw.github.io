@@ -26,7 +26,7 @@ cover: true
 
 <h2 class="h1" style="color: rgb(0,0,0)" id="about">About Me </h2>
 
-Hi! I'm Jake Stuchbury-Wass. I'm a PhD Student in the [Mobile Systems Group](https://mobile-systems.cl.cam.ac.uk/) in the Computer Lab at The University of Cambridge supervised by [Prof. Cecilia Mascolo](https://www.cl.cam.ac.uk/~cm542/). Before this I did a degree in Information and Electrical Sciences (MEng) also at Cambridge.
+Hi! I'm Jake Stuchbury-Wass. A PhD Student in the [Mobile Systems Group](https://mobile-systems.cl.cam.ac.uk/) in the Computer Lab at The University of Cambridge supervised by [Prof. Cecilia Mascolo](https://www.cl.cam.ac.uk/~cm542/). Before this I did a degree in Information and Electrical Sciences (MEng) also at Cambridge as well as an MRes at the Sensor CDT. I'm supported by an EPSRC studentship and a sponsorship from [Atos](https://atos.net/en/industries/healthcare-life-sciences).
 
 <h2 class="h1" style="color: rgb(0,0,0)" id="research">Research </h2>
 
