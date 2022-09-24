@@ -42,7 +42,7 @@ logo:                  /assets/img/jakezoomed.jpg
 author:
   # Used by `jekyll-feed`:
   name:                Jake Stuchbury-Wass
-  email:               js2372@cam.ac.uk
+  #email:               js2372@cam.ac.uk
 
   social:
     twitter:         Jake_S_W
