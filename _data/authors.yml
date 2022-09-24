@@ -2,7 +2,7 @@
 # Must be the same as `author` in `_config.yml`.
 # Change `author1` to your shortname.
 author1:
-  name:              Jake Stuchbury-Wass
+  name:              Jake
   email:             jakestuchbury@gmail.com
 
   # Used at the bottom of each page and at the top of the `about` layout
@@ -26,7 +26,7 @@ author1:
     twitter:         Jake_S_W
     github:          JakeSW
     linkedin:        jake-stuchbury-wass
-    email:           js2372@cam.ac.uk
+    #email:           js2372@cam.ac.uk
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
     # google:          <number>
