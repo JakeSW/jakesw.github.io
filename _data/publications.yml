@@ -7,11 +7,11 @@ main:
     pdf: https://arxiv.org/pdf/2306.00988.pdf
     code: https://github.com/MrGiovanni/ContinualLearning
     bibtex: https://bib.yliu.me/MICCAI23.txt
-    image: ./assets/img/teaser_example_2.png
+    image: ./assets/img/WalkEar.png
     notes: Accepted
 
-  - title: "SmarTeeth: Toothbrushing Tracking Using Earphone IMUs"
-    authors: <strong>Yaoyao Liu</strong>, Yuting Su, An-An Liu, Bernt Schiele, Qianru Sun
+  - title: "SmarTeeth: Augmenting Manual Toothbrushing with In-ear Microphones"
+    authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli Panariti, Dong Ma, Cecilia Mascolo
     conference_short: ACM CHI
     conference: ACM CHI Conference on Human Factors in Computing Systems, 2025.
     pdf: https://arxiv.org/pdf/2002.10211.pdf
@@ -19,7 +19,7 @@ main:
     page: https://class-il.mpi-inf.mpg.de/mnemonics/
     bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
     notes: Accepted
-    image: ./assets/img/teaser_example.png
+    image: ./assets/img/SmarTeeth.png
 
   - title: "RespEar: Earable-Based Robust Respiratory Rate Monitoring"
     authors: Yang Liu, Kayla-Jade Butkow, <strong>Jake Stuchbury-Wass</strong>, Adam Pullin, Dong Ma, Cecilia Mascolo
@@ -30,7 +30,7 @@ main:
     page: https://class-il.mpi-inf.mpg.de/mnemonics/
     bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
     notes: Accepted
-    image: ./assets/img/teaser_example.png
+    image: ./assets/img/RespEar.png
 
   - title: "BrushBuds: Toothbrushing Tracking Using Earphone IMUs"
     authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli P, Dong Ma, Cecilia Mascolo
