@@ -1,6 +1,6 @@
 main:
 
-  - title: WalkEar: Holistic Gait monitoring from an Earable
+  - title: "WalkEar: Holistic Gait monitoring from an Earable"
     authors: <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Kayla-Jade Butkow, Josh Carter, Qiang Yang, Mathias Ciliberto, Ezio Preatoni, Dong Ma, Cecilia Mascolo
     conference_short: PerCom
     conference: PerCom 2025 IEEE International Conference on Pervasive Computing and Communications, 2025.
@@ -10,7 +10,7 @@ main:
     image: ./assets/img/teaser_example_2.png
     notes: Accepted
 
-  - title: SmarTeeth: Toothbrushing Tracking Using Earphone IMUs
+  - title: "SmarTeeth: Toothbrushing Tracking Using Earphone IMUs"
     authors: <strong>Yaoyao Liu</strong>, Yuting Su, An-An Liu, Bernt Schiele, Qianru Sun
     conference_short: ACM CHI
     conference: ACM CHI 2025 International Joint Conference on Pervasive and Ubiquitous Computing, 2025.
@@ -21,7 +21,7 @@ main:
     notes: Accepted
     image: ./assets/img/teaser_example.png
 
-  - title: RespEar: Earable-Based Robust Respiratory Rate Monitoring
+  - title: "RespEar: Earable-Based Robust Respiratory Rate Monitoring"
     authors: Yang Liu, Kayla-Jade Butkow, <strong>Jake Stuchbury-Wass</strong>, Adam Pullin, Dong Ma, Cecilia Mascolo
     conference_short: PerCom
     conference: PerCom 2025 IEEE International Conference on Pervasive Computing and Communications, 2025.
@@ -32,7 +32,7 @@ main:
     notes: Accepted
     image: ./assets/img/teaser_example.png
 
-  - title: BrushBuds: Toothbrushing Tracking Using Earphone IMUs
+  - title: "BrushBuds: Toothbrushing Tracking Using Earphone IMUs"
     authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli P, Dong Ma, Cecilia Mascolo
     conference_short: Workshop
     conference: Companion of the 2024 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2024.
@@ -43,7 +43,7 @@ main:
     notes: Oral Presentation
     image: ./assets/img/teaser_example.png
 
-  - title: Detecting Foot Strikes during Running with Earbuds
+  - title: "Detecting Foot Strikes during Running with Earbuds"
     authors: Changshuo Hu, Thivya Kandappu, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Anthony Tang, Cecilia Mascolo, Dong Ma
     conference_short: Workshop
     conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2020.
@@ -54,7 +54,7 @@ main:
     notes: Oral Presentation
     image: ./assets/img/teaser_example.png
 
-  - title: OpenEarable 1.4: Dual Microphones Earpiece to Capture In-Ear and Outer-Ear Audio Signals
+  - title: "OpenEarable 1.4: Dual Microphones Earpiece to Capture In-Ear and Outer-Ear Audio Signals"
     authors: Tobias Röddiger*, <strong>Jake Stuchbury-Wass*</strong>, Mathias Ciliberto, Philipp Lepold, Michael Beigl (* equal contribution)
     conference_short: Workshop
     conference: Companion of the 2024 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2024.
