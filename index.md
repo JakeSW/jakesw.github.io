@@ -41,8 +41,8 @@ I also enjoy tinkering with hardware and building prototypes.
 
 Please reach out if you'd like to collaborate!
 
-<h2 class="h1" style="color: rgb(0,0,0)" id="research">Publications </h2>
+<h2 class="h1" style="color: rgb(0,0,0)" id="publications">Publications </h2>
 
 For a full list of publications use my [Google Scholar](https://scholar.google.com/citations?user=Xh-MHssAAAAJ&hl=en).
 
-<h2 class="h1" style="color: rgb(0,0,0)" id="research">Teaching </h2>
+<h2 class="h1" style="color: rgb(0,0,0)" id="teaching">Teaching </h2>
