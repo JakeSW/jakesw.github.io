@@ -57,10 +57,10 @@ menu:
     url:               /#about
   - title:             Research
     url:               /#research
-  - title:             Blog
-    url:               /blog/
-#  - title:             CV
-#    url:               /files/jakesw_cv.pdf
+  - title:             Publications
+    url:               /#publications
+  - title:             Teaching
+    url:               /#teaching
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
