@@ -41,7 +41,7 @@ main:
   - title: "Detecting Foot Strikes during Running with Earbuds"
     authors: Changshuo Hu, Thivya Kandappu, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Anthony Tang, Cecilia Mascolo, Dong Ma
     conference_short: Workshop
-    conference: Companion of the 2024 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2024.
+    conference: "BodySys '23 The 8th Workshop on Body-Centric Computing Systems, 2024."
     pdf: https://mobile-systems.cl.cam.ac.uk/papers/bodysys24-dong.pdf
     page: https://dl.acm.org/doi/pdf/10.1145/3662009.3662023
     bibtex: ./assets/bibtex/Footstrike.txt
