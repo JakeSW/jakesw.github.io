@@ -17,9 +17,16 @@ Hi! I'm Jake Stuchbury-Wass. A PhD Student in the [Mobile Systems Group](https:/
 - **[Feb. 2025]** Talk, University of Bath, Department for Health
 - **[Jan. 2025]** Two papers accepted at IEEE PerCom!
 - **[Oct. 2024]** Two papers in UbiComp24 workshops!
-- **[June. 2023]** MobiUK symposium presentation.
+- **[July. 2023]** MobiUK symposium presentation.
 
 {% include_relative _includes/publications.md %}
+
+## Talks
+
+- University of Bath, Department for Health, Feb 2025
+- ICASSP 23, June 2023
+- MobiUK Symposium, July 2023
+- EarComp'22, Oct 2022
 
 ## Teaching
 
