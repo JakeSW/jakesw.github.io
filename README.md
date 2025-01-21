@@ -1,1 +1,1 @@
-# Jake Stuchbury-Wass's Personal Wesite Repo
+# Jake Stuchbury-Wass's Personal Website Repo
