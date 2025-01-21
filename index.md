@@ -8,21 +8,21 @@ Hi! I'm Jake Stuchbury-Wass. A PhD Student in the [Mobile Systems Group](https:/
 
 ## Research Interests
 
-- **Wearables:** image recognition, image generation, video captioning
+- **Wearables:** Audio and inertial sensing from earworn wearables.
 - **Machine Learning:** meta-learning, incremental learning, transfer learning
 
 ## News
 
+- **[Feb. 2025]** Talk, University of Bath, Department for Health
 - **[Jan. 2025]** Two papers accepted at IEEE PerCom!
-- **[Feb. 2020]** We will host the ACM Multimedia Asia 2020 conference in Singapore!
-- **[Sept. 2019]** Our paper about few-shot learning is accepted to NeurIPS 2019.
+- **[Oct. 2024]** Two papers in UbiComp24 workshops!
 - **[Mar. 2019]** Our paper about few-shot learning is accepted to CVPR 2019.
 
 {% include_relative _includes/publications.md %}
 
 ## Teaching
 
-- **Teaching Assisant:** image recognition, image generation, video captioning
-- **Supervisions:** meta-learning, incremental learning, transfer learning
+- **Teaching Assisant:** Mobile Health 2023-2024, 2024-2025, Machine Learning and Real World Data, 2024
+- **Cambridge Supervisions:** Linear Systems, Control Theory, Digital Signal Processing, Communications. 2022, 2023, 2024, 2025
 
 {% include_relative _includes/services.md %}
