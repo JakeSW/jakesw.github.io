@@ -38,16 +38,6 @@ main:
     notes: Oral Presentation
     image: ./assets/img/BrushBuds.png
 
-  - title: "Detecting Foot Strikes during Running with Earbuds"
-    authors: Changshuo Hu, Thivya Kandappu, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Anthony Tang, Cecilia Mascolo, Dong Ma
-    conference_short: Workshop
-    conference: "BodySys '23 The 8th Workshop on Body-Centric Computing Systems, 2024."
-    pdf: https://mobile-systems.cl.cam.ac.uk/papers/bodysys24-dong.pdf
-    page: https://dl.acm.org/doi/pdf/10.1145/3662009.3662023
-    bibtex: ./assets/bibtex/Footstrike.txt
-    notes: Oral Presentation
-    image: ./assets/img/Footstrike.png
-
   - title: "OpenEarable 1.4: Dual Microphones Earpiece to Capture In-Ear and Outer-Ear Audio Signals"
     authors: Tobias Röddiger*, <strong>Jake Stuchbury-Wass*</strong>, Mathias Ciliberto, Philipp Lepold, Michael Beigl (* equal contribution)
     conference_short: Workshop
@@ -57,6 +47,16 @@ main:
     bibtex: ./assets/bibtex/Openearable.txt
     notes: Oral Presentation
     image: ./assets/img/Openearable.png
+
+  - title: "Detecting Foot Strikes during Running with Earbuds"
+    authors: Changshuo Hu, Thivya Kandappu, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Anthony Tang, Cecilia Mascolo, Dong Ma
+    conference_short: Workshop
+    conference: "BodySys '23 The 8th Workshop on Body-Centric Computing Systems, 2024."
+    pdf: https://mobile-systems.cl.cam.ac.uk/papers/bodysys24-dong.pdf
+    page: https://dl.acm.org/doi/pdf/10.1145/3662009.3662023
+    bibtex: ./assets/bibtex/Footstrike.txt
+    notes: Oral Presentation
+    image: ./assets/img/Footstrike.png
 
   - title: Heart Rate Extraction from Abdominal Audio Signals
     authors: <strong>Jake Stuchbury-Wass</strong>, Erika Bondareva, Kayla-Jade Butkow, Sanja Scepanovic, Zoran Radivojevic, Cecilia Mascolo
