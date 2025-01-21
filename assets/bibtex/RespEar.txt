@@ -1,0 +1,6 @@
+@article{liu2024respear,
+  title={RespEar: Earable-Based Robust Respiratory Rate Monitoring},
+  author={Liu, Yang and Butkow, Kayla-Jade and Stuchbury-Wass, Jake and Pullin, Adam and Ma, Dong and Mascolo, Cecilia},
+  journal={arXiv preprint arXiv:2407.06901},
+  year={2024}
+}

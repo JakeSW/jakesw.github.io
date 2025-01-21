@@ -1,0 +1,7 @@
+@inproceedings{yang2024brushbuds,
+  title={BrushBuds: Toothbrushing Tracking Using Earphone IMUs},
+  author={Yang, Qiang and Liu, Yang and Stuchbury-Wass, Jake and Butkow, Kayla-Jade and Ma, Dong and Mascolo, Cecilia},
+  booktitle={Companion of the 2024 on ACM International Joint Conference on Pervasive and Ubiquitous Computing},
+  pages={655--660},
+  year={2024}
+}
