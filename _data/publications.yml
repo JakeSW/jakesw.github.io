@@ -5,6 +5,7 @@ main:
     conference_short: PerCom
     conference: PerCom 2025 IEEE International Conference on Pervasive Computing and Communications, 2025.
     pdf: ./
+    page: ./
     image: ./assets/img/WalkEar.png
     notes: Accepted
 
