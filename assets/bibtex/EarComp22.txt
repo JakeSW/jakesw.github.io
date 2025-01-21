@@ -1,0 +1,7 @@
+@inproceedings{stuchbury2022multimodal,
+  title={Multimodal attention networks for human activity recognition from earable devices},
+  author={Stuchbury-Wass, Jake and Ferlini, Andrea and Mascolo, Cecilia},
+  booktitle={Adjunct Proceedings of the 2022 ACM International Joint Conference on Pervasive and Ubiquitous Computing and the 2022 ACM International Symposium on Wearable Computers},
+  pages={258--260},
+  year={2022}
+}

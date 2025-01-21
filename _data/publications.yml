@@ -4,9 +4,7 @@ main:
     authors: <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Kayla-Jade Butkow, Josh Carter, Qiang Yang, Mathias Ciliberto, Ezio Preatoni, Dong Ma, Cecilia Mascolo
     conference_short: PerCom
     conference: PerCom 2025 IEEE International Conference on Pervasive Computing and Communications, 2025.
-    pdf: https://arxiv.org/pdf/2306.00988.pdf
-    code: https://github.com/MrGiovanni/ContinualLearning
-    bibtex: https://bib.yliu.me/MICCAI23.txt
+    pdf: ./
     image: ./assets/img/WalkEar.png
     notes: Accepted
 
@@ -14,10 +12,8 @@ main:
     authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli Panariti, Dong Ma, Cecilia Mascolo
     conference_short: ACM CHI
     conference: ACM CHI Conference on Human Factors in Computing Systems, 2025.
-    pdf: https://arxiv.org/pdf/2002.10211.pdf
-    code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
-    page: https://class-il.mpi-inf.mpg.de/mnemonics/
-    bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
+    pdf: ./
+    page: ./
     notes: Accepted
     image: ./assets/img/SmarTeeth.png
 
@@ -26,9 +22,8 @@ main:
     conference_short: PerCom
     conference: PerCom 2025 IEEE International Conference on Pervasive Computing and Communications, 2025.
     pdf: https://arxiv.org/pdf/2407.06901
-    code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
-    page: https://class-il.mpi-inf.mpg.de/mnemonics/
-    bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
+    page: https://arxiv.org/pdf/2407.06901
+    bibtex: ./assets/bibtex/RespEar.txt
     notes: Accepted
     image: ./assets/img/RespEar.png
 
@@ -37,11 +32,10 @@ main:
     conference_short: Workshop
     conference: Companion of the 2024 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2024.
     pdf: https://www.repository.cam.ac.uk/bitstreams/6151270d-131a-4fbf-ade4-df043f56f828/download
-    code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
     page: https://dl.acm.org/doi/pdf/10.1145/3675094.3680521
-    bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
+    bibtex: ./assets/bibtex/BrushBuds.txt
     notes: Oral Presentation
-    image: ./assets/img/teaser_example.png
+    image: ./assets/img/BrushBuds.png
 
   - title: "Detecting Foot Strikes during Running with Earbuds"
     authors: Changshuo Hu, Thivya Kandappu, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Anthony Tang, Cecilia Mascolo, Dong Ma
@@ -49,9 +43,9 @@ main:
     conference: Companion of the 2024 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2024.
     pdf: https://mobile-systems.cl.cam.ac.uk/papers/bodysys24-dong.pdf
     page: https://dl.acm.org/doi/pdf/10.1145/3662009.3662023
-    bibtex: https://dl.acm.org/doi/pdf/10.1145/3662009.3662023
+    bibtex: ./assets/bibtex/Footstrike.txt
     notes: Oral Presentation
-    image: ./assets/img/teaser_example.png
+    image: ./assets/img/Footstrike.png
 
   - title: "OpenEarable 1.4: Dual Microphones Earpiece to Capture In-Ear and Outer-Ear Audio Signals"
     authors: Tobias Röddiger*, <strong>Jake Stuchbury-Wass*</strong>, Mathias Ciliberto, Philipp Lepold, Michael Beigl (* equal contribution)
@@ -59,9 +53,9 @@ main:
     conference: Companion of the 2024 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2024.
     pdf: https://scholar.google.com/scholar?oi=bibs&cluster=7704136617244556642&btnI=1&hl=en
     page: https://scholar.google.com/scholar?oi=bibs&cluster=7704136617244556642&btnI=1&hl=en
-    bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
+    bibtex: ./assets/bibtex/Openearble.txt
     notes: Oral Presentation
-    image: ./assets/img/teaser_example.png
+    image: ./assets/img/Openearble.png
 
   - title: Heart Rate Extraction from Abdominal Audio Signals
     authors: <strong>Jake Stuchbury-Wass</strong>, Erika Bondareva, Kayla-Jade Butkow, Sanja {\v{S}}{\'c}epanovi{\'c}, Zoran Radivojevic, Cecilia Mascolo
@@ -69,9 +63,9 @@ main:
     conference: ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and Signal Processing, 2023.
     pdf: https://arxiv.org/pdf/2304.11020
     page: https://ieeexplore.ieee.org/abstract/document/10096600/
-    bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
+    bibtex: ./assets/bibtex/ABS.txt
     notes: Poster Presentation
-    image: ./assets/img/teaser_example.png
+    image: ./assets/img/ABS.png
 
   - title: Multimodal attention networks for human activity recognition from earable devices
     authors: <strong>Jake Stuchbury-Wass</strong>, Andrea Ferlini, Cecilia Mascolo
@@ -79,6 +73,5 @@ main:
     conference: Companion of the 2022 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2022.
     pdf: https://dl.acm.org/doi/pdf/10.1145/3544793.3563422
     page: https://dl.acm.org/doi/pdf/10.1145/3544793.3563422
-    bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
+    bibtex: ./assets/bibtex/EarComp22.txt
     notes: Oral Presentation
-    image: ./assets/img/teaser_example.png

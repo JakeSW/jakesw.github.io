@@ -1,0 +1,7 @@
+@inproceedings{hu2024detecting,
+  title={Detecting Foot Strikes during Running with Earbuds},
+  author={Hu, Changshuo and Kandappu, Thivya and Stuchbury-Wass, Jake and Liu, Yang and Tang, Anthony and Mascolo, Cecilia and Ma, Dong},
+  booktitle={Proceedings of the Workshop on Body-Centric Computing Systems},
+  pages={35--40},
+  year={2024}
+}
