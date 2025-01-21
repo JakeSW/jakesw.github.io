@@ -76,3 +76,4 @@ main:
     page: https://dl.acm.org/doi/pdf/10.1145/3544793.3563422
     bibtex: ./assets/bibtex/EarComp22.txt
     notes: Oral Presentation
+    image: ./assets/img/EarComp22.png
