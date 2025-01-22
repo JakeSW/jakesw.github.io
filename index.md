@@ -30,11 +30,13 @@ Hi! I'm Jake Stuchbury-Wass. A PhD Student in the [Mobile Systems Group](https:/
 
 ## Teaching
 
+- **Student Project Supervision:**
+  - Dissertation: Deep learning based heart sound segmentation from in-ear audio, 2023-2024.
 - **Teaching Assistant:**
-  - Mobile Health 2024, 2025.
+  - Mobile Health, 2024, 2025.
   - Machine Learning and Real World Data, 2024.
-- **Cambridge Supervisions:**
-  - Linear Systems, Control Theory, Digital Signal Processing, Communications. 2022, 2023, 2024, 2025.
+- **Cambridge Supervisions (Small Group Teaching):**
+  - Linear Systems, Control Theory, Digital Signal Processing, Communications, 2022, 2023, 2024, 2025.
   - Digital Electronics, 2023, 2024.
 
 {% include_relative _includes/services.md %}
