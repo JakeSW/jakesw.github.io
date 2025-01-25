@@ -39,7 +39,7 @@ main:
     image: ./assets/img/BrushBuds.png
 
   - title: "OpenEarable 1.4: Dual Microphones Earpiece to Capture In-Ear and Outer-Ear Audio Signals"
-    authors: Tobias Röddiger*, <strong>Jake Stuchbury-Wass*</strong>, Mathias Ciliberto, Philipp Lepold, Michael Beigl (* equal contribution)
+    authors: Tobias Röddiger*, <strong>Jake Stuchbury-Wass*</strong>, Mathias Ciliberto, Philipp Lepold, Michael Beigl (* first authors)
     conference_short: Workshop
     conference: Companion of the 2024 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2024.
     pdf: https://scholar.google.com/scholar?oi=bibs&cluster=7704136617244556642&btnI=1&hl=en
