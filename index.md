@@ -12,6 +12,8 @@ Hi! I'm Jake Stuchbury-Wass. A PhD Student in the [Mobile Systems Group](https:/
 - **Mobile Health:** Health monitoring from mobile and ubiquitous devices.
 - **New sensing approaches:** exploring new ways to do human scale sensing.
 
+Please get in touch if you'd like to collaborate!
+
 ## News
 
 - **[Feb. 2025]** Talk, University of Bath, Department for Health
