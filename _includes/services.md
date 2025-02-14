@@ -16,7 +16,7 @@
 <h4 style="margin:0 10px 0;">Outreach</h4>
 
 <ul style="margin:0 0 5px;">
-  <li><a href="https://www.festival.cam.ac.uk"><autocolor>Cambridge Science Festival 2025:</autocolor></a> Demonstrating our earable systems for vital sign estimation</li>
-  <li>Cambridge Science Festival 2023: Running a workshop on building sensor systems with Arduino</li>
+  <li><a href="https://www.festival.cam.ac.uk"><autocolor>Cambridge Festival 2025:</autocolor></a> Demonstrating our earable systems for vital sign estimation</li>
+  <li>Cambridge Festival 2023: Running a workshop on building sensor systems with Arduino</li>
   
 </ul>
