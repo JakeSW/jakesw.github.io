@@ -4,8 +4,8 @@ main:
     authors: <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Kayla-Jade Butkow, Josh Carter, Qiang Yang, Mathias Ciliberto, Ezio Preatoni, Dong Ma, Cecilia Mascolo
     conference_short: PerCom
     conference: PerCom 2025 IEEE International Conference on Pervasive Computing and Communications, 2025.
-    pdf: ./
-    page: ./
+    pdf: https://mobile-systems.cl.cam.ac.uk/papers/walkear.pdf
+    page: https://mobile-systems.cl.cam.ac.uk/papers/walkear.pdf
     image: ./assets/img/WalkEar.png
     notes: Accepted
 
