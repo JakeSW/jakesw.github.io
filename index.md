@@ -16,10 +16,10 @@ Please get in touch if you'd like to collaborate!
 
 ## News
 
+- **[Mar. 2025]** RespEar wins IEEE Percom Best Paper Award!
 - **[Feb. 2025]** Talk, University of Bath, Department for Health
 - **[Jan. 2025]** Two papers accepted at IEEE PerCom!
 - **[Oct. 2024]** Two papers in UbiComp24 workshops!
-- **[July. 2023]** MobiUK symposium presentation.
 
 {% include_relative _includes/publications.md %}
 
