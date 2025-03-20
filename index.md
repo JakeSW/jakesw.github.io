@@ -25,8 +25,8 @@ Please get in touch if you'd like to collaborate!
 
 ## Talks
 
+- IEEE PerCom 2025, March 2025
 - University of Bath, Department for Health, Feb 2025
-- ICASSP 23, June 2023
 - MobiUK Symposium, July 2023
 - EarComp'22, Oct 2022
 

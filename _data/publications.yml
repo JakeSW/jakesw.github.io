@@ -7,7 +7,7 @@ main:
     pdf: https://mobile-systems.cl.cam.ac.uk/papers/walkear.pdf
     page: https://mobile-systems.cl.cam.ac.uk/papers/walkear.pdf
     image: ./assets/img/WalkEar.png
-    notes: Accepted
+    notes: Oral Presentation
 
   - title: "SmarTeeth: Augmenting Manual Toothbrushing with In-ear Microphones"
     authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli Panariti, Dong Ma, Cecilia Mascolo
@@ -25,7 +25,7 @@ main:
     pdf: https://arxiv.org/pdf/2407.06901
     page: https://arxiv.org/pdf/2407.06901
     bibtex: ./assets/bibtex/RespEar.txt
-    notes: Best Paper Award
+    notes: Best Paper Award!
     image: ./assets/img/RespEar.png
 
   - title: "BrushBuds: Toothbrushing Tracking Using Earphone IMUs"
