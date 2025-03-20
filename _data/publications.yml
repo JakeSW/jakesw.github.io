@@ -25,7 +25,7 @@ main:
     pdf: https://arxiv.org/pdf/2407.06901
     page: https://arxiv.org/pdf/2407.06901
     bibtex: ./assets/bibtex/RespEar.txt
-    notes: Best Paper Candidate
+    notes: Best Paper Award
     image: ./assets/img/RespEar.png
 
   - title: "BrushBuds: Toothbrushing Tracking Using Earphone IMUs"
