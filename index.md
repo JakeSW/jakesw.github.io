@@ -16,7 +16,7 @@ Please get in touch if you'd like to collaborate!
 
 ## News
 
-- **[Apr. 2024]** Paper accepted at EMBC!
+- **[Apr. 2025]** Paper accepted at EMBC!
 - **[Mar. 2025]** RespEar wins IEEE Percom Best Paper Award!
 - **[Feb. 2025]** Talk, University of Bath, Department for Health
 - **[Jan. 2025]** Two papers accepted at IEEE PerCom!
