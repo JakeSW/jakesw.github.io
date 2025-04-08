@@ -1,5 +1,14 @@
 main:
 
+  - title: "Deep-Learning Based Segmentation of In-Ear Cardiac Sounds"
+    authors: Jordan Waters, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Kayla-Jade Butkow, Cecilia Mascolo
+    conference_short: EMBC
+    conference: EMBC International Conference of the IEEE Engineering in Medicine and Biology Society, 2025.
+    pdf: ./
+    page: ./
+    image: ./assets/img/segments.png
+    notes: Oral Presentation
+
   - title: "WalkEar: Holistic Gait Monitoring using Earables"
     authors: <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Kayla-Jade Butkow, Josh Carter, Qiang Yang, Mathias Ciliberto, Ezio Preatoni, Dong Ma, Cecilia Mascolo
     conference_short: PerCom
@@ -13,7 +22,7 @@ main:
     authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli Panariti, Dong Ma, Cecilia Mascolo
     conference_short: ACM CHI
     conference: ACM CHI Conference on Human Factors in Computing Systems, 2025.
-    pdf: ./
+    pdf: https://www.cl.cam.ac.uk/~qy258/assets/files/paper/25-CHI-SmarTeeth.pdf
     page: ./
     notes: Accepted
     image: ./assets/img/SmarTeeth.png
