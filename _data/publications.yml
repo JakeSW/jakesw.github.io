@@ -18,15 +18,6 @@ main:
     image: ./assets/img/WalkEar.png
     notes: Oral Presentation
 
-  - title: "SmarTeeth: Augmenting Manual Toothbrushing with In-ear Microphones"
-    authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli Panariti, Dong Ma, Cecilia Mascolo
-    conference_short: ACM CHI
-    conference: ACM CHI Conference on Human Factors in Computing Systems, 2025.
-    pdf: https://www.cl.cam.ac.uk/~qy258/assets/files/paper/25-CHI-SmarTeeth.pdf
-    page: ./
-    notes: Accepted
-    image: ./assets/img/SmarTeeth.png
-
   - title: "RespEar: Earable-Based Robust Respiratory Rate Monitoring"
     authors: Yang Liu, Kayla-Jade Butkow, <strong>Jake Stuchbury-Wass</strong>, Adam Pullin, Dong Ma, Cecilia Mascolo
     conference_short: PerCom
@@ -36,6 +27,15 @@ main:
     bibtex: ./assets/bibtex/RespEar.txt
     notes: Best Paper Award!
     image: ./assets/img/RespEar.png
+
+  - title: "SmarTeeth: Augmenting Manual Toothbrushing with In-ear Microphones"
+    authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli Panariti, Dong Ma, Cecilia Mascolo
+    conference_short: ACM CHI
+    conference: ACM CHI Conference on Human Factors in Computing Systems, 2025.
+    pdf: https://www.cl.cam.ac.uk/~qy258/assets/files/paper/25-CHI-SmarTeeth.pdf
+    page: ./
+    notes: Accepted
+    image: ./assets/img/SmarTeeth.png
 
   - title: "BrushBuds: Toothbrushing Tracking Using Earphone IMUs"
     authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli P, Dong Ma, Cecilia Mascolo
