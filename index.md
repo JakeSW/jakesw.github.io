@@ -16,10 +16,10 @@ Please get in touch if you'd like to collaborate!
 
 ## News
 
+- **[Apr. 2024]** Paper accepted at EMBC!
 - **[Mar. 2025]** RespEar wins IEEE Percom Best Paper Award!
 - **[Feb. 2025]** Talk, University of Bath, Department for Health
 - **[Jan. 2025]** Two papers accepted at IEEE PerCom!
-- **[Oct. 2024]** Two papers in UbiComp24 workshops!
 
 {% include_relative _includes/publications.md %}
 
@@ -33,7 +33,7 @@ Please get in touch if you'd like to collaborate!
 ## Teaching
 
 - **Student Project Supervision:**
-  - Dissertation: Deep learning based heart sound segmentation from in-ear audio, 2023-2024.
+  - Dissertation: Deep learning based heart sound segmentation from in-ear audio, 2023-2024. Published results in EMBC.
 - **Teaching Assistant:**
   - [Mobile Health](https://www.cl.cam.ac.uk/teaching/2425/MH/), 2024, 2025.
   - [Machine Learning and Real World Data](https://www.cl.cam.ac.uk/teaching/2425/MLRD/), 2024.
