@@ -4,7 +4,7 @@ layout: homepage
 
 ## About Me
 
-Hi! I'm Jake Stuchbury-Wass. A PhD Student in the [Mobile Systems Group](https://mobile-systems.cl.cam.ac.uk/) in the Computer Lab at The University of Cambridge supervised by [Prof. Cecilia Mascolo](https://www.cl.cam.ac.uk/~cm542/). My current work focuses on ear worn wearables (earables), specifically, for assessing gait metrics for health and sport applciations. Before this, I did a degree in Information and Computer Engineering also at Cambridge as well as an MRes at the [Sensor CDT](https://cdt.sensors.cam.ac.uk/). I'm supported by an EPSRC studentship and a sponsorship from [Atos](https://atos.net/en/industries/healthcare-life-sciences). I have previously worked as a technical consultant for British Cycling working on a distributed sensing system. Outside of work I'm a keen cyclist and like to explore on my bike!
+Hi! I'm Jake Stuchbury-Wass. A PhD Student in the [Mobile Systems Group](https://mobile-systems.cl.cam.ac.uk/) in the Computer Lab at The University of Cambridge supervised by [Prof. Cecilia Mascolo](https://www.cl.cam.ac.uk/~cm542/). My current work focuses on ear worn wearables (earables), specifically, for assessing gait metrics for health and sport applications. Before this, I did a degree in Information and Computer Engineering also at Cambridge as well as an MRes at the [Sensor CDT](https://cdt.sensors.cam.ac.uk/). I'm supported by an EPSRC studentship and a sponsorship from [Atos](https://atos.net/en/industries/healthcare-life-sciences). I have previously worked as a technical consultant for British Cycling working on a distributed sensing system. Outside of work I'm a keen cyclist and like to explore on my bike!
 
 ## Research Interests
 
