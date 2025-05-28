@@ -3,7 +3,7 @@
 <h4 style="margin:0 10px 0;">Committees</h4>
 
 <ul style="margin:0 0 5px;">
-  <li><a href="http://esense.io/earcomp2025/"><autocolor>EarComp'25</a> and <a href="http://esense.io/earcomp2024/"><autocolor>EarComp'24</a> Web and Publication chair</autocolor></li>
+  <li><a href="http://esense.io/earcomp2025/"><autocolor>EarComp'25</autocolor></a> and <a href="http://esense.io/earcomp2024/"><autocolor>EarComp'24</autocolor></a> Web and Publication chair</li>
 </ul>
 
 <h4 style="margin:0 10px 0;">Reviewing</h4>
