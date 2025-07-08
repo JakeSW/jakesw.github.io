@@ -25,10 +25,11 @@ Please get in touch if you'd like to collaborate!
 
 ## Talks
 
-- IEEE PerCom 2025, March 2025
-- University of Bath, Department for Health, Feb 2025
-- MobiUK Symposium, July 2023
-- EarComp'22, Oct 2022
+- MobiUK Symposium, Edinburgh, July 2025
+- IEEE PerCom 2025, Washington DC, March 2025
+- University of Bath, Bath, Department for Health, Feb 2025
+- MobiUK Symposium, Lancaster, July 2023
+- EarComp'22, Cambridge, Oct 2022
 
 ## Teaching
 
