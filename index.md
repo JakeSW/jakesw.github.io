@@ -25,7 +25,7 @@ Please get in touch if you'd like to collaborate!
 
 ## Talks
 
-- MobiUK Symposium, Edinburgh, July 2025
+- MobiUK Symposium, Edinburgh, July 2025 <span style="color:red"> **Best Presentation Award** </span>
 - IEEE PerCom 2025, Washington DC, March 2025
 - University of Bath, Bath, Department for Health, Feb 2025
 - MobiUK Symposium, Lancaster, July 2023
