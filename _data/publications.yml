@@ -1,5 +1,37 @@
 main:
 
+  - title: "Measuring Cardiac Stroke Volume Through In-ear Audio Sensing"
+    authors: Kayla-Jade Butkow, Navazh Jalaludeen, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Qiang Yang, Mathias Ciliberto, Dong Ma, Joseph Cheriyan Cecilia Mascolo
+    conference_short: Accepted
+    conference: Nature Communications 2025.
+    pdf: ./
+    page: ./
+    image: ./
+
+  - title: "EarMeter: Continuous Respiration Volume Monitoring with Earables"
+    authors: Yang Liu, Qiang Yang, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Dong Ma, Cecilia Mascolo
+    conference_short: IMWUT
+    conference: IMWUT Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2025.
+    pdf: ./
+    page: ./
+    image: ./
+
+  - title: "HearForce: Force Estimation for Manual Toothbrushing with Earables."
+    authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Mathias Ciliberto, Tobias Röddiger, Kayla-Jade Butkow, Adam Pullin, Emeli Panariti, Dong Ma, Cecilia Mascolo
+    conference_short: IMWUT
+    conference: IMWUT Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2025.
+    pdf: ./
+    page: ./
+    image: ./
+
+  - title: "Ear-ECG Denoising Using Heart Sounds and the Extended Kalman Filter"
+    authors: Adam Pullin, <strong>Jake Stuchbury-Wass</strong>, Mathias Ciliberto, Kayla-Jade Butkow, Philipp Lepold, Tobias Röddiger, Cecilia Mascolo
+    conference_short: IEEE BSN
+    conference: IEEE-EMBS International Conference on Body Sensor Networks, 2025.
+    pdf: ./
+    page: ./
+    image: ./
+
   - title: "Deep-Learning Based Segmentation of In-Ear Cardiac Sounds"
     authors: Jordan Waters, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Kayla-Jade Butkow, Cecilia Mascolo
     conference_short: EMBC
