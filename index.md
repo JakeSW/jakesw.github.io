@@ -18,8 +18,8 @@ Please get in touch if you'd like to collaborate!
 
 - **[July 2025]** MobiUK talk awarded best presentation!
 - **[June 2025]** Starting as a Research Intern at Nokia Bell Labs Cambridge
-- **[Apr. 2025]** Paper accepted at EMBC
-- **[Mar. 2025]** RespEar wins IEEE Percom Best Paper Award!
+- **[April 2025]** Paper accepted at EMBC
+- **[March 2025]** RespEar wins IEEE Percom Best Paper Award!
 
 {% include_relative _includes/publications.md %}
 

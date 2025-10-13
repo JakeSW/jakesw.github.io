@@ -27,7 +27,7 @@ main:
   - title: "Ear-ECG Denoising Using Heart Sounds and the Extended Kalman Filter"
     authors: Adam Pullin, <strong>Jake Stuchbury-Wass</strong>, Mathias Ciliberto, Kayla-Jade Butkow, Philipp Lepold, Tobias Röddiger, Cecilia Mascolo
     conference_short: IEEE BSN
-    conference: IEEE-EMBS International Conference on Body Sensor Networks, 2025.
+    conference: IEEE EMBS International Conference on Body Sensor Networks, 2025.
     pdf: ./
     page: ./
     image: ./
