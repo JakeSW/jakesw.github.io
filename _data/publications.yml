@@ -28,8 +28,8 @@ main:
     authors: Adam Pullin, <strong>Jake Stuchbury-Wass</strong>, Mathias Ciliberto, Kayla-Jade Butkow, Philipp Lepold, Tobias Röddiger, Cecilia Mascolo
     conference_short: IEEE BSN
     conference: IEEE EMBS International Conference on Body Sensor Networks, 2025.
-    pdf: ./
-    page: ./
+    pdf: https://openreview.net/pdf?id=eQE5YiQexy
+    page: https://openreview.net/forum?id=eQE5YiQexy
     image: ./assets/img/earecg.png
 
   - title: "Deep-Learning Based Segmentation of In-Ear Cardiac Sounds"
@@ -45,7 +45,7 @@ main:
     conference_short: PerCom
     conference: PerCom 2025 IEEE International Conference on Pervasive Computing and Communications, 2025.
     pdf: https://mobile-systems.cl.cam.ac.uk/papers/walkear.pdf
-    page: https://mobile-systems.cl.cam.ac.uk/papers/walkear.pdf
+    page: https://ieeexplore.ieee.org/abstract/document/11018731
     image: ./assets/img/WalkEar.png
 
   - title: "RespEar: Earable-Based Robust Respiratory Rate Monitoring"
