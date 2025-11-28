@@ -10,21 +10,23 @@ Hi! I'm Jake Stuchbury-Wass. A PhD Student in the [Mobile Systems Group](https:/
 
 - **Wearables:** Audio and inertial sensing from earworn wearables.
 - **Mobile Health:** Health monitoring from mobile and ubiquitous devices.
-- **New sensing approaches:** exploring new ways to do human scale sensing.
+- **New sensing approaches:** Exploring new ways to do human scale sensing.
 
 Please get in touch if you'd like to collaborate!
 
 ## News
 
+- **[Nov. 2025]** Two papers accepted to IMWUT
 - **[July 2025]** MobiUK talk awarded best presentation!
 - **[June 2025]** Starting as a Research Intern at Nokia Bell Labs Cambridge
-- **[April 2025]** Paper accepted at EMBC
 - **[March 2025]** RespEar wins IEEE Percom Best Paper Award!
 
 {% include_relative _includes/publications.md %}
 
 ## Talks
 
+- TECO Group, Karlsruhe Institute of Techology, Karlsruhe, Dec. 2025
+- Sensors Day 2025, Cambridge, Nov. 2025
 - ISB 2025 Congress, Stockholm, July 2025
 - MobiUK Symposium, Edinburgh, July 2025, <strong> <i style="color:#e74d3c">Best Presentation Award</i></strong>
 - IEEE PerCom 2025, Washington DC, March 2025
@@ -35,12 +37,12 @@ Please get in touch if you'd like to collaborate!
 ## Teaching
 
 - **Student Project Supervision:**
-  - Dissertation: Deep learning based heart sound segmentation from in-ear audio, 2023-2024. Published results in EMBC.
+  - Dissertation: Deep learning based heart sound segmentation from in-ear audio, Jordan Waters, 2023-2024. Published results in EMBC.
 - **Teaching Assistant:**
-  - [Mobile Health](https://www.cl.cam.ac.uk/teaching/2425/MH/), 2024, 2025.
-  - [Machine Learning and Real World Data](https://www.cl.cam.ac.uk/teaching/2425/MLRD/), 2024.
+  - [Mobile Health](https://www.cl.cam.ac.uk/teaching/2425/MH/), 2024-25, 2025-26.
+  - [Machine Learning and Real World Data](https://www.cl.cam.ac.uk/teaching/2425/MLRD/), 2024-25.
 - **Cambridge Supervisions (Small Group Teaching):**
-  - Linear Systems, Control Theory, Digital Signal Processing, Communications, 2022, 2023, 2024, 2025.
+  - Linear Systems, Control Theory, Digital Signal Processing, Communications, 2022, 2023, 2024, 2025, 2026.
   - Digital Electronics, 2023, 2024.
 
 {% include_relative _includes/services.md %}
