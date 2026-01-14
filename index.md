@@ -30,9 +30,9 @@ Please get in touch if you'd like to collaborate!
 - ISB 2025 Congress, Stockholm, July 2025
 - MobiUK Symposium, Edinburgh, July 2025, <strong> <i style="color:#e74d3c">Best Presentation Award</i></strong>
 - IEEE PerCom 2025, Washington DC, March 2025
-- Institue for the Augmented Human, University of Bath, Bath,  Feb 2025
+- Institue for the Augmented Human, University of Bath, Bath,  Feb. 2025
 - MobiUK Symposium, Lancaster, July 2023
-- EarComp'22, Cambridge, Oct 2022
+- EarComp'22, Cambridge, Oct. 2022
 
 ## Teaching
 
