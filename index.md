@@ -4,7 +4,7 @@ layout: homepage
 
 ## About Me
 
-Hi! I'm Jake Stuchbury-Wass. A PhD Student in the [Mobile Systems Group](https://mobile-systems.cl.cam.ac.uk/) in the Computer Lab at The University of Cambridge supervised by [Prof. Cecilia Mascolo](https://www.cl.cam.ac.uk/~cm542/). My current work focuses on ear worn wearables (earables), specifically, for assessing gait metrics for health and sport applications. Before this, I did a degree in Information and Computer Engineering also at Cambridge as well as an MRes at the [Sensor CDT](https://cdt.sensors.cam.ac.uk/). I'm supported by an EPSRC studentship and a sponsorship from [Atos](https://atos.net/en/industries/healthcare-life-sciences). I have previously worked as a technical consultant for British Cycling working on a distributed sensing system. Outside of work I'm a keen cyclist and like to explore on my bike!
+Hi! I'm Jake Stuchbury-Wass. A PhD Student in the [Mobile Systems Group](https://mobile-systems.cl.cam.ac.uk/) in the Computer Lab at The University of Cambridge supervised by [Prof. Cecilia Mascolo](https://www.cl.cam.ac.uk/~cm542/). My current work focuses on ear worn wearables (earables), specifically, for assessing gait metrics for health and sport applications. Before this, I did a degree in Information and Computer Engineering also at Cambridge as well as an MRes at the [Sensor CDT](https://cdt.sensors.cam.ac.uk/). I'm supported by an EPSRC studentship and a sponsorship from [Atos](https://atos.net/en/industries/healthcare-life-sciences). I currently work as a Machine Learning Engineer for [Auryx AI](https://auryx.ai/). I have previously worked as a technical consultant for British Cycling working on a distributed sensing system. Outside of work I'm a keen cyclist and like to explore on my bike!
 
 ## Research Interests
 
@@ -39,8 +39,8 @@ Please get in touch if you'd like to collaborate!
 - **Student Project Supervision:**
   - Dissertation: Deep learning based heart sound segmentation from in-ear audio, Jordan Waters, 2023-2024. Published results in EMBC.
 - **Teaching Assistant:**
-  - [Mobile Health](https://www.cl.cam.ac.uk/teaching/2425/MH/), 2024-25, 2025-26.
-  - [Machine Learning and Real World Data](https://www.cl.cam.ac.uk/teaching/2425/MLRD/), 2024-25.
+  - [Mobile Health](https://www.cl.cam.ac.uk/teaching/2425/MH/), MPhil course, 2024-25, 2025-26.
+  - [Machine Learning and Real World Data](https://www.cl.cam.ac.uk/teaching/2425/MLRD/), Undergrauate course, 2024-25.
 - **Cambridge Supervisions (Small Group Teaching):**
   - Linear Systems, Control Theory, Digital Signal Processing, Communications, 2022, 2023, 2024, 2025, 2026.
   - Digital Electronics, 2023, 2024.
