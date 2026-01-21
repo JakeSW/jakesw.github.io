@@ -40,7 +40,7 @@ Please get in touch if you'd like to collaborate!
   - Dissertation: Deep learning based heart sound segmentation from in-ear audio, Jordan Waters, 2023-2024. Published results in EMBC.
 - **Teaching Assistant:**
   - [Mobile Health](https://www.cl.cam.ac.uk/teaching/2425/MH/), MPhil course, 2024-25, 2025-26.
-  - [Machine Learning and Real World Data](https://www.cl.cam.ac.uk/teaching/2425/MLRD/), Undergrauate course, 2024-25.
+  - [Machine Learning and Real World Data](https://www.cl.cam.ac.uk/teaching/2425/MLRD/), Undergraduate course, 2024-25.
 - **Cambridge Supervisions (Small Group Teaching):**
   - Linear Systems, Control Theory, Digital Signal Processing, Communications, 2022, 2023, 2024, 2025, 2026.
   - Digital Electronics, 2023, 2024.
