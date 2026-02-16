@@ -234,7 +234,9 @@
   }
 
   .inline-result:hover .tip-text,
-  .label-tip:hover .tip-text {
+  .label-tip:hover .tip-text,
+  .inline-result.tip-active .tip-text,
+  .label-tip.tip-active .tip-text {
     display: block;
   }
 
@@ -663,6 +665,22 @@
     }
   }
 </style>
+<script>
+// Touch-friendly tooltips: tap to toggle on mobile, close when tapping elsewhere
+document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('click', function(e) {
+    var tipParent = e.target.closest('.label-tip, .inline-result');
+    // Close all other open tooltips
+    document.querySelectorAll('.tip-active').forEach(function(el) {
+      if (el !== tipParent) el.classList.remove('tip-active');
+    });
+    // Toggle clicked tooltip
+    if (tipParent) {
+      tipParent.classList.toggle('tip-active');
+    }
+  });
+});
+</script>
 </head>
 <body>
 
