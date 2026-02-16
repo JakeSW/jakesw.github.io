@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bike Fit Calculator</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚴</text></svg>">
+<style>
+  :root {
+    --bg: #1a1a2e;
+    --bg-card: #16213e;
+    --bg-input: #0f3460;
+    --accent: #e94560;
+    --accent-dim: #c73650;
+    --text: #eee;
+    --text-dim: #999;
+    --text-label: #bbb;
+    --green: #4ecca3;
+    --yellow: #f0c040;
+    --red: #e94560;
+    --border: #2a2a4a;
+    --radius: 8px;
+    --svg-grid: #1a1a2e;
+    --svg-frame: #555;
+    --svg-dim-subtle: #555;
+    --svg-text-subtle: #666;
+    --svg-ground: #2a2a4a;
+    --svg-bb-label: #999;
+  }
+
+  :root.light {
+    --bg: #f0f2f5;
+    --bg-card: #fff;
+    --bg-input: #f7f8fa;
+    --text: #1a1a2e;
+    --text-dim: #666;
+    --text-label: #555;
+    --border: #d0d5dd;
+    --svg-grid: #e8eaed;
+    --svg-frame: #888;
+    --svg-dim-subtle: #999;
+    --svg-text-subtle: #888;
+    --svg-ground: #ccc;
+    --svg-bb-label: #777;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  header {
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--accent);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  header h1 span { color: var(--accent); }
+
+  .mode-toggle {
+    display: flex;
+    background: var(--bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .mode-toggle button {
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .mode-toggle button.active {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .mode-toggle button:hover:not(.active) {
+    color: var(--text);
+    background: var(--border);
+  }
+
+  main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+
+  .card h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+  }
+
+  .input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .input-group label {
+    font-size: 0.75rem;
+    color: var(--text-label);
+    font-weight: 500;
+  }
+
+  .input-group input {
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 8px 10px;
+    color: var(--text);
+    font-size: 0.9rem;
+    width: 100%;
+    font-family: inherit;
+    transition: border-color 0.2s;
+  }
+
+  .input-group input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .input-group input:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .input-group .unit {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .result-item {
+    background: var(--bg);
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .result-item .result-label {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .info-tip {
+    cursor: help;
+    font-size: 0.85rem;
+    color: var(--accent);
+    vertical-align: middle;
+    position: relative;
+  }
+
+  .inline-result {
+    font-size: 0.72rem;
+    color: var(--accent);
+    margin-top: 2px;
+    cursor: help;
+    position: relative;
+  }
+
+  .tip-text {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background: var(--bg-input);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 0.7rem;
+    line-height: 1.4;
+    width: 260px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 100;
+    margin-bottom: 4px;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+  }
+
+  .inline-result:hover .tip-text,
+  .label-tip:hover .tip-text {
+    display: block;
+  }
+
+  .label-tip {
+    cursor: help;
+    color: var(--accent);
+    position: relative;
+    font-style: normal;
+  }
+
+  .result-item .result-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .result-item .result-unit {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+  }
+
+  .result-item.highlight {
+    border: 1px solid var(--accent);
+  }
+
+  .result-good .result-value { color: var(--green); }
+  .result-warn .result-value { color: var(--yellow); }
+  .result-bad .result-value { color: var(--red); }
+
+  .diagram-container {
+    grid-column: 1 / -1;
+  }
+
+  .diagram-container svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .constraint-section {
+    margin-bottom: 16px;
+    padding: 12px;
+    background: var(--bg);
+    border-radius: 6px;
+  }
+
+  .constraint-section label {
+    font-size: 0.8rem;
+    color: var(--text-label);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .constraint-section select {
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 6px 10px;
+    color: var(--text);
+    font-size: 0.85rem;
+    width: 100%;
+    font-family: inherit;
+  }
+
+  .constraint-section select:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .reverse-results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .reverse-result {
+    background: var(--bg);
+    border: 1px solid var(--green);
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .reverse-result .rr-label {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .reverse-result .rr-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--green);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .reverse-result .rr-unit {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+  }
+
+  .reverse-result.rr-warn {
+    border-color: var(--yellow);
+  }
+
+  .reverse-result.rr-warn .rr-value {
+    color: var(--yellow);
+  }
+
+  .reverse-result.rr-bad {
+    border-color: var(--red);
+  }
+
+  .reverse-result.rr-bad .rr-value {
+    color: var(--red);
+  }
+
+  .note {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  .theme-toggle {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 6px 12px;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: inherit;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .theme-toggle:hover {
+    color: var(--text);
+    border-color: var(--accent);
+  }
+
+  .theme-toggle .theme-icon { font-size: 1rem; }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  footer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 20px 32px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .preset-trigger {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .preset-trigger-btn {
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    padding: 8px 20px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: inherit;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .preset-trigger-btn:hover {
+    background: var(--accent-dim);
+  }
+
+  .preset-active-label {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  .info-btn {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 6px 12px;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+
+  .info-btn:hover {
+    color: var(--text);
+    border-color: var(--accent);
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .modal-overlay.open {
+    display: flex;
+  }
+
+  .modal {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    max-width: 640px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 28px;
+    position: relative;
+  }
+
+  .modal h2 {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  .modal h3 {
+    color: var(--text);
+    font-size: 0.9rem;
+    margin-top: 16px;
+    margin-bottom: 6px;
+  }
+
+  .modal p, .modal li {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .modal ul {
+    padding-left: 20px;
+    margin-bottom: 8px;
+  }
+
+  .modal li { margin-bottom: 4px; }
+
+  .modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.4rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .modal-close:hover { color: var(--accent); }
+
+  /* Preset Modal */
+  .preset-modal {
+    max-width: 700px;
+    max-height: 85vh;
+  }
+
+  .preset-search {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-family: inherit;
+    margin-bottom: 16px;
+  }
+
+  .preset-search:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .preset-search::placeholder {
+    color: var(--text-dim);
+  }
+
+  .preset-brand {
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .preset-brand-header {
+    background: var(--bg);
+    padding: 10px 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 0.95rem;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .preset-brand-header:hover {
+    background: var(--border);
+  }
+
+  .preset-brand-header .chevron {
+    transition: transform 0.2s;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+
+  .preset-brand.open .chevron {
+    transform: rotate(90deg);
+  }
+
+  .preset-brand-body {
+    display: none;
+    padding: 8px 14px 14px;
+  }
+
+  .preset-brand.open .preset-brand-body {
+    display: block;
+  }
+
+  .preset-model {
+    margin-bottom: 10px;
+  }
+
+  .preset-model:last-child {
+    margin-bottom: 0;
+  }
+
+  .preset-model-name {
+    font-size: 0.8rem;
+    color: var(--text-label);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .preset-model-name .model-year {
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+
+  .preset-sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .preset-size-btn {
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 5px 12px;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-family: inherit;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .preset-size-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .preset-size-btn.no-data {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .preset-size-btn.no-data:hover {
+    border-color: var(--border);
+    color: var(--text);
+  }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+      padding: 12px;
+    }
+    .input-grid {
+      grid-template-columns: 1fr;
+    }
+    header {
+      padding: 12px 16px;
+    }
+    header h1 {
+      font-size: 1.1rem;
+    }
+    .mode-toggle button {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1><span>Bike Fit</span> Calculator</h1>
+  <div class="header-controls">
+    <div class="mode-toggle">
+      <button id="mode-forward" class="active" onclick="setMode('forward')">Components → Fit</button>
+      <button id="mode-reverse" onclick="setMode('reverse')">Fit Targets → Components</button>
+    </div>
+    <button class="info-btn" onclick="document.getElementById('instructions-modal').classList.add('open')">Instructions</button>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+      <span class="theme-icon" id="theme-icon">☀️</span>
+      <span id="theme-label">Light</span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- Frame Geometry Card -->
+  <div class="card">
+    <h2>Frame Geometry</h2>
+    <div class="input-grid">
+      <div class="input-group">
+        <label>Stack <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Vertical distance from the centre of the bottom bracket to the top of the head tube. A key measurement for determining handlebar height.</span></span></label>
+        <input type="number" id="stack" value="570" step="1">
+      </div>
+      <div class="input-group">
+        <label>Reach <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Horizontal distance from the centre of the bottom bracket to the top of the head tube. The primary measurement for frame length and rider stretch.</span></span></label>
+        <input type="number" id="reach" value="390" step="1">
+      </div>
+      <div class="input-group">
+        <label>Seat Tube Angle <span class="unit">(°)</span> <span class="label-tip">&#9432;<span class="tip-text">Angle of the seat tube relative to horizontal. Steeper angles (higher numbers) place the saddle further forward over the BB. Typically 72°–75° for road bikes.</span></span></label>
+        <input type="number" id="sta" value="73.5" step="0.1">
+      </div>
+      <div class="input-group">
+        <label>Head Tube Angle <span class="unit">(°)</span> <span class="label-tip">&#9432;<span class="tip-text">Angle of the head tube relative to horizontal. Affects steering feel and how spacers/stem translate into reach and stack changes. Typically 71°–74° for road bikes.</span></span></label>
+        <input type="number" id="hta" value="73" step="0.1">
+      </div>
+    </div>
+    <div class="preset-trigger">
+      <button class="preset-trigger-btn" onclick="openPresetModal()">Presets</button>
+      <span class="preset-active-label hidden" id="active-preset-label"></span>
+    </div>
+  </div>
+
+  <!-- Mode: Forward — Component Inputs -->
+  <div class="card" id="card-components">
+    <h2>Components</h2>
+    <div class="input-grid">
+      <div class="input-group">
+        <label>Stem Length <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Centre-to-centre length of the stem. Common road sizes are 80–130mm. Longer stems increase reach to the hoods.</span></span></label>
+        <input type="number" id="stem-length" value="100" step="5">
+      </div>
+      <div class="input-group">
+        <label>Stem Angle <span class="unit">(° from steerer)</span> <span class="label-tip">&#9432;<span class="tip-text">Angle of the stem relative to the steerer tube. Negative values (e.g. −6°) angle the stem downward for a lower bar position. 0° is perpendicular to the steerer.</span></span></label>
+        <input type="number" id="stem-angle" value="-6" step="1">
+      </div>
+      <div class="input-group">
+        <label>Spacer Stack <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Total height of headset spacers below the stem. Spacers raise the handlebar position. Measured along the steerer tube axis.</span></span></label>
+        <input type="number" id="spacer-stack" value="20" step="5">
+      </div>
+      <div class="input-group">
+        <label>Handlebar Reach <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Horizontal distance from the stem clamp to the brake hoods. Varies by handlebar model, typically 70–85mm for road bars.</span></span></label>
+        <input type="number" id="bar-reach" value="80" step="1">
+      </div>
+      <div class="input-group">
+        <label>Saddle Height <span class="unit">(mm, BB to saddle BRP)</span> <span class="label-tip">&#9432;<span class="tip-text">Distance from the centre of the bottom bracket to the saddle's Biomechanical Reference Point (BRP), measured along the seat tube. The BRP is the designed sit-bone contact point on the saddle — typically marked by the manufacturer or approximated as the deepest point of the saddle's profile.</span></span></label>
+        <input type="number" id="saddle-height" value="740" step="1">
+      </div>
+      <div class="input-group">
+        <label>Saddle Setback <span class="unit">(mm, behind seatpost)</span> <span class="label-tip">&#9432;<span class="tip-text">Horizontal offset of the saddle BRP (Biomechanical Reference Point) behind the seatpost clamp. Most saddle rails allow 0–20mm of setback adjustment. The BRP is the designed sit-bone contact point on the saddle.</span></span></label>
+        <input type="number" id="saddle-setback" value="5" step="1">
+        <div class="inline-result" id="bb-setback-display"><span class="tip-text">Horizontal distance from the saddle BRP (Biomechanical Reference Point) to the bottom bracket centre. Measured along the seat tube line plus any saddle setback. Use this to set your saddle position relative to the BB (e.g. KOPS or behind-BB targets).</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mode: Reverse — Fit Targets + Known Components -->
+  <div class="card hidden" id="card-targets">
+    <h2>Fit Targets</h2>
+    <div class="input-grid">
+      <div class="input-group">
+        <label>Target Saddle-to-Hood Reach <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Desired horizontal distance from the saddle BRP (Biomechanical Reference Point) to the brake hoods. This is the main measurement for how stretched out your riding position is.</span></span></label>
+        <input type="number" id="target-reach" value="760" step="1">
+      </div>
+      <div class="input-group">
+        <label>Target Saddle-to-Hood Drop <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Desired vertical drop from the saddle BRP to the brake hoods. Positive values mean the hoods are lower than the saddle. More drop = more aggressive position.</span></span></label>
+        <input type="number" id="target-drop" value="100" step="1">
+      </div>
+      <div class="input-group">
+        <label>Saddle Height <span class="unit">(mm, BB to saddle BRP)</span> <span class="label-tip">&#9432;<span class="tip-text">Distance from the centre of the bottom bracket to the saddle's Biomechanical Reference Point (BRP), measured along the seat tube. The BRP is the designed sit-bone contact point on the saddle.</span></span></label>
+        <input type="number" id="target-saddle-height" value="740" step="1">
+      </div>
+      <div class="input-group">
+        <label>Saddle Setback <span class="unit">(mm, behind seatpost)</span> <span class="label-tip">&#9432;<span class="tip-text">Horizontal offset of the saddle BRP (Biomechanical Reference Point) behind the seatpost clamp. Most saddle rails allow 0–20mm of setback adjustment.</span></span></label>
+        <input type="number" id="target-saddle-setback" value="5" step="1">
+      </div>
+      <div class="input-group">
+        <label>Handlebar Reach <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Horizontal distance from the stem clamp to the brake hoods. Varies by handlebar model, typically 70–85mm for road bars.</span></span></label>
+        <input type="number" id="target-bar-reach" value="80" step="1">
+      </div>
+    </div>
+
+    <div class="constraint-section" style="margin-top: 16px;">
+      <label>Fix one variable, solve for the other two:</label>
+      <select id="constraint-var" onchange="recalculate()">
+        <option value="stem-angle">Fix Stem Angle — solve for Stem Length &amp; Spacers</option>
+        <option value="spacers">Fix Spacer Stack — solve for Stem Length &amp; Angle</option>
+        <option value="stem-length">Fix Stem Length — solve for Spacers &amp; Angle</option>
+      </select>
+    </div>
+
+    <div class="input-grid" style="margin-top: 12px;">
+      <div class="input-group" id="fix-stem-angle-group">
+        <label>Fixed Stem Angle <span class="unit">(° from steerer)</span> <span class="label-tip">&#9432;<span class="tip-text">The stem angle you want to keep fixed. The solver will find the stem length and spacer stack needed to hit your fit targets.</span></span></label>
+        <input type="number" id="fix-stem-angle" value="-6" step="1">
+      </div>
+      <div class="input-group hidden" id="fix-spacers-group">
+        <label>Fixed Spacer Stack <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">The spacer stack you want to keep fixed. The solver will find the stem length and angle needed to hit your fit targets.</span></span></label>
+        <input type="number" id="fix-spacers" value="20" step="5">
+      </div>
+      <div class="input-group hidden" id="fix-stem-length-group">
+        <label>Fixed Stem Length <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">The stem length you want to keep fixed. The solver will find the spacer stack and stem angle needed to hit your fit targets.</span></span></label>
+        <input type="number" id="fix-stem-length" value="100" step="5">
+      </div>
+    </div>
+
+    <div class="reverse-results" id="reverse-results"></div>
+    <p class="note" id="reverse-note"></p>
+  </div>
+
+  <!-- Forward Results -->
+  <div class="card" id="card-results">
+    <h2>Fit Results</h2>
+    <div class="results-grid" id="forward-results"></div>
+    <p class="note" id="forward-note"></p>
+  </div>
+
+  <!-- SVG Diagram -->
+  <div class="card diagram-container">
+    <h2>Geometry Diagram</h2>
+    <svg id="bike-svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg"></svg>
+  </div>
+</main>
+
+<div class="modal-overlay" id="instructions-modal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('instructions-modal').classList.remove('open')">&times;</button>
+    <h2>Bike Fit Calculator</h2>
+    <p>This tool helps you translate professional bike fit measurements into the specific components you need for a given frame, or check what fit numbers a particular setup produces. Frame geometry for many popular bikes is available via the built-in presets. For bikes not included, you can find geometry data on the <a href="https://geometrygeeks.bike" target="_blank" rel="noopener" style="color:var(--accent)">geometrygeeks.bike</a> database and enter the values manually.</p>
+
+    <h3>How it works</h3>
+    <p>All calculations use the geometric relationship between the bottom bracket (BB), saddle, and hood positions. The frame's stack, reach, seat tube angle, and head tube angle define the skeleton. Components (stem, spacers, handlebars) extend from the top of the head tube to the hood position along the steerer and stem axes using trigonometry.</p>
+
+    <h3>Mode 1: Components to Fit</h3>
+    <p>Enter your frame geometry and the components you have (or are considering). The calculator shows the resulting fit numbers:</p>
+    <ul>
+      <li><strong>Saddle-to-Hood Reach</strong> &mdash; horizontal distance from saddle to hoods</li>
+      <li><strong>Saddle-to-Hood Drop</strong> &mdash; how far the hoods sit below the saddle (positive = hoods lower)</li>
+      <li><strong>Saddle-to-Hood Distance</strong> &mdash; straight-line distance between the two</li>
+    </ul>
+
+    <h3>Mode 2: Fit Targets to Components</h3>
+    <p>Enter the fit targets from your bike fitter along with your frame geometry. The system of equations has three unknowns (stem length, stem angle, spacer stack) but only two constraints (reach and drop), so you fix one variable and solve for the other two:</p>
+    <ul>
+      <li><strong>Fix Stem Angle</strong> &mdash; choose your preferred stem angle, get the required stem length and spacer stack</li>
+      <li><strong>Fix Spacer Stack</strong> &mdash; set your spacer height, get the required stem length and angle</li>
+      <li><strong>Fix Stem Length</strong> &mdash; pick a stem length, get the required spacers and angle</li>
+    </ul>
+
+    <h3>Frame presets</h3>
+    <p>Click the <strong>Presets</strong> button to open a searchable overlay with multiple bike brands and models. Each model lists its available sizes &mdash; select one to instantly load the frame geometry. Dimmed sizes are bikes we haven&rsquo;t added geometry data for yet. You can always enter or adjust the geometry fields manually for any frame.</p>
+
+    <h3>Key inputs</h3>
+    <ul>
+      <li><strong>Stack &amp; Reach</strong> &mdash; from the frame geometry chart (mm)</li>
+      <li><strong>Seat Tube Angle (STA)</strong> &mdash; angle from horizontal (typically 72&ndash;76&deg;)</li>
+      <li><strong>Head Tube Angle (HTA)</strong> &mdash; angle from horizontal (typically 71&ndash;74&deg;)</li>
+      <li><strong>Stem Angle</strong> &mdash; relative to the steerer perpendicular (0&deg; = perpendicular, negative = angled down)</li>
+      <li><strong>Saddle Height</strong> &mdash; measured along the seat tube from BB centre to the saddle Biomechanical Reference Point (BRP). The BRP is the designed sit-bone contact point, usually marked by the manufacturer or at the deepest point of the saddle profile (mm)</li>
+      <li><strong>Saddle Setback</strong> &mdash; horizontal offset of the saddle BRP behind the seatpost clamp (mm)</li>
+      <li><strong>Handlebar Reach</strong> &mdash; horizontal distance from bar clamp to hoods (mm, from bar spec sheet)</li>
+    </ul>
+
+    <h3>Tips</h3>
+    <ul>
+      <li>Yellow warnings appear when a solved value is outside typical commercially available ranges</li>
+      <li>If the reverse solver shows negative spacers, the frame likely has too much stack for your fit targets</li>
+      <li>The diagram updates live as you adjust inputs</li>
+      <li>Use the Presets button to quickly load frame geometry for popular bikes and compare sizes</li>
+    </ul>
+  </div>
+</div>
+
+<div class="modal-overlay" id="preset-modal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal preset-modal">
+    <button class="modal-close" onclick="document.getElementById('preset-modal').classList.remove('open')">&times;</button>
+    <h2>Select Frame Preset</h2>
+    <input type="text" class="preset-search" id="preset-search" placeholder="Search brands or models..." oninput="renderPresetModal()">
+    <div id="preset-list"></div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 Jake Stuchbury-Wass
+</footer>
+
+<script>
+// ============================================================
+// Theme Toggle
+// ============================================================
+
+function toggleTheme() {
+  const root = document.documentElement;
+  const isLight = root.classList.toggle('light');
+  document.getElementById('theme-icon').textContent = isLight ? '🌙' : '☀️';
+  document.getElementById('theme-label').textContent = isLight ? 'Dark' : 'Light';
+  localStorage.setItem('bike-fit-theme', isLight ? 'light' : 'dark');
+  recalculate(); // redraw SVG with new colors
+}
+
+// Restore saved theme
+(function() {
+  const saved = localStorage.getItem('bike-fit-theme');
+  if (saved === 'light') {
+    document.documentElement.classList.add('light');
+    document.getElementById('theme-icon').textContent = '🌙';
+    document.getElementById('theme-label').textContent = 'Dark';
+  }
+})();
+
+// ============================================================
+// Frame Presets — Canyon Aeroad CF SLX 2025
+// ============================================================
+
+// ============================================================
+// Bike Preset Database
+// ============================================================
+// To add geometry data, replace null values with actual numbers.
+// stack (mm), reach (mm), sta = seat tube angle (°), hta = head tube angle (°)
+// Example:  "54": { stack: 537, reach: 389, sta: 73.5, hta: 73.0 }
+
+const BIKE_DATABASE = {
+  "Canyon": {
+    "Aeroad CF SLX": {
+      year: 2026,
+      sizes: {
+        "2XS": { stack: 498, reach: 372, sta: 73.5, hta: 70.0 },
+        "XS":  { stack: 520, reach: 378, sta: 73.5, hta: 71.2 },
+        "S":   { stack: 539, reach: 390, sta: 73.5, hta: 72.8 },
+        "M":   { stack: 560, reach: 393, sta: 73.5, hta: 73.25 },
+        "L":   { stack: 580, reach: 401, sta: 73.5, hta: 73.3 },
+        "XL":  { stack: 606, reach: 419, sta: 73.5, hta: 73.5 },
+        "2XL": { stack: 624, reach: 429, sta: 73.5, hta: 73.8 },
+      }
+    },
+    "Ultimate CF SLX": {
+      year: 2026,
+      sizes: {
+        "2XS": { stack: 498, reach: 372, sta: 73.5, hta: 70.0 },
+        "XS":  { stack: 520, reach: 378, sta: 73.5, hta: 71.2 },
+        "S":   { stack: 539, reach: 390, sta: 73.5, hta: 72.8 },
+        "M":   { stack: 560, reach: 393, sta: 73.5, hta: 73.3 },
+        "L":   { stack: 580, reach: 401, sta: 73.5, hta: 73.3 },
+        "XL":  { stack: 606, reach: 419, sta: 73.5, hta: 73.5 },
+        "2XL": { stack: 624, reach: 429, sta: 73.5, hta: 73.8 },
+      }
+    },
+    "Endurace CF": {
+      year: 2026,
+      sizes: {
+        "2XS": { stack: 529, reach: 354, sta: 73.5, hta: 71.5 },
+        "XS":  { stack: 548, reach: 370, sta: 73.5, hta: 71.0 },
+        "S":   { stack: 568, reach: 375, sta: 73.5, hta: 72.0 },
+        "M":   { stack: 590, reach: 378, sta: 73.5, hta: 73.0 },
+        "L":   { stack: 611, reach: 387, sta: 73.5, hta: 73.0 },
+        "XL":  { stack: 637, reach: 405, sta: 73.5, hta: 73.3 },
+        "2XL": { stack: 656, reach: 414, sta: 73.5, hta: 73.3 },
+      }
+    }
+  },
+  "Cervélo": {
+    "S5": {
+      year: 2026,
+      sizes: {
+        "48": { stack: 496, reach: 367, sta: 73.0, hta: 71.0 },
+        "51": { stack: 519, reach: 376, sta: 73.0, hta: 72.0 },
+        "54": { stack: 542, reach: 384, sta: 73.0, hta: 73.0 },
+        "56": { stack: 565, reach: 392, sta: 73.0, hta: 73.5 },
+        "58": { stack: 588, reach: 401, sta: 73.0, hta: 73.5 },
+        "61": { stack: 608, reach: 409, sta: 73.0, hta: 73.5 },
+      }
+    },
+    "Soloist": {
+      year: 2026,
+      sizes: {
+        "48": { stack: 491, reach: 363, sta: 73.0, hta: 71.0 },
+        "51": { stack: 515, reach: 374, sta: 73.0, hta: 72.0 },
+        "54": { stack: 540, reach: 383, sta: 73.0, hta: 73.0 },
+        "56": { stack: 565, reach: 392, sta: 73.0, hta: 73.0 },
+        "58": { stack: 590, reach: 401, sta: 73.0, hta: 73.0 },
+        "61": { stack: 615, reach: 410, sta: 73.0, hta: 73.0 },
+      }
+    },
+    "R5": {
+      year: 2026,
+      sizes: {
+        "48": { stack: 496.1, reach: 368.7, sta: 74.5, hta: 71.0 },
+        "51": { stack: 520.2, reach: 376.5, sta: 74.0, hta: 72.0 },
+        "54": { stack: 544.6, reach: 383.3, sta: 73.5, hta: 73.0 },
+        "56": { stack: 567.5, reach: 391.1, sta: 73.0, hta: 73.0 },
+        "58": { stack: 590.7, reach: 400.3, sta: 73.0, hta: 73.0 },
+        "61": { stack: 610.7, reach: 408.3, sta: 73.0, hta: 73.0 },
+      }
+    },
+    "Aspero 5": {
+      year: 2026,
+      sizes: {
+        "48": { stack: 500, reach: 369, sta: 74.1, hta: 70.6 },
+        "51": { stack: 525, reach: 377, sta: 73.6, hta: 71.1 },
+        "54": { stack: 550, reach: 386, sta: 73.1, hta: 71.6 },
+        "56": { stack: 575, reach: 395, sta: 72.6, hta: 71.6 },
+        "58": { stack: 600, reach: 404, sta: 72.6, hta: 71.6 },
+        "61": { stack: 625, reach: 413, sta: 72.6, hta: 71.6 },
+      }
+    }
+  },
+  "Trek": {
+    "Madone": {
+      year: 2026,
+      sizes: {
+        "XS":  { stack: 507, reach: 370, sta: 73.8, hta: 71.6 },
+        "S":   { stack: 530, reach: 378, sta: 73.8, hta: 72.2 },
+        "M":   { stack: 546, reach: 384, sta: 73.6, hta: 72.9 },
+        "M/L": { stack: 562, reach: 389, sta: 73.4, hta: 73.5 },
+        "L":   { stack: 582, reach: 394, sta: 73.4, hta: 73.8 },
+        "XL":  { stack: 610, reach: 402, sta: 73.4, hta: 73.9 },
+      }
+    },
+    "Domane": {
+      year: 2026,
+      sizes: {
+        "47": { stack: 527, reach: 364, sta: 74.6, hta: 71.0 },
+        "50": { stack: 546, reach: 368, sta: 74.6, hta: 71.1 },
+        "52": { stack: 561, reach: 371, sta: 74.2, hta: 71.3 },
+        "54": { stack: 575, reach: 374, sta: 73.7, hta: 71.3 },
+        "56": { stack: 591, reach: 377, sta: 73.3, hta: 71.9 },
+        "58": { stack: 611, reach: 380, sta: 73.0, hta: 72.0 },
+        "60": { stack: 632, reach: 383, sta: 72.8, hta: 72.1 },
+        "62": { stack: 656, reach: 386, sta: 72.5, hta: 72.1 },
+      }
+    }
+  },
+  "Colnago": {
+    "V5Rs": {
+      year: 2026,
+      sizes: {
+        "420": { stack: 509, reach: 371, sta: 75.5, hta: 70.6 },
+        "455": { stack: 523, reach: 377, sta: 75.3, hta: 71.5 },
+        "485": { stack: 539, reach: 384, sta: 74.8, hta: 72.3 },
+        "510": { stack: 557, reach: 390, sta: 74.5, hta: 72.5 },
+        "530": { stack: 575, reach: 397, sta: 73.8, hta: 73.0 },
+        "550": { stack: 593, reach: 404, sta: 73.5, hta: 73.0 },
+        "570": { stack: 612, reach: 411, sta: 73.3, hta: 73.5 },
+      }
+    },
+    "Y1Rs": {
+      year: 2026,
+      sizes: {
+        "XS": { stack: 495, reach: 368, sta: 75.0, hta: 70.8 },
+        "S":  { stack: 520, reach: 377, sta: 74.5, hta: 71.9 },
+        "M":  { stack: 540, reach: 386, sta: 74.0, hta: 73.0 },
+        "L":  { stack: 565, reach: 395, sta: 73.7, hta: 73.5 },
+        "XL": { stack: 590, reach: 404, sta: 73.0, hta: 73.5 },
+      }
+    },
+    "V3": {
+      year: 2026,
+      sizes: {
+        "42s": { stack: 514, reach: 368, sta: 75.5, hta: 70.6 },
+        "45s": { stack: 520, reach: 375, sta: 75.0, hta: 71.0 },
+        "48s": { stack: 525, reach: 380, sta: 74.5, hta: 71.5 },
+        "50s": { stack: 542, reach: 382, sta: 74.0, hta: 71.6 },
+        "52s": { stack: 560, reach: 384, sta: 73.57, hta: 71.9 },
+        "54s": { stack: 578, reach: 390, sta: 73.1, hta: 72.5 },
+        "56s": { stack: 586, reach: 400, sta: 73.0, hta: 72.9 },
+        "58s": { stack: 604, reach: 408, sta: 73.0, hta: 73.1 },
+      }
+    }
+  },
+  "Giant": {
+    "Propel Advanced SL": {
+      year: 2026,
+      sizes: {
+        "XS": { stack: null, reach: null, sta: null, hta: null },
+        "S":  { stack: null, reach: null, sta: null, hta: null },
+        "M":  { stack: null, reach: null, sta: null, hta: null },
+        "M/L": { stack: null, reach: null, sta: null, hta: null },
+        "L":  { stack: null, reach: null, sta: null, hta: null },
+        "XL": { stack: null, reach: null, sta: null, hta: null },
+      }
+    },
+    "TCR Advanced SL": {
+      year: 2026,
+      sizes: {
+        "XS": { stack: null, reach: null, sta: null, hta: null },
+        "S":  { stack: null, reach: null, sta: null, hta: null },
+        "M":  { stack: null, reach: null, sta: null, hta: null },
+        "M/L": { stack: null, reach: null, sta: null, hta: null },
+        "L":  { stack: null, reach: null, sta: null, hta: null },
+        "XL": { stack: null, reach: null, sta: null, hta: null },
+      }
+    },
+    "Defy Advanced": {
+      year: 2026,
+      sizes: {
+        "XS": { stack: null, reach: null, sta: null, hta: null },
+        "S":  { stack: null, reach: null, sta: null, hta: null },
+        "M":  { stack: null, reach: null, sta: null, hta: null },
+        "M/L": { stack: null, reach: null, sta: null, hta: null },
+        "L":  { stack: null, reach: null, sta: null, hta: null },
+        "XL": { stack: null, reach: null, sta: null, hta: null },
+      }
+    }
+  },
+  "Specialized": {
+    "Tarmac SL8": {
+      year: 2026,
+      sizes: {
+        "44": { stack: 501, reach: 366, sta: 75.5, hta: 70.5 },
+        "49": { stack: 514, reach: 375, sta: 75.5, hta: 71.75 },
+        "52": { stack: 527, reach: 380, sta: 74.0, hta: 72.5 },
+        "54": { stack: 544, reach: 384, sta: 74.0, hta: 73.0 },
+        "56": { stack: 565, reach: 395, sta: 73.5, hta: 73.5 },
+        "58": { stack: 591, reach: 402, sta: 73.5, hta: 73.5 },
+        "61": { stack: 612, reach: 408, sta: 73.0, hta: 74.0 },
+      }
+    },
+    "Venge": {
+      year: 2019,
+      sizes: {
+        "49": { stack: 504, reach: 378, sta: 75.5, hta: 71.75 },
+        "52": { stack: 517, reach: 383, sta: 74.0, hta: 72.5 },
+        "54": { stack: 534, reach: 387, sta: 74.0, hta: 73.0 },
+        "56": { stack: 555, reach: 398, sta: 73.5, hta: 73.5 },
+        "58": { stack: 581, reach: 405, sta: 73.5, hta: 73.5 },
+        "61": { stack: 602, reach: 411, sta: 73.0, hta: 74.0 },
+      }
+    },
+    "Roubaix": {
+      year: 2026,
+      sizes: {
+        "44": { stack: null, reach: null, sta: null, hta: null },
+        "49": { stack: null, reach: null, sta: null, hta: null },
+        "52": { stack: null, reach: null, sta: null, hta: null },
+        "54": { stack: null, reach: null, sta: null, hta: null },
+        "56": { stack: null, reach: null, sta: null, hta: null },
+        "58": { stack: null, reach: null, sta: null, hta: null },
+        "61": { stack: null, reach: null, sta: null, hta: null },
+      }
+    },
+    "Allez Sprint": {
+      year: 2026,
+      sizes: {
+        "44": { stack: null, reach: null, sta: null, hta: null },
+        "49": { stack: null, reach: null, sta: null, hta: null },
+        "52": { stack: null, reach: null, sta: null, hta: null },
+        "54": { stack: null, reach: null, sta: null, hta: null },
+        "56": { stack: null, reach: null, sta: null, hta: null },
+        "58": { stack: null, reach: null, sta: null, hta: null },
+        "61": { stack: null, reach: null, sta: null, hta: null },
+      }
+    }
+  },
+  "Pinarello": {
+    "Dogma F": {
+      year: 2026,
+      sizes: {
+        "43": { stack: 502, reach: 351.5, sta: 74.4, hta: 69.5 },
+        "46.5": { stack: 517.3, reach: 365.4, sta: 74.4, hta: 70.5 },
+        "50": { stack: 525.2, reach: 372.2, sta: 74.0, hta: 71.4 },
+        "51.5": { stack: 532.1, reach: 378.2, sta: 73.7, hta: 72.0 },
+        "53": { stack: 542.4, reach: 383.3, sta: 73.7, hta: 72.5 },
+        "54": { stack: 551, reach: 385.3, sta: 73.4, hta: 72.8 },
+        "55": { stack: 561.5, reach: 389.2, sta: 73.4, hta: 72.8 },
+        "56": { stack: 570.1, reach: 390.8, sta: 73.0, hta: 73.2 },
+        "57.5": { stack: 584.8, reach: 396.7, sta: 73.0, hta: 73.7 },
+        "59.5": { stack: 613.2, reach: 393.4, sta: 72.4, hta: 73.4 },
+        "62": { stack: 651.6, reach: 410, sta: 72.0, hta: 73.4 },
+      }
+    },
+    "F Series": {
+      year: 2026,
+      sizes: {
+        "43": { stack: null, reach: null, sta: null, hta: null },
+        "46.5": { stack: null, reach: null, sta: null, hta: null },
+        "50": { stack: null, reach: null, sta: null, hta: null },
+        "51.5": { stack: null, reach: null, sta: null, hta: null },
+        "53": { stack: null, reach: null, sta: null, hta: null },
+        "54": { stack: null, reach: null, sta: null, hta: null },
+        "55": { stack: null, reach: null, sta: null, hta: null },
+        "56": { stack: null, reach: null, sta: null, hta: null },
+        "57.5": { stack: null, reach: null, sta: null, hta: null },
+        "59.5": { stack: null, reach: null, sta: null, hta: null },
+        "62": { stack: null, reach: null, sta: null, hta: null },
+      }
+    },
+    "X Series": {
+      year: 2026,
+      sizes: {
+        "43": { stack: null, reach: null, sta: null, hta: null },
+        "46.5": { stack: null, reach: null, sta: null, hta: null },
+        "50": { stack: null, reach: null, sta: null, hta: null },
+        "51.5": { stack: null, reach: null, sta: null, hta: null },
+        "53": { stack: null, reach: null, sta: null, hta: null },
+        "54": { stack: null, reach: null, sta: null, hta: null },
+        "55": { stack: null, reach: null, sta: null, hta: null },
+        "56": { stack: null, reach: null, sta: null, hta: null },
+        "57.5": { stack: null, reach: null, sta: null, hta: null },
+        "59.5": { stack: null, reach: null, sta: null, hta: null },
+        "62": { stack: null, reach: null, sta: null, hta: null },
+      }
+    }
+  },
+  "Bianchi": {
+    "Oltre RC": {
+      year: 2026,
+      sizes: {
+        "47": { stack: null, reach: null, sta: null, hta: null },
+        "50": { stack: null, reach: null, sta: null, hta: null },
+        "53": { stack: null, reach: null, sta: null, hta: null },
+        "55": { stack: null, reach: null, sta: null, hta: null },
+        "57": { stack: null, reach: null, sta: null, hta: null },
+        "59": { stack: null, reach: null, sta: null, hta: null },
+        "61": { stack: null, reach: null, sta: null, hta: null },
+      }
+    },
+    "Specialissima": {
+      year: 2026,
+      sizes: {
+        "47": { stack: null, reach: null, sta: null, hta: null },
+        "50": { stack: null, reach: null, sta: null, hta: null },
+        "53": { stack: null, reach: null, sta: null, hta: null },
+        "55": { stack: null, reach: null, sta: null, hta: null },
+        "57": { stack: null, reach: null, sta: null, hta: null },
+        "59": { stack: null, reach: null, sta: null, hta: null },
+        "61": { stack: null, reach: null, sta: null, hta: null },
+      }
+    },
+    "Infinito": {
+      year: 2026,
+      sizes: {
+        "47": { stack: 521, reach: 371, sta: 74.5, hta: 70.5 },
+        "50": { stack: 539, reach: 375, sta: 74.5, hta: 71.5 },
+        "53": { stack: 553, reach: 377, sta: 74.0, hta: 71.0 },
+        "55": { stack: 569, reach: 381, sta: 73.5, hta: 72.0 },
+        "57": { stack: 585, reach: 386, sta: 73.5, hta: 72.5 },
+        "59": { stack: 600, reach: 391, sta: 73.0, hta: 72.5 },
+        "61": { stack: 614, reach: 392, sta: 72.5, hta: 72.5 },
+      }
+    }
+  },
+  "Scott": {
+    "Foil RC": {
+      year: 2026,
+      sizes: {
+        "XXS": { stack: 505, reach: 380, sta: 74.5, hta: 70.5 },
+        "XS":  { stack: 511, reach: 388, sta: 74.5, hta: 71.0 },
+        "S":   { stack: 527, reach: 389, sta: 74.0, hta: 72.0 },
+        "M":   { stack: 548, reach: 389, sta: 73.6, hta: 72.5 },
+        "L":   { stack: 568, reach: 394.5, sta: 73.3, hta: 73.0 },
+        "XL":  { stack: 589, reach: 400, sta: 73.0, hta: 73.3 },
+        "XXL": { stack: 606, reach: 409, sta: 72.5, hta: 73.3 },
+      }
+    },
+    "Addict RC": {
+      year: 2026,
+      sizes: {
+        "XXS": { stack: 522, reach: 372, sta: 75.0, hta: 71.3 },
+        "XS":  { stack: 534, reach: 378, sta: 75.0, hta: 71.8 },
+        "S":   { stack: 557, reach: 382, sta: 74.5, hta: 72.0 },
+        "M":   { stack: 578, reach: 386, sta: 74.0, hta: 72.2 },
+        "L":   { stack: 599, reach: 389, sta: 73.5, hta: 72.5 },
+        "XL":  { stack: 619, reach: 394, sta: 73.1, hta: 73.0 },
+        "XXL": { stack: 638, reach: 402, sta: 73.0, hta: 73.0 },
+      }
+    }
+  },
+  "BMC": {
+    "Teammachine R": {
+      year: 2026,
+      sizes: {
+        "47": { stack: null, reach: null, sta: null, hta: null },
+        "51": { stack: null, reach: null, sta: null, hta: null },
+        "54": { stack: null, reach: null, sta: null, hta: null },
+        "56": { stack: null, reach: null, sta: null, hta: null },
+        "58": { stack: null, reach: null, sta: null, hta: null },
+        "61": { stack: null, reach: null, sta: null, hta: null },
+      }
+    },
+    "Teammachine SLR": {
+      year: 2026,
+      sizes: {
+        "47": { stack: null, reach: null, sta: null, hta: null },
+        "51": { stack: null, reach: null, sta: null, hta: null },
+        "54": { stack: null, reach: null, sta: null, hta: null },
+        "56": { stack: null, reach: null, sta: null, hta: null },
+        "58": { stack: null, reach: null, sta: null, hta: null },
+        "61": { stack: null, reach: null, sta: null, hta: null },
+      }
+    },
+    "Roadmachine": {
+      year: 2026,
+      sizes: {
+        "47": { stack: null, reach: null, sta: null, hta: null },
+        "51": { stack: null, reach: null, sta: null, hta: null },
+        "54": { stack: null, reach: null, sta: null, hta: null },
+        "56": { stack: null, reach: null, sta: null, hta: null },
+        "58": { stack: null, reach: null, sta: null, hta: null },
+        "61": { stack: null, reach: null, sta: null, hta: null },
+      }
+    }
+  },
+  "Factor": {
+    "Ostro VAM": {
+      year: 2026,
+      sizes: {
+        "46": { stack: null, reach: null, sta: null, hta: null },
+        "49": { stack: null, reach: null, sta: null, hta: null },
+        "52": { stack: null, reach: null, sta: null, hta: null },
+        "54": { stack: null, reach: null, sta: null, hta: null },
+        "56": { stack: null, reach: null, sta: null, hta: null },
+        "58": { stack: null, reach: null, sta: null, hta: null },
+        "61": { stack: null, reach: null, sta: null, hta: null },
+      }
+    },
+    "ONE": {
+      year: 2026,
+      sizes: {
+        "46": { stack: null, reach: null, sta: null, hta: null },
+        "49": { stack: null, reach: null, sta: null, hta: null },
+        "52": { stack: null, reach: null, sta: null, hta: null },
+        "54": { stack: null, reach: null, sta: null, hta: null },
+        "56": { stack: null, reach: null, sta: null, hta: null },
+        "58": { stack: null, reach: null, sta: null, hta: null },
+        "61": { stack: null, reach: null, sta: null, hta: null },
+      }
+    }
+  },
+  "Cannondale": {
+    "SuperSix EVO": {
+      year: 2025,
+      sizes: {
+        "48": { stack: 520, reach: 374, sta: 74.3, hta: 71.2 },
+        "51": { stack: 535, reach: 378, sta: 74.3, hta: 71.2 },
+        "54": { stack: 555, reach: 384, sta: 73.7, hta: 71.2 },
+        "56": { stack: 575, reach: 389, sta: 73.3, hta: 73.0 },
+        "58": { stack: 595, reach: 395, sta: 72.9, hta: 73.0 },
+        "61": { stack: 625, reach: 403, sta: 72.3, hta: 73.0 },
+      }
+    },
+    "SystemSix": {
+      year: 2020,
+      sizes: {
+        "47": { stack: 500, reach: 375, sta: 75.1, hta: 71.2 },
+        "51": { stack: 520, reach: 381, sta: 74.7, hta: 71.2 },
+        "54": { stack: 540, reach: 386, sta: 74.3, hta: 73.0 },
+        "56": { stack: 560, reach: 392, sta: 73.9, hta: 73.0 },
+        "58": { stack: 580, reach: 398, sta: 73.5, hta: 73.0 },
+        "60": { stack: 600, reach: 403, sta: 73.1, hta: 72.9 },
+        "62": { stack: 620, reach: 409, sta: 72.7, hta: 72.9 },
+      }
+    },
+    "Synapse": {
+      year: 2025,
+      sizes: {
+        "44": { stack: 510, reach: 366, sta: 73.0, hta: 69.8 },
+        "48": { stack: 530, reach: 371, sta: 73.0, hta: 70.9 },
+        "51": { stack: 550, reach: 376, sta: 73.0, hta: 71.3 },
+        "54": { stack: 570, reach: 381, sta: 73.0, hta: 71.3 },
+        "56": { stack: 590, reach: 387, sta: 73.0, hta: 71.3 },
+        "58": { stack: 610, reach: 393, sta: 73.0, hta: 71.3 },
+        "61": { stack: 640, reach: 402, sta: 73.0, hta: 71.3 },
+      }
+    }
+  },
+  "Ridley": {
+    "Noah Fast 3.0": {
+      year: 2026,
+      sizes: {
+        "XXS": { stack: null, reach: null, sta: null, hta: null },
+        "XS":  { stack: null, reach: null, sta: null, hta: null },
+        "S":   { stack: null, reach: null, sta: null, hta: null },
+        "M":   { stack: null, reach: null, sta: null, hta: null },
+        "L":   { stack: null, reach: null, sta: null, hta: null },
+        "XL":  { stack: null, reach: null, sta: null, hta: null },
+      }
+    },
+    "Helium SLX": {
+      year: 2026,
+      sizes: {
+        "XXS": { stack: null, reach: null, sta: null, hta: null },
+        "XS":  { stack: null, reach: null, sta: null, hta: null },
+        "S":   { stack: null, reach: null, sta: null, hta: null },
+        "M":   { stack: null, reach: null, sta: null, hta: null },
+        "L":   { stack: null, reach: null, sta: null, hta: null },
+        "XL":  { stack: null, reach: null, sta: null, hta: null },
+      }
+    }
+  },
+  "Wilier": {
+    "Filante SLR": {
+      year: 2026,
+      sizes: {
+        "XS": { stack: null, reach: null, sta: null, hta: null },
+        "S":  { stack: null, reach: null, sta: null, hta: null },
+        "M":  { stack: null, reach: null, sta: null, hta: null },
+        "L":  { stack: null, reach: null, sta: null, hta: null },
+        "XL": { stack: null, reach: null, sta: null, hta: null },
+      }
+    },
+    "Zero SLR": {
+      year: 2026,
+      sizes: {
+        "XS": { stack: null, reach: null, sta: null, hta: null },
+        "S":  { stack: null, reach: null, sta: null, hta: null },
+        "M":  { stack: null, reach: null, sta: null, hta: null },
+        "L":  { stack: null, reach: null, sta: null, hta: null },
+        "XL": { stack: null, reach: null, sta: null, hta: null },
+      }
+    }
+  },
+  "Merida": {
+    "Reacto": {
+      year: 2026,
+      sizes: {
+        "XS": { stack: null, reach: null, sta: null, hta: null },
+        "S":  { stack: null, reach: null, sta: null, hta: null },
+        "M":  { stack: null, reach: null, sta: null, hta: null },
+        "L":  { stack: null, reach: null, sta: null, hta: null },
+        "XL": { stack: null, reach: null, sta: null, hta: null },
+      }
+    },
+    "Scultura": {
+      year: 2026,
+      sizes: {
+        "XXS": { stack: null, reach: null, sta: null, hta: null },
+        "XS":  { stack: null, reach: null, sta: null, hta: null },
+        "S":   { stack: null, reach: null, sta: null, hta: null },
+        "M":   { stack: null, reach: null, sta: null, hta: null },
+        "L":   { stack: null, reach: null, sta: null, hta: null },
+        "XL":  { stack: null, reach: null, sta: null, hta: null },
+      }
+    }
+  }
+};
+
+let activePresetLabel = '';
+
+function openPresetModal() {
+  renderPresetModal();
+  document.getElementById('preset-modal').classList.add('open');
+  document.getElementById('preset-search').value = '';
+  document.getElementById('preset-search').focus();
+}
+
+function renderPresetModal() {
+  const container = document.getElementById('preset-list');
+  const searchTerm = (document.getElementById('preset-search').value || '').toLowerCase();
+
+  let html = '';
+
+  for (const [brand, models] of Object.entries(BIKE_DATABASE).sort(([a], [b]) => a.localeCompare(b))) {
+    const brandMatches = brand.toLowerCase().includes(searchTerm);
+    let modelHtml = '';
+    let anyModelVisible = false;
+
+    for (const [model, data] of Object.entries(models).sort(([a], [b]) => a.localeCompare(b))) {
+      const modelMatches = model.toLowerCase().includes(searchTerm) || brandMatches;
+      if (!modelMatches && searchTerm) continue;
+
+      anyModelVisible = true;
+      let sizeBtns = '';
+      for (const [size, geo] of Object.entries(data.sizes)) {
+        const hasData = geo.stack !== null;
+        const cls = hasData ? '' : ' no-data';
+        const title = hasData
+          ? `Stack: ${geo.stack}mm, Reach: ${geo.reach}mm, STA: ${geo.sta}°, HTA: ${geo.hta}°`
+          : 'Geometry data not yet entered';
+        const escaped = model.replace(/'/g, "\\'");
+        sizeBtns += `<button class="preset-size-btn${cls}" title="${title}" onclick="loadBikePreset('${brand}','${escaped}','${size}')">${size}</button>`;
+      }
+
+      modelHtml += `
+        <div class="preset-model">
+          <div class="preset-model-name">${model} <span class="model-year">(${data.year})</span></div>
+          <div class="preset-sizes">${sizeBtns}</div>
+        </div>
+      `;
+    }
+
+    if (!anyModelVisible && searchTerm) continue;
+
+    const openClass = searchTerm ? ' open' : '';
+    html += `
+      <div class="preset-brand${openClass}">
+        <div class="preset-brand-header" onclick="this.parentElement.classList.toggle('open')">
+          <span>${brand}</span>
+          <span class="chevron">&#9654;</span>
+        </div>
+        <div class="preset-brand-body">${modelHtml}</div>
+      </div>
+    `;
+  }
+
+  if (!html) {
+    html = '<p style="color:var(--text-dim);text-align:center;padding:20px;">No bikes match your search.</p>';
+  }
+
+  container.innerHTML = html;
+}
+
+function loadBikePreset(brand, model, size) {
+  const geo = BIKE_DATABASE[brand]?.[model]?.sizes?.[size];
+  if (!geo || geo.stack === null) return;
+
+  document.getElementById('stack').value = geo.stack;
+  document.getElementById('reach').value = geo.reach;
+  document.getElementById('sta').value = geo.sta;
+  document.getElementById('hta').value = geo.hta;
+
+  activePresetLabel = `${brand} ${model} — ${size}`;
+  const label = document.getElementById('active-preset-label');
+  label.textContent = activePresetLabel;
+  label.classList.remove('hidden');
+
+  document.getElementById('preset-modal').classList.remove('open');
+  recalculate();
+}
+
+// Clear preset label when frame inputs are manually changed
+['stack', 'reach', 'sta', 'hta'].forEach(id => {
+  document.getElementById(id).addEventListener('input', () => {
+    document.getElementById('active-preset-label').classList.add('hidden');
+    activePresetLabel = '';
+  });
+});
+
+// ============================================================
+// Calculation Engine
+// ============================================================
+
+function deg(rad) { return rad * 180 / Math.PI; }
+function rad(deg) { return deg * Math.PI / 180; }
+
+function calcSaddlePosition(saddleHeight, sta, saddleSetback) {
+  const staRad = rad(sta);
+  // Saddle position along seat tube, then setback
+  // Seat tube goes up and backward from BB at STA from horizontal
+  const saddleX = -(saddleHeight * Math.cos(staRad)) - saddleSetback;
+  const saddleY = saddleHeight * Math.sin(staRad);
+  return { x: saddleX, y: saddleY };
+}
+
+function calcHoodPosition(frameReach, frameStack, hta, spacerStack, stemLength, stemAngle, barReach) {
+  const htaRad = rad(hta);
+
+  // Spacers continue along steerer from top of head tube
+  // Steerer direction (upward): goes backward and up
+  const stemBaseX = frameReach + spacerStack * (-Math.cos(htaRad));
+  const stemBaseY = frameStack + spacerStack * Math.sin(htaRad);
+
+  // Stem angle from horizontal
+  // stem_angle is relative to steerer perpendicular (0 = perpendicular to steerer)
+  // Effective angle from horizontal = (90 - HTA) + stemAngle
+  const stemAngleHoriz = rad(90 - hta + stemAngle);
+
+  const stemEndX = stemBaseX + stemLength * Math.cos(stemAngleHoriz);
+  const stemEndY = stemBaseY + stemLength * Math.sin(stemAngleHoriz);
+
+  // Handlebar reach is horizontal forward from stem clamp
+  const hoodX = stemEndX + barReach;
+  const hoodY = stemEndY;
+
+  return {
+    stemBase: { x: stemBaseX, y: stemBaseY },
+    stemEnd: { x: stemEndX, y: stemEndY },
+    hood: { x: hoodX, y: hoodY }
+  };
+}
+
+function forwardCalc(params) {
+  const saddle = calcSaddlePosition(params.saddleHeight, params.sta, params.saddleSetback);
+  const hood = calcHoodPosition(
+    params.reach, params.stack, params.hta,
+    params.spacerStack, params.stemLength, params.stemAngle, params.barReach
+  );
+
+  const saddleToHoodReach = hood.hood.x - saddle.x;
+  const saddleToHoodDrop = saddle.y - hood.hood.y; // positive = hoods lower than saddle
+  const saddleToHoodDist = Math.sqrt(saddleToHoodReach ** 2 + saddleToHoodDrop ** 2);
+
+  // Effective saddle height (vertical from BB)
+  const saddleVertical = saddle.y;
+
+  // Hood height above BB
+  const hoodHeight = hood.hood.y;
+
+  // Stack-to-hood (how high hoods are relative to frame stack)
+  const stackToHood = hood.hood.y - params.stack;
+
+  // Saddle to handlebar drop (vertical drop from saddle to stem/bar junction)
+  const saddleToBarDrop = saddle.y - hood.stemEnd.y;
+
+  // Effective seat tube angle (actual angle from BB to saddle, accounting for setback)
+  const effectiveSTA = deg(Math.atan2(saddle.y, -saddle.x));
+
+  // Saddle to BB horizontal setback (how far the saddle is behind the BB)
+  const saddleBBSetback = -saddle.x;
+
+  return {
+    saddle,
+    hood: hood.hood,
+    stemBase: hood.stemBase,
+    stemEnd: hood.stemEnd,
+    saddleToHoodReach,
+    saddleToHoodDrop,
+    saddleToHoodDist,
+    saddleVertical,
+    hoodHeight,
+    stackToHood,
+    saddleToBarDrop,
+    effectiveSTA,
+    saddleBBSetback
+  };
+}
+
+function reverseSolve(params) {
+  // Solve for unknown components given fit targets
+  const saddle = calcSaddlePosition(params.saddleHeight, params.sta, params.saddleSetback);
+
+  // Target hood position
+  const targetHoodX = saddle.x + params.targetReach;
+  const targetHoodY = saddle.y - params.targetDrop;
+
+  const htaRad = rad(params.hta);
+
+  if (params.fixVar === 'stem-angle') {
+    // Known: stem angle, solve for spacers (S) and stem length (L)
+    const stemAngleHoriz = rad(90 - params.hta + params.fixStemAngle);
+    const cosA = Math.cos(stemAngleHoriz);
+    const sinA = Math.sin(stemAngleHoriz);
+
+    // targetHoodX = reach + S*(-cos(HTA)) + L*cos(θ) + barReach
+    // targetHoodY = stack + S*sin(HTA) + L*sin(θ)
+    //
+    // L*cos(θ) + S*(-cos(HTA)) = targetHoodX - reach - barReach
+    // L*sin(θ) + S*sin(HTA) = targetHoodY - stack
+
+    const rhs1 = targetHoodX - params.reach - params.barReach;
+    const rhs2 = targetHoodY - params.stack;
+
+    // [cosA, -cos(HTA)] [L]   [rhs1]
+    // [sinA,  sin(HTA)] [S] = [rhs2]
+    const det = cosA * Math.sin(htaRad) - sinA * (-Math.cos(htaRad));
+    if (Math.abs(det) < 0.001) {
+      return { error: 'No solution (degenerate angle combination)' };
+    }
+
+    const stemLength = (rhs1 * Math.sin(htaRad) - rhs2 * (-Math.cos(htaRad))) / det;
+    const spacerStack = (cosA * rhs2 - sinA * rhs1) / det;
+
+    return {
+      stemLength: Math.round(stemLength * 10) / 10,
+      spacerStack: Math.round(spacerStack * 10) / 10,
+      stemAngle: params.fixStemAngle,
+      saddle, targetHoodX, targetHoodY
+    };
+
+  } else if (params.fixVar === 'spacers') {
+    // Known: spacers, solve for stem length (L) and stem angle (θ)
+    const S = params.fixSpacers;
+    const baseX = params.reach + S * (-Math.cos(htaRad));
+    const baseY = params.stack + S * Math.sin(htaRad);
+
+    // L*cos(θ) = targetHoodX - baseX - barReach
+    // L*sin(θ) = targetHoodY - baseY
+    const dx = targetHoodX - baseX - params.barReach;
+    const dy = targetHoodY - baseY;
+
+    const stemLength = Math.sqrt(dx * dx + dy * dy);
+    const stemAngleHoriz = Math.atan2(dy, dx);
+    const stemAngle = deg(stemAngleHoriz) - (90 - params.hta);
+
+    return {
+      stemLength: Math.round(stemLength * 10) / 10,
+      spacerStack: S,
+      stemAngle: Math.round(stemAngle * 10) / 10,
+      saddle, targetHoodX, targetHoodY
+    };
+
+  } else if (params.fixVar === 'stem-length') {
+    // Known: stem length, solve for spacers (S) and stem angle
+    // This is trickier — we have:
+    // (targetHoodX - reach - barReach - S*(-cos(HTA)))^2 + (targetHoodY - stack - S*sin(HTA))^2 = L^2
+    // This gives us S, then we find the angle.
+    const L = params.fixStemLength;
+    const A = targetHoodX - params.reach - params.barReach;
+    const B = targetHoodY - params.stack;
+    const cx = -Math.cos(htaRad);
+    const cy = Math.sin(htaRad);
+
+    // (A - S*cx)^2 + (B - S*cy)^2 = L^2
+    // (cx^2 + cy^2)*S^2 - 2*(A*cx + B*cy)*S + (A^2 + B^2 - L^2) = 0
+    // Note: cx^2 + cy^2 = cos^2 + sin^2 = 1
+    const a = 1;
+    const b = -2 * (A * cx + B * cy);
+    const c = A * A + B * B - L * L;
+
+    const disc = b * b - 4 * a * c;
+    if (disc < 0) {
+      return { error: 'No solution (stem too short to reach target)' };
+    }
+
+    // Two solutions — pick the one with positive spacer stack
+    const s1 = (-b + Math.sqrt(disc)) / (2 * a);
+    const s2 = (-b - Math.sqrt(disc)) / (2 * a);
+
+    let S;
+    if (s1 >= 0 && s2 >= 0) S = Math.min(s1, s2); // prefer less spacers
+    else if (s1 >= 0) S = s1;
+    else if (s2 >= 0) S = s2;
+    else return { error: 'No valid solution (negative spacers required)' };
+
+    const baseX = params.reach + S * cx;
+    const baseY = params.stack + S * cy;
+    const dx = targetHoodX - baseX - params.barReach;
+    const dy = targetHoodY - baseY;
+    const stemAngleHoriz = Math.atan2(dy, dx);
+    const stemAngle = deg(stemAngleHoriz) - (90 - params.hta);
+
+    return {
+      stemLength: L,
+      spacerStack: Math.round(S * 10) / 10,
+      stemAngle: Math.round(stemAngle * 10) / 10,
+      saddle, targetHoodX, targetHoodY
+    };
+  }
+}
+
+
+// ============================================================
+// SVG Diagram Renderer
+// ============================================================
+
+function drawBikeDiagram(params, results) {
+  const svg = document.getElementById('bike-svg');
+  const W = 800, H = 500;
+
+  // Read current theme colors from CSS variables
+  const cs = getComputedStyle(document.documentElement);
+  const colGrid = cs.getPropertyValue('--svg-grid').trim();
+  const colFrame = cs.getPropertyValue('--svg-frame').trim();
+  const colDimSubtle = cs.getPropertyValue('--svg-dim-subtle').trim();
+  const colTextSubtle = cs.getPropertyValue('--svg-text-subtle').trim();
+  const colGround = cs.getPropertyValue('--svg-ground').trim();
+  const colBBLabel = cs.getPropertyValue('--svg-bb-label').trim();
+  const colAccent = cs.getPropertyValue('--accent').trim();
+  const colGreen = cs.getPropertyValue('--green').trim();
+  const colYellow = '#f0c040';
+  const isLight = document.documentElement.classList.contains('light');
+  const colBBStroke = isLight ? '#333' : '#fff';
+  const colSaddleStroke = isLight ? '#333' : '#fff';
+  const colHoodStroke = isLight ? '#333' : '#fff';
+
+  // Transform: bike coords (origin BB, Y up) → SVG (origin top-left, Y down)
+  const scale = 0.55;
+  const originX = 280;
+  const originY = 420;
+
+  function tx(x) { return originX + x * scale; }
+  function ty(y) { return originY - y * scale; }
+
+  let html = '';
+
+  // Background grid (subtle)
+  for (let gx = 0; gx < W; gx += 40) {
+    html += `<line x1="${gx}" y1="0" x2="${gx}" y2="${H}" stroke="${colGrid}" stroke-width="0.5"/>`;
+  }
+  for (let gy = 0; gy < H; gy += 40) {
+    html += `<line x1="0" y1="${gy}" x2="${W}" y2="${gy}" stroke="${colGrid}" stroke-width="0.5"/>`;
+  }
+
+  // BB point
+  const bbX = tx(0), bbY = ty(0);
+  html += `<circle cx="${bbX}" cy="${bbY}" r="6" fill="${colAccent}" stroke="${colBBStroke}" stroke-width="1.5"/>`;
+  html += `<text x="${bbX}" y="${bbY + 18}" fill="${colBBLabel}" font-size="10" text-anchor="middle">BB</text>`;
+
+  // Ground line
+  html += `<line x1="20" y1="${ty(0)}" x2="${W - 20}" y2="${ty(0)}" stroke="${colGround}" stroke-width="1" stroke-dasharray="4,4"/>`;
+
+  // Seat tube line (from BB upward at STA)
+  const staRad = rad(params.sta);
+  const seatTubeLen = params.saddleHeight || 740;
+  const stTopX = tx(-(seatTubeLen * Math.cos(staRad)));
+  const stTopY = ty(seatTubeLen * Math.sin(staRad));
+  html += `<line x1="${bbX}" y1="${bbY}" x2="${stTopX}" y2="${stTopY}" stroke="${colFrame}" stroke-width="2.5"/>`;
+
+  // Saddle
+  const saddle = results.saddle;
+  const saddleX = tx(saddle.x), saddleY = ty(saddle.y);
+  html += `<rect x="${saddleX - 20}" y="${saddleY - 3}" width="40" height="6" rx="3" fill="${colAccent}" stroke="${colSaddleStroke}" stroke-width="1"/>`;
+  html += `<text x="${saddleX}" y="${saddleY - 10}" fill="${colAccent}" font-size="10" text-anchor="middle" font-weight="600">Saddle</text>`;
+
+  // Head tube
+  const htaRad = rad(params.hta);
+  const htTopX = tx(params.reach);
+  const htTopY = ty(params.stack);
+  const htLen = 150;
+  const htBotX = tx(params.reach + htLen * Math.cos(htaRad));
+  const htBotY = ty(params.stack - htLen * Math.sin(htaRad));
+  html += `<line x1="${htBotX}" y1="${htBotY}" x2="${htTopX}" y2="${htTopY}" stroke="${colFrame}" stroke-width="2.5"/>`;
+
+  // Top tube
+  const virtualSeatTopX = tx(-(params.stack / Math.tan(staRad)));
+  const virtualSeatTopY = ty(params.stack * 0.95);
+  html += `<line x1="${virtualSeatTopX}" y1="${virtualSeatTopY}" x2="${htTopX}" y2="${htTopY}" stroke="${colFrame}" stroke-width="2"/>`;
+
+  // Down tube (BB to near head tube bottom)
+  html += `<line x1="${bbX}" y1="${bbY}" x2="${htBotX}" y2="${htBotY}" stroke="${colFrame}" stroke-width="2"/>`;
+
+  // Spacers on steerer (from head tube top upward)
+  if (results.stemBase) {
+    const stemBaseX = tx(results.stemBase.x);
+    const stemBaseY = ty(results.stemBase.y);
+    html += `<line x1="${htTopX}" y1="${htTopY}" x2="${stemBaseX}" y2="${stemBaseY}" stroke="${colGreen}" stroke-width="4" stroke-linecap="round"/>`;
+  }
+
+  // Stem
+  if (results.stemBase && results.stemEnd) {
+    const sbx = tx(results.stemBase.x), sby = ty(results.stemBase.y);
+    const sex = tx(results.stemEnd.x), sey = ty(results.stemEnd.y);
+    html += `<line x1="${sbx}" y1="${sby}" x2="${sex}" y2="${sey}" stroke="${colYellow}" stroke-width="3" stroke-linecap="round"/>`;
+    html += `<text x="${(sbx + sex) / 2}" y="${(sby + sey) / 2 - 8}" fill="${colYellow}" font-size="10" text-anchor="middle" font-weight="600">Stem</text>`;
+  }
+
+  // Handlebar (stem end to hood)
+  if (results.stemEnd && results.hood) {
+    const sex = tx(results.stemEnd.x), sey = ty(results.stemEnd.y);
+    const hx = tx(results.hood.x), hy = ty(results.hood.y);
+    html += `<line x1="${sex}" y1="${sey}" x2="${hx}" y2="${hy}" stroke="${colGreen}" stroke-width="2.5" stroke-linecap="round"/>`;
+    html += `<circle cx="${hx}" cy="${hy}" r="5" fill="${colGreen}" stroke="${colHoodStroke}" stroke-width="1"/>`;
+    html += `<text x="${hx + 8}" y="${hy - 8}" fill="${colGreen}" font-size="10" font-weight="600">Hoods</text>`;
+  }
+
+  // Dimension: Saddle to Hood Reach (horizontal)
+  if (results.hood && saddle) {
+    const hx = tx(results.hood.x), hy = ty(results.hood.y);
+    const dimY = Math.max(saddleY, hy) + 40;
+    html += `<line x1="${saddleX}" y1="${dimY - 5}" x2="${saddleX}" y2="${dimY + 5}" stroke="${colAccent}" stroke-width="1"/>`;
+    html += `<line x1="${hx}" y1="${dimY - 5}" x2="${hx}" y2="${dimY + 5}" stroke="${colAccent}" stroke-width="1"/>`;
+    html += `<line x1="${saddleX}" y1="${dimY}" x2="${hx}" y2="${dimY}" stroke="${colAccent}" stroke-width="1" stroke-dasharray="3,3"/>`;
+    const reachLabel = Math.round(results.saddleToHoodReach) + 'mm reach';
+    html += `<text x="${(saddleX + hx) / 2}" y="${dimY + 14}" fill="${colAccent}" font-size="10" text-anchor="middle" font-weight="600">${reachLabel}</text>`;
+  }
+
+  // Dimension: Saddle to Hood Drop (vertical)
+  if (results.hood && saddle) {
+    const hx = tx(results.hood.x), hy = ty(results.hood.y);
+    const dimX = Math.min(saddleX, hx) - 30;
+    html += `<line x1="${dimX - 5}" y1="${saddleY}" x2="${dimX + 5}" y2="${saddleY}" stroke="${colGreen}" stroke-width="1"/>`;
+    html += `<line x1="${dimX - 5}" y1="${hy}" x2="${dimX + 5}" y2="${hy}" stroke="${colGreen}" stroke-width="1"/>`;
+    html += `<line x1="${dimX}" y1="${saddleY}" x2="${dimX}" y2="${hy}" stroke="${colGreen}" stroke-width="1" stroke-dasharray="3,3"/>`;
+    const dropLabel = Math.round(results.saddleToHoodDrop) + 'mm drop';
+    html += `<text x="${dimX - 5}" y="${(saddleY + hy) / 2}" fill="${colGreen}" font-size="10" text-anchor="end" font-weight="600">${dropLabel}</text>`;
+  }
+
+  // Stack and Reach dimension lines (subtle)
+  const stackTopX = tx(0), stackTopY = ty(params.stack);
+  const reachEndX = tx(params.reach), reachEndY = ty(0);
+  html += `<line x1="${bbX}" y1="${bbY - 2}" x2="${reachEndX}" y2="${bbY - 2}" stroke="${colDimSubtle}" stroke-width="0.8" stroke-dasharray="2,3"/>`;
+  html += `<text x="${(bbX + reachEndX) / 2}" y="${bbY + 30}" fill="${colTextSubtle}" font-size="9" text-anchor="middle">Reach ${params.reach}mm</text>`;
+  html += `<line x1="${reachEndX + 2}" y1="${bbY}" x2="${reachEndX + 2}" y2="${htTopY}" stroke="${colDimSubtle}" stroke-width="0.8" stroke-dasharray="2,3"/>`;
+  html += `<text x="${reachEndX + 12}" y="${(bbY + htTopY) / 2}" fill="${colTextSubtle}" font-size="9" font-weight="400">Stack ${params.stack}mm</text>`;
+
+  svg.innerHTML = html;
+}
+
+
+// ============================================================
+// UI Controller
+// ============================================================
+
+let currentMode = 'forward';
+
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('mode-forward').classList.toggle('active', mode === 'forward');
+  document.getElementById('mode-reverse').classList.toggle('active', mode === 'reverse');
+  document.getElementById('card-components').classList.toggle('hidden', mode === 'reverse');
+  document.getElementById('card-targets').classList.toggle('hidden', mode === 'forward');
+  document.getElementById('card-results').classList.toggle('hidden', mode === 'reverse');
+  updateConstraintVisibility();
+  recalculate();
+}
+
+function updateConstraintVisibility() {
+  const fixVar = document.getElementById('constraint-var').value;
+  document.getElementById('fix-stem-angle-group').classList.toggle('hidden', fixVar !== 'stem-angle');
+  document.getElementById('fix-spacers-group').classList.toggle('hidden', fixVar !== 'spacers');
+  document.getElementById('fix-stem-length-group').classList.toggle('hidden', fixVar !== 'stem-length');
+}
+
+function getVal(id) {
+  return parseFloat(document.getElementById(id).value) || 0;
+}
+
+function recalculate() {
+  const frameParams = {
+    stack: getVal('stack'),
+    reach: getVal('reach'),
+    sta: getVal('sta'),
+    hta: getVal('hta')
+  };
+
+  if (currentMode === 'forward') {
+    const params = {
+      ...frameParams,
+      stemLength: getVal('stem-length'),
+      stemAngle: getVal('stem-angle'),
+      spacerStack: getVal('spacer-stack'),
+      barReach: getVal('bar-reach'),
+      saddleHeight: getVal('saddle-height'),
+      saddleSetback: getVal('saddle-setback')
+    };
+
+    const results = forwardCalc(params);
+    renderForwardResults(results);
+    const bbDisplay = document.getElementById('bb-setback-display');
+    if (bbDisplay) {
+      const tip = bbDisplay.querySelector('.tip-text');
+      const tipHtml = tip ? tip.outerHTML : '';
+      bbDisplay.innerHTML = '↳ ' + (Math.round(results.saddleBBSetback * 10) / 10) + 'mm behind BB ⓘ' + tipHtml;
+    }
+    drawBikeDiagram(params, results);
+
+  } else {
+    const fixVar = document.getElementById('constraint-var').value;
+    const params = {
+      ...frameParams,
+      saddleHeight: getVal('target-saddle-height'),
+      saddleSetback: getVal('target-saddle-setback'),
+      barReach: getVal('target-bar-reach'),
+      targetReach: getVal('target-reach'),
+      targetDrop: getVal('target-drop'),
+      fixVar
+    };
+
+    if (fixVar === 'stem-angle') params.fixStemAngle = getVal('fix-stem-angle');
+    else if (fixVar === 'spacers') params.fixSpacers = getVal('fix-spacers');
+    else if (fixVar === 'stem-length') params.fixStemLength = getVal('fix-stem-length');
+
+    const result = reverseSolve(params);
+    renderReverseResults(result);
+
+    // Also draw the diagram with the solved values
+    if (!result.error) {
+      const fwdParams = {
+        ...frameParams,
+        stemLength: result.stemLength,
+        stemAngle: result.stemAngle,
+        spacerStack: result.spacerStack,
+        barReach: params.barReach,
+        saddleHeight: params.saddleHeight,
+        saddleSetback: params.saddleSetback
+      };
+      const fwdResults = forwardCalc(fwdParams);
+      drawBikeDiagram(fwdParams, fwdResults);
+    }
+  }
+}
+
+function renderForwardResults(r) {
+  const container = document.getElementById('forward-results');
+
+  const items = [
+    { label: 'Saddle → Hood Reach', value: r.saddleToHoodReach, unit: 'mm', highlight: true, tooltip: 'Horizontal distance from the saddle BRP (Biomechanical Reference Point) to the brake hoods. The primary measurement for how stretched out your position is.' },
+    { label: 'Saddle → Hood Drop', value: r.saddleToHoodDrop, unit: 'mm', highlight: true, tooltip: 'Vertical drop from the saddle BRP to the brake hoods. Positive means hoods are lower than saddle. More drop = more aggressive.' },
+    { label: 'Saddle → Bar Drop', value: r.saddleToBarDrop, unit: 'mm', tooltip: 'Vertical drop from the saddle BRP to the stem/bar junction. Excludes handlebar reach, so reflects the frame and stem position only.' },
+    { label: 'Saddle → Hood Distance', value: r.saddleToHoodDist, unit: 'mm', tooltip: 'Straight-line distance from the saddle BRP to the brake hoods, combining both reach and drop.' },
+    { label: 'Effective Seat Tube Angle', value: r.effectiveSTA, unit: '°', tooltip: 'Actual angle from the BB centre to the saddle BRP, accounting for any saddle setback. May differ from the frame seat tube angle.' },
+    { label: 'Saddle Height (vertical)', value: r.saddleVertical, unit: 'mm', tooltip: 'True vertical height of the saddle BRP above the bottom bracket centre. Slightly less than the along-tube saddle height measurement.' },
+    { label: 'Hood Height above BB', value: r.hoodHeight, unit: 'mm', tooltip: 'Vertical height of the brake hoods above the bottom bracket centre. Determined by frame stack, spacers, stem, and bar.' },
+    { label: 'Stack to Hood', value: r.stackToHood, unit: 'mm', tooltip: 'How much higher (or lower) the hoods sit relative to the top of the head tube. Shows the effect of spacers, stem angle, and stem length on bar height.' },
+  ];
+
+  container.innerHTML = items.map(item => {
+    const val = Math.round(item.value * 10) / 10;
+    const cls = item.highlight ? ' highlight' : '';
+    const tip = item.tooltip ? ` <span class="label-tip">&#9432;<span class="tip-text">${item.tooltip}</span></span>` : '';
+    return `
+      <div class="result-item${cls}">
+        <div class="result-label">${item.label}${tip}</div>
+        <div class="result-value">${val}</div>
+        <div class="result-unit">${item.unit}</div>
+      </div>
+    `;
+  }).join('');
+
+  // Spacer stack warning in forward mode
+  const spacerStack = getVal('spacer-stack');
+  const fwdNote = document.getElementById('forward-note');
+  if (spacerStack > 40) {
+    fwdNote.textContent = 'Spacer stack is very high (' + spacerStack + 'mm). Consider a larger frame with more stack to reduce the need for spacers.';
+  } else {
+    fwdNote.textContent = '';
+  }
+}
+
+function renderReverseResults(result) {
+  const container = document.getElementById('reverse-results');
+  const note = document.getElementById('reverse-note');
+
+  if (result.error) {
+    container.innerHTML = `<div class="reverse-result rr-bad" style="grid-column:1/-1;"><div class="rr-label">Error</div><div class="rr-value" style="font-size:1rem;">${result.error}</div></div>`;
+    note.textContent = '';
+    return;
+  }
+
+  const items = [];
+
+  const fixVar = document.getElementById('constraint-var').value;
+
+  if (fixVar === 'stem-angle') {
+    items.push({ label: 'Required Stem Length', value: result.stemLength, unit: 'mm', warn: result.stemLength < 60 || result.stemLength > 140 });
+    items.push({ label: 'Required Spacer Stack', value: result.spacerStack, unit: 'mm', warn: result.spacerStack < 0 || result.spacerStack > 40 });
+    items.push({ label: 'Stem Angle (fixed)', value: result.stemAngle, unit: '°' });
+  } else if (fixVar === 'spacers') {
+    items.push({ label: 'Required Stem Length', value: result.stemLength, unit: 'mm', warn: result.stemLength < 60 || result.stemLength > 140 });
+    items.push({ label: 'Required Stem Angle', value: result.stemAngle, unit: '°', warn: result.stemAngle < -17 || result.stemAngle > 10 });
+    items.push({ label: 'Spacer Stack (fixed)', value: result.spacerStack, unit: 'mm' });
+  } else {
+    items.push({ label: 'Required Spacer Stack', value: result.spacerStack, unit: 'mm', warn: result.spacerStack < 0 || result.spacerStack > 40 });
+    items.push({ label: 'Required Stem Angle', value: result.stemAngle, unit: '°', warn: result.stemAngle < -17 || result.stemAngle > 10 });
+    items.push({ label: 'Stem Length (fixed)', value: result.stemLength, unit: 'mm' });
+  }
+
+  container.innerHTML = items.map(item => {
+    const val = Math.round(item.value * 10) / 10;
+    const cls = item.warn ? ' rr-warn' : '';
+    return `
+      <div class="reverse-result${cls}">
+        <div class="rr-label">${item.label}</div>
+        <div class="rr-value">${val}<span class="rr-unit">${item.unit}</span></div>
+      </div>
+    `;
+  }).join('');
+
+  // Warnings
+  const warnings = [];
+  if (result.stemLength < 60) warnings.push('Stem length is very short — may not be available.');
+  if (result.stemLength > 140) warnings.push('Stem length is very long — may not be available or may handle poorly.');
+  if (result.spacerStack < 0) warnings.push('Negative spacers required — this frame may not achieve your target position. Consider a frame with different stack/reach.');
+  if (result.spacerStack > 40) warnings.push('Spacer stack is very high — consider a larger frame with more stack to reduce the need for spacers.');
+  if (result.stemAngle < -17) warnings.push('Stem angle is extreme — may not be commercially available.');
+  if (result.stemAngle > 10) warnings.push('Positive stem angle is unusual for road bikes — double check targets.');
+
+  note.textContent = warnings.join(' ');
+}
+
+// Wire up all inputs to recalculate on change
+document.querySelectorAll('input[type="number"]').forEach(input => {
+  input.addEventListener('input', recalculate);
+});
+
+document.getElementById('constraint-var').addEventListener('change', () => {
+  updateConstraintVisibility();
+  recalculate();
+});
+
+// Initial calculation
+recalculate();
+</script>
+
+</body>
+</html>
