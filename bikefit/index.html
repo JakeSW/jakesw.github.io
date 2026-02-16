@@ -851,7 +851,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="modal-overlay" id="instructions-modal" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="modal">
     <button class="modal-close" onclick="document.getElementById('instructions-modal').classList.remove('open')">&times;</button>
-    <h2>Bike Fit Calculator</h2>
+    <h2>Bike Fit Cockpit Calculator</h2>
     <p>This tool helps you translate professional bike fit measurements into the specific components you need for a given frame, or check what fit numbers a particular setup produces. Frame geometry for many popular bikes is available via the built-in presets. For bikes not included, you can find geometry data on the <a href="https://geometrygeeks.bike" target="_blank" rel="noopener" style="color:var(--accent)">geometrygeeks.bike</a> database and enter the values manually.</p>
 
     <h3>How it works</h3>
@@ -1052,8 +1052,8 @@ function calcHoodPosition(frameReach, frameStack, hta, spacerStack, stemLength, 
   barDiameter = barDiameter || 0;
   const htaRad = rad(hta);
 
-  // Total steerer travel = spacers + stem clamp height
-  const totalSteerer = spacerStack + stemHeight;
+  // Total steerer travel = spacers + half stem height (measurements from stem centre)
+  const totalSteerer = spacerStack + stemHeight / 2;
 
   // Stem base along steerer from top of head tube
   const stemBaseX = frameReach + totalSteerer * (-Math.cos(htaRad));
@@ -1139,9 +1139,9 @@ function reverseSolve(params) {
   const barDiameter = params.barDiameter || 0;
 
   // The hood position includes bar radius (half diameter) vertically above the stem end,
-  // and the steerer travel is spacerStack + stemHeight.
-  // So we solve for T = spacerStack + stemHeight (total steerer travel),
-  // then spacerStack = T - stemHeight.
+  // and the steerer travel is spacerStack + stemHeight/2 (centre of stem clamp).
+  // So we solve for T = spacerStack + stemHeight/2 (total steerer travel),
+  // then spacerStack = T - stemHeight/2.
   // The stem end Y needs to be: targetHoodY - barDiameter/2
   // Effective target for stem end:
   const effTargetHoodY = targetHoodY - barDiameter / 2;
@@ -1164,7 +1164,7 @@ function reverseSolve(params) {
 
     const stemLength = (rhs1 * Math.sin(htaRad) - rhs2 * (-Math.cos(htaRad))) / det;
     const T = (cosA * rhs2 - sinA * rhs1) / det;
-    const spacerStack = T - stemHeight;
+    const spacerStack = T - stemHeight / 2;
 
     return {
       stemLength: Math.round(stemLength * 10) / 10,
@@ -1176,7 +1176,7 @@ function reverseSolve(params) {
   } else if (params.fixVar === 'spacers') {
     // Known: spacers, solve for stem length (L) and stem angle (θ)
     const S = params.fixSpacers;
-    const T = S + stemHeight;
+    const T = S + stemHeight / 2;
     const baseX = params.reach + T * (-Math.cos(htaRad));
     const baseY = params.stack + T * Math.sin(htaRad);
 
@@ -1215,12 +1215,12 @@ function reverseSolve(params) {
     const t1 = (-b + Math.sqrt(disc)) / (2 * a);
     const t2 = (-b - Math.sqrt(disc)) / (2 * a);
 
-    // Convert T to spacerStack = T - stemHeight, pick valid (spacerStack >= 0)
-    const sp1 = t1 - stemHeight;
-    const sp2 = t2 - stemHeight;
+    // Convert T to spacerStack = T - stemHeight/2, pick valid (spacerStack >= 0)
+    const sp1 = t1 - stemHeight / 2;
+    const sp2 = t2 - stemHeight / 2;
 
     let T, spacerStack;
-    if (sp1 >= 0 && sp2 >= 0) { spacerStack = Math.min(sp1, sp2); T = spacerStack + stemHeight; }
+    if (sp1 >= 0 && sp2 >= 0) { spacerStack = Math.min(sp1, sp2); T = spacerStack + stemHeight / 2; }
     else if (sp1 >= 0) { spacerStack = sp1; T = t1; }
     else if (sp2 >= 0) { spacerStack = sp2; T = t2; }
     else return { error: 'No valid solution (negative spacers required)' };
