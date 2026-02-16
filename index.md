@@ -45,4 +45,16 @@ Please get in touch if you'd like to collaborate!
   - Linear Systems, Control Theory, Digital Signal Processing, Communications, 2022, 2023, 2024, 2025, 2026.
   - Digital Electronics, 2023, 2024.
 
-{% include_relative _includes/services.md %}
+## Services
+
+- **Committees:**
+  - [HeadSys 2026](https://www.eventcreate.com/e/headsys26) General co-chair
+  - [EarComp'25](http://esense.io/earcomp2025/) and [EarComp'24](http://esense.io/earcomp2024/) Web and Publication chair
+- **Reviewing:**
+  - [IEEE Transactions on Mobile Computing](https://www.computer.org/csdl/journal/tm)
+  - [ACM IMWUT](https://dl.acm.org/journal/imwut)
+  - [IEEE ICASSP](https://2025.ieeeicassp.org)
+  - [ACM UbiComp/ISWC](https://www.ubicomp.org)
+- **Outreach:**
+  - [Cambridge Festival 2025:](https://www.festival.cam.ac.uk/events/measure-your-heart-rate-your-earphones) Demonstrating our earable systems for vital sign estimation
+  - Cambridge Festival 2023: Running a workshop on building sensor systems with Arduino
