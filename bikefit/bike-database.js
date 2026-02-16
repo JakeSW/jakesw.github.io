@@ -698,34 +698,32 @@ const BIKE_DATABASE = {
     "Alpe d'Huez": {
       year: 2026,
       sizes: {
-        "XXS": { stack: null, reach: null, sta: null, hta: null },
-        "XS":  { stack: null, reach: null, sta: null, hta: null },
-        "S":   { stack: null, reach: null, sta: null, hta: null },
-        "M":   { stack: null, reach: null, sta: null, hta: null },
-        "L":   { stack: null, reach: null, sta: null, hta: null },
-        "XL":  { stack: null, reach: null, sta: null, hta: null },
+        "XS": { stack: 514, reach: 372, sta: 74.7, hta: 71.0 },
+        "S":  { stack: 538, reach: 377, sta: 74.0, hta: 72.5 },
+        "M":  { stack: 562, reach: 383, sta: 73.0, hta: 73.0 },
+        "L":  { stack: 582, reach: 392, sta: 73.0, hta: 73.0 },
+        "XL": { stack: 601, reach: 397, sta: 73.0, hta: 73.5 },
       }
     },
     "SCYLON": {
       year: 2026,
       sizes: {
-        "XXS": { stack: null, reach: null, sta: null, hta: null },
-        "XS":  { stack: null, reach: null, sta: null, hta: null },
-        "S":   { stack: null, reach: null, sta: null, hta: null },
-        "M":   { stack: null, reach: null, sta: null, hta: null },
-        "L":   { stack: null, reach: null, sta: null, hta: null },
-        "XL":  { stack: null, reach: null, sta: null, hta: null },
+        "XXS": { stack: 515, reach: 372, sta: 73.0, hta: 71.5 },
+        "XS":  { stack: 532, reach: 377, sta: 73.0, hta: 71.5 },
+        "S":   { stack: 549, reach: 382, sta: 73.0, hta: 71.5 },
+        "M":   { stack: 567, reach: 389, sta: 73.0, hta: 72.0 },
+        "L":   { stack: 584, reach: 392, sta: 73.0, hta: 73.0 },
+        "XL":  { stack: 601, reach: 397, sta: 73.0, hta: 73.0 },
       }
     },
-    "IZON": {
+    "ADHX 45": {
       year: 2026,
       sizes: {
-        "XXS": { stack: null, reach: null, sta: null, hta: null },
-        "XS":  { stack: null, reach: null, sta: null, hta: null },
-        "S":   { stack: null, reach: null, sta: null, hta: null },
-        "M":   { stack: null, reach: null, sta: null, hta: null },
-        "L":   { stack: null, reach: null, sta: null, hta: null },
-        "XL":  { stack: null, reach: null, sta: null, hta: null },
+        "XS": { stack: 532, reach: 364, sta: 73.5, hta: 70.3 },
+        "S":  { stack: 543, reach: 371, sta: 72.8, hta: 71.3 },
+        "M":  { stack: 564, reach: 381, sta: 72.8, hta: 72.3 },
+        "L":  { stack: 583, reach: 390, sta: 72.8, hta: 72.3 },
+        "XL": { stack: 603, reach: 395, sta: 72.8, hta: 72.8 },
       }
     },
   },
@@ -733,11 +731,12 @@ const BIKE_DATABASE = {
     "795 Blade RS": {
       year: 2026,
       sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
+        "XXS": { stack: 486.2, reach: 361.3, sta: 75.0, hta: 70.7 },
+        "XS":  { stack: 501.2, reach: 371.3, sta: 74.5, hta: 71.8 },
+        "S":   { stack: 525.2, reach: 381.3, sta: 74.5, hta: 71.8 },
+        "M":   { stack: 549.2, reach: 391.2, sta: 74.5, hta: 73.0 },
+        "L":   { stack: 573.2, reach: 401.2, sta: 74.5, hta: 73.0 },
+        "XL":  { stack: 597.2, reach: 411.2, sta: 74.5, hta: 73.0 },
       }
     },
     "785 Huez RS": {
