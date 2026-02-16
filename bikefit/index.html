@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bike Fit Calculator</title>
+<title>Bike Fit Cockpit Calculator</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚴</text></svg>">
 <style>
   :root {
@@ -403,7 +403,7 @@
   }
 
   .preset-trigger {
-    margin-top: 14px;
+    margin-top: 28px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -689,7 +689,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <body>
 
 <header>
-  <h1><span>Bike Fit</span> Calculator</h1>
+  <h1><span>Bike Fit</span> Cockpit Calculator</h1>
   <div class="header-controls">
     <div class="mode-toggle">
       <button id="mode-forward" class="active" onclick="setMode('forward')">Components → Fit</button>
@@ -748,8 +748,16 @@ document.addEventListener('DOMContentLoaded', function() {
         <input type="number" id="spacer-stack" value="20" step="5">
       </div>
       <div class="input-group">
+        <label>Stem Height <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Height of the stem clamp on the steerer tube. This adds to the spacer stack to determine where the stem extends from. Typically 40–50mm for standard stems.</span></span></label>
+        <input type="number" id="stem-height" value="40" step="1">
+      </div>
+      <div class="input-group">
         <label>Handlebar Reach <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Horizontal distance from the stem clamp to the brake hoods. Varies by handlebar model, typically 70–85mm for road bars.</span></span></label>
         <input type="number" id="bar-reach" value="80" step="1">
+      </div>
+      <div class="input-group">
+        <label>Handlebar Diameter <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Outer diameter of the handlebar at the clamp area. Added to the hood height calculation. Standard road bars are 31.8mm (oversized) or 26.0mm (legacy).</span></span></label>
+        <input type="number" id="bar-diameter" value="31.8" step="0.1">
       </div>
       <div class="input-group">
         <label>Saddle Height <span class="unit">(mm, BB to saddle BRP)</span> <span class="label-tip">&#9432;<span class="tip-text">Distance from the centre of the bottom bracket to the saddle's Biomechanical Reference Point (BRP), measured along the seat tube. The BRP is the designed sit-bone contact point on the saddle — typically marked by the manufacturer or approximated as the deepest point of the saddle's profile.</span></span></label>
@@ -782,10 +790,19 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="input-group">
         <label>Saddle Setback <span class="unit">(mm, behind seatpost)</span> <span class="label-tip">&#9432;<span class="tip-text">Horizontal offset of the saddle BRP (Biomechanical Reference Point) behind the seatpost clamp. Most saddle rails allow 0–20mm of setback adjustment.</span></span></label>
         <input type="number" id="target-saddle-setback" value="5" step="1">
+        <div class="inline-result" id="bb-setback-display-reverse"><span class="tip-text">Horizontal distance from the saddle BRP (Biomechanical Reference Point) to the bottom bracket centre. Measured along the seat tube line plus any saddle setback. Use this to set your saddle position relative to the BB (e.g. KOPS or behind-BB targets).</span></div>
       </div>
       <div class="input-group">
         <label>Handlebar Reach <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Horizontal distance from the stem clamp to the brake hoods. Varies by handlebar model, typically 70–85mm for road bars.</span></span></label>
         <input type="number" id="target-bar-reach" value="80" step="1">
+      </div>
+      <div class="input-group">
+        <label>Stem Height <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Height of the stem clamp on the steerer tube. This adds to the spacer stack to determine where the stem extends from. Typically 40–50mm for standard stems.</span></span></label>
+        <input type="number" id="target-stem-height" value="40" step="1">
+      </div>
+      <div class="input-group">
+        <label>Handlebar Diameter <span class="unit">(mm)</span> <span class="label-tip">&#9432;<span class="tip-text">Outer diameter of the handlebar at the clamp area. Added to the hood height calculation. Standard road bars are 31.8mm (oversized) or 26.0mm (legacy).</span></span></label>
+        <input type="number" id="target-bar-diameter" value="31.8" step="0.1">
       </div>
     </div>
 
@@ -886,6 +903,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <h2>Select Frame Preset</h2>
     <input type="text" class="preset-search" id="preset-search" placeholder="Search brands or models..." oninput="renderPresetModal()">
     <div id="preset-list"></div>
+    <p style="margin-top:16px; font-size:0.8rem; color:var(--text-dim); text-align:center;">To suggest more bikes or if any data is incorrect email jakestuchbury (at) gmail.com</p>
   </div>
 </div>
 
@@ -893,6 +911,7 @@ document.addEventListener('DOMContentLoaded', function() {
   &copy; 2026 Jake Stuchbury-Wass
 </footer>
 
+<script src="bike-database.js"></script>
 <script>
 // ============================================================
 // Theme Toggle
@@ -920,528 +939,6 @@ function toggleTheme() {
 // ============================================================
 // Frame Presets — Canyon Aeroad CF SLX 2025
 // ============================================================
-
-// ============================================================
-// Bike Preset Database
-// ============================================================
-// To add geometry data, replace null values with actual numbers.
-// stack (mm), reach (mm), sta = seat tube angle (°), hta = head tube angle (°)
-// Example:  "54": { stack: 537, reach: 389, sta: 73.5, hta: 73.0 }
-
-const BIKE_DATABASE = {
-  "Canyon": {
-    "Aeroad CF SLX": {
-      year: 2026,
-      sizes: {
-        "2XS": { stack: 498, reach: 372, sta: 73.5, hta: 70.0 },
-        "XS":  { stack: 520, reach: 378, sta: 73.5, hta: 71.2 },
-        "S":   { stack: 539, reach: 390, sta: 73.5, hta: 72.8 },
-        "M":   { stack: 560, reach: 393, sta: 73.5, hta: 73.25 },
-        "L":   { stack: 580, reach: 401, sta: 73.5, hta: 73.3 },
-        "XL":  { stack: 606, reach: 419, sta: 73.5, hta: 73.5 },
-        "2XL": { stack: 624, reach: 429, sta: 73.5, hta: 73.8 },
-      }
-    },
-    "Ultimate CF SLX": {
-      year: 2026,
-      sizes: {
-        "2XS": { stack: 498, reach: 372, sta: 73.5, hta: 70.0 },
-        "XS":  { stack: 520, reach: 378, sta: 73.5, hta: 71.2 },
-        "S":   { stack: 539, reach: 390, sta: 73.5, hta: 72.8 },
-        "M":   { stack: 560, reach: 393, sta: 73.5, hta: 73.3 },
-        "L":   { stack: 580, reach: 401, sta: 73.5, hta: 73.3 },
-        "XL":  { stack: 606, reach: 419, sta: 73.5, hta: 73.5 },
-        "2XL": { stack: 624, reach: 429, sta: 73.5, hta: 73.8 },
-      }
-    },
-    "Endurace CF": {
-      year: 2026,
-      sizes: {
-        "2XS": { stack: 529, reach: 354, sta: 73.5, hta: 71.5 },
-        "XS":  { stack: 548, reach: 370, sta: 73.5, hta: 71.0 },
-        "S":   { stack: 568, reach: 375, sta: 73.5, hta: 72.0 },
-        "M":   { stack: 590, reach: 378, sta: 73.5, hta: 73.0 },
-        "L":   { stack: 611, reach: 387, sta: 73.5, hta: 73.0 },
-        "XL":  { stack: 637, reach: 405, sta: 73.5, hta: 73.3 },
-        "2XL": { stack: 656, reach: 414, sta: 73.5, hta: 73.3 },
-      }
-    }
-  },
-  "Cervélo": {
-    "S5": {
-      year: 2026,
-      sizes: {
-        "48": { stack: 496, reach: 367, sta: 73.0, hta: 71.0 },
-        "51": { stack: 519, reach: 376, sta: 73.0, hta: 72.0 },
-        "54": { stack: 542, reach: 384, sta: 73.0, hta: 73.0 },
-        "56": { stack: 565, reach: 392, sta: 73.0, hta: 73.5 },
-        "58": { stack: 588, reach: 401, sta: 73.0, hta: 73.5 },
-        "61": { stack: 608, reach: 409, sta: 73.0, hta: 73.5 },
-      }
-    },
-    "Soloist": {
-      year: 2026,
-      sizes: {
-        "48": { stack: 491, reach: 363, sta: 73.0, hta: 71.0 },
-        "51": { stack: 515, reach: 374, sta: 73.0, hta: 72.0 },
-        "54": { stack: 540, reach: 383, sta: 73.0, hta: 73.0 },
-        "56": { stack: 565, reach: 392, sta: 73.0, hta: 73.0 },
-        "58": { stack: 590, reach: 401, sta: 73.0, hta: 73.0 },
-        "61": { stack: 615, reach: 410, sta: 73.0, hta: 73.0 },
-      }
-    },
-    "R5": {
-      year: 2026,
-      sizes: {
-        "48": { stack: 496.1, reach: 368.7, sta: 74.5, hta: 71.0 },
-        "51": { stack: 520.2, reach: 376.5, sta: 74.0, hta: 72.0 },
-        "54": { stack: 544.6, reach: 383.3, sta: 73.5, hta: 73.0 },
-        "56": { stack: 567.5, reach: 391.1, sta: 73.0, hta: 73.0 },
-        "58": { stack: 590.7, reach: 400.3, sta: 73.0, hta: 73.0 },
-        "61": { stack: 610.7, reach: 408.3, sta: 73.0, hta: 73.0 },
-      }
-    },
-    "Aspero 5": {
-      year: 2026,
-      sizes: {
-        "48": { stack: 500, reach: 369, sta: 74.1, hta: 70.6 },
-        "51": { stack: 525, reach: 377, sta: 73.6, hta: 71.1 },
-        "54": { stack: 550, reach: 386, sta: 73.1, hta: 71.6 },
-        "56": { stack: 575, reach: 395, sta: 72.6, hta: 71.6 },
-        "58": { stack: 600, reach: 404, sta: 72.6, hta: 71.6 },
-        "61": { stack: 625, reach: 413, sta: 72.6, hta: 71.6 },
-      }
-    }
-  },
-  "Trek": {
-    "Madone": {
-      year: 2026,
-      sizes: {
-        "XS":  { stack: 507, reach: 370, sta: 73.8, hta: 71.6 },
-        "S":   { stack: 530, reach: 378, sta: 73.8, hta: 72.2 },
-        "M":   { stack: 546, reach: 384, sta: 73.6, hta: 72.9 },
-        "M/L": { stack: 562, reach: 389, sta: 73.4, hta: 73.5 },
-        "L":   { stack: 582, reach: 394, sta: 73.4, hta: 73.8 },
-        "XL":  { stack: 610, reach: 402, sta: 73.4, hta: 73.9 },
-      }
-    },
-    "Domane": {
-      year: 2026,
-      sizes: {
-        "47": { stack: 527, reach: 364, sta: 74.6, hta: 71.0 },
-        "50": { stack: 546, reach: 368, sta: 74.6, hta: 71.1 },
-        "52": { stack: 561, reach: 371, sta: 74.2, hta: 71.3 },
-        "54": { stack: 575, reach: 374, sta: 73.7, hta: 71.3 },
-        "56": { stack: 591, reach: 377, sta: 73.3, hta: 71.9 },
-        "58": { stack: 611, reach: 380, sta: 73.0, hta: 72.0 },
-        "60": { stack: 632, reach: 383, sta: 72.8, hta: 72.1 },
-        "62": { stack: 656, reach: 386, sta: 72.5, hta: 72.1 },
-      }
-    }
-  },
-  "Colnago": {
-    "V5Rs": {
-      year: 2026,
-      sizes: {
-        "420": { stack: 509, reach: 371, sta: 75.5, hta: 70.6 },
-        "455": { stack: 523, reach: 377, sta: 75.3, hta: 71.5 },
-        "485": { stack: 539, reach: 384, sta: 74.8, hta: 72.3 },
-        "510": { stack: 557, reach: 390, sta: 74.5, hta: 72.5 },
-        "530": { stack: 575, reach: 397, sta: 73.8, hta: 73.0 },
-        "550": { stack: 593, reach: 404, sta: 73.5, hta: 73.0 },
-        "570": { stack: 612, reach: 411, sta: 73.3, hta: 73.5 },
-      }
-    },
-    "Y1Rs": {
-      year: 2026,
-      sizes: {
-        "XS": { stack: 495, reach: 368, sta: 75.0, hta: 70.8 },
-        "S":  { stack: 520, reach: 377, sta: 74.5, hta: 71.9 },
-        "M":  { stack: 540, reach: 386, sta: 74.0, hta: 73.0 },
-        "L":  { stack: 565, reach: 395, sta: 73.7, hta: 73.5 },
-        "XL": { stack: 590, reach: 404, sta: 73.0, hta: 73.5 },
-      }
-    },
-    "V3": {
-      year: 2026,
-      sizes: {
-        "42s": { stack: 514, reach: 368, sta: 75.5, hta: 70.6 },
-        "45s": { stack: 520, reach: 375, sta: 75.0, hta: 71.0 },
-        "48s": { stack: 525, reach: 380, sta: 74.5, hta: 71.5 },
-        "50s": { stack: 542, reach: 382, sta: 74.0, hta: 71.6 },
-        "52s": { stack: 560, reach: 384, sta: 73.57, hta: 71.9 },
-        "54s": { stack: 578, reach: 390, sta: 73.1, hta: 72.5 },
-        "56s": { stack: 586, reach: 400, sta: 73.0, hta: 72.9 },
-        "58s": { stack: 604, reach: 408, sta: 73.0, hta: 73.1 },
-      }
-    }
-  },
-  "Giant": {
-    "Propel Advanced SL": {
-      year: 2026,
-      sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "M/L": { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
-      }
-    },
-    "TCR Advanced SL": {
-      year: 2026,
-      sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "M/L": { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
-      }
-    },
-    "Defy Advanced": {
-      year: 2026,
-      sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "M/L": { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
-      }
-    }
-  },
-  "Specialized": {
-    "Tarmac SL8": {
-      year: 2026,
-      sizes: {
-        "44": { stack: 501, reach: 366, sta: 75.5, hta: 70.5 },
-        "49": { stack: 514, reach: 375, sta: 75.5, hta: 71.75 },
-        "52": { stack: 527, reach: 380, sta: 74.0, hta: 72.5 },
-        "54": { stack: 544, reach: 384, sta: 74.0, hta: 73.0 },
-        "56": { stack: 565, reach: 395, sta: 73.5, hta: 73.5 },
-        "58": { stack: 591, reach: 402, sta: 73.5, hta: 73.5 },
-        "61": { stack: 612, reach: 408, sta: 73.0, hta: 74.0 },
-      }
-    },
-    "Venge": {
-      year: 2019,
-      sizes: {
-        "49": { stack: 504, reach: 378, sta: 75.5, hta: 71.75 },
-        "52": { stack: 517, reach: 383, sta: 74.0, hta: 72.5 },
-        "54": { stack: 534, reach: 387, sta: 74.0, hta: 73.0 },
-        "56": { stack: 555, reach: 398, sta: 73.5, hta: 73.5 },
-        "58": { stack: 581, reach: 405, sta: 73.5, hta: 73.5 },
-        "61": { stack: 602, reach: 411, sta: 73.0, hta: 74.0 },
-      }
-    },
-    "Roubaix": {
-      year: 2026,
-      sizes: {
-        "44": { stack: null, reach: null, sta: null, hta: null },
-        "49": { stack: null, reach: null, sta: null, hta: null },
-        "52": { stack: null, reach: null, sta: null, hta: null },
-        "54": { stack: null, reach: null, sta: null, hta: null },
-        "56": { stack: null, reach: null, sta: null, hta: null },
-        "58": { stack: null, reach: null, sta: null, hta: null },
-        "61": { stack: null, reach: null, sta: null, hta: null },
-      }
-    },
-    "Allez Sprint": {
-      year: 2026,
-      sizes: {
-        "44": { stack: null, reach: null, sta: null, hta: null },
-        "49": { stack: null, reach: null, sta: null, hta: null },
-        "52": { stack: null, reach: null, sta: null, hta: null },
-        "54": { stack: null, reach: null, sta: null, hta: null },
-        "56": { stack: null, reach: null, sta: null, hta: null },
-        "58": { stack: null, reach: null, sta: null, hta: null },
-        "61": { stack: null, reach: null, sta: null, hta: null },
-      }
-    }
-  },
-  "Pinarello": {
-    "Dogma F": {
-      year: 2026,
-      sizes: {
-        "43": { stack: 502, reach: 351.5, sta: 74.4, hta: 69.5 },
-        "46.5": { stack: 517.3, reach: 365.4, sta: 74.4, hta: 70.5 },
-        "50": { stack: 525.2, reach: 372.2, sta: 74.0, hta: 71.4 },
-        "51.5": { stack: 532.1, reach: 378.2, sta: 73.7, hta: 72.0 },
-        "53": { stack: 542.4, reach: 383.3, sta: 73.7, hta: 72.5 },
-        "54": { stack: 551, reach: 385.3, sta: 73.4, hta: 72.8 },
-        "55": { stack: 561.5, reach: 389.2, sta: 73.4, hta: 72.8 },
-        "56": { stack: 570.1, reach: 390.8, sta: 73.0, hta: 73.2 },
-        "57.5": { stack: 584.8, reach: 396.7, sta: 73.0, hta: 73.7 },
-        "59.5": { stack: 613.2, reach: 393.4, sta: 72.4, hta: 73.4 },
-        "62": { stack: 651.6, reach: 410, sta: 72.0, hta: 73.4 },
-      }
-    },
-    "F Series": {
-      year: 2026,
-      sizes: {
-        "43": { stack: null, reach: null, sta: null, hta: null },
-        "46.5": { stack: null, reach: null, sta: null, hta: null },
-        "50": { stack: null, reach: null, sta: null, hta: null },
-        "51.5": { stack: null, reach: null, sta: null, hta: null },
-        "53": { stack: null, reach: null, sta: null, hta: null },
-        "54": { stack: null, reach: null, sta: null, hta: null },
-        "55": { stack: null, reach: null, sta: null, hta: null },
-        "56": { stack: null, reach: null, sta: null, hta: null },
-        "57.5": { stack: null, reach: null, sta: null, hta: null },
-        "59.5": { stack: null, reach: null, sta: null, hta: null },
-        "62": { stack: null, reach: null, sta: null, hta: null },
-      }
-    },
-    "X Series": {
-      year: 2026,
-      sizes: {
-        "43": { stack: null, reach: null, sta: null, hta: null },
-        "46.5": { stack: null, reach: null, sta: null, hta: null },
-        "50": { stack: null, reach: null, sta: null, hta: null },
-        "51.5": { stack: null, reach: null, sta: null, hta: null },
-        "53": { stack: null, reach: null, sta: null, hta: null },
-        "54": { stack: null, reach: null, sta: null, hta: null },
-        "55": { stack: null, reach: null, sta: null, hta: null },
-        "56": { stack: null, reach: null, sta: null, hta: null },
-        "57.5": { stack: null, reach: null, sta: null, hta: null },
-        "59.5": { stack: null, reach: null, sta: null, hta: null },
-        "62": { stack: null, reach: null, sta: null, hta: null },
-      }
-    }
-  },
-  "Bianchi": {
-    "Oltre RC": {
-      year: 2026,
-      sizes: {
-        "47": { stack: null, reach: null, sta: null, hta: null },
-        "50": { stack: null, reach: null, sta: null, hta: null },
-        "53": { stack: null, reach: null, sta: null, hta: null },
-        "55": { stack: null, reach: null, sta: null, hta: null },
-        "57": { stack: null, reach: null, sta: null, hta: null },
-        "59": { stack: null, reach: null, sta: null, hta: null },
-        "61": { stack: null, reach: null, sta: null, hta: null },
-      }
-    },
-    "Specialissima": {
-      year: 2026,
-      sizes: {
-        "47": { stack: null, reach: null, sta: null, hta: null },
-        "50": { stack: null, reach: null, sta: null, hta: null },
-        "53": { stack: null, reach: null, sta: null, hta: null },
-        "55": { stack: null, reach: null, sta: null, hta: null },
-        "57": { stack: null, reach: null, sta: null, hta: null },
-        "59": { stack: null, reach: null, sta: null, hta: null },
-        "61": { stack: null, reach: null, sta: null, hta: null },
-      }
-    },
-    "Infinito": {
-      year: 2026,
-      sizes: {
-        "47": { stack: 521, reach: 371, sta: 74.5, hta: 70.5 },
-        "50": { stack: 539, reach: 375, sta: 74.5, hta: 71.5 },
-        "53": { stack: 553, reach: 377, sta: 74.0, hta: 71.0 },
-        "55": { stack: 569, reach: 381, sta: 73.5, hta: 72.0 },
-        "57": { stack: 585, reach: 386, sta: 73.5, hta: 72.5 },
-        "59": { stack: 600, reach: 391, sta: 73.0, hta: 72.5 },
-        "61": { stack: 614, reach: 392, sta: 72.5, hta: 72.5 },
-      }
-    }
-  },
-  "Scott": {
-    "Foil RC": {
-      year: 2026,
-      sizes: {
-        "XXS": { stack: 505, reach: 380, sta: 74.5, hta: 70.5 },
-        "XS":  { stack: 511, reach: 388, sta: 74.5, hta: 71.0 },
-        "S":   { stack: 527, reach: 389, sta: 74.0, hta: 72.0 },
-        "M":   { stack: 548, reach: 389, sta: 73.6, hta: 72.5 },
-        "L":   { stack: 568, reach: 394.5, sta: 73.3, hta: 73.0 },
-        "XL":  { stack: 589, reach: 400, sta: 73.0, hta: 73.3 },
-        "XXL": { stack: 606, reach: 409, sta: 72.5, hta: 73.3 },
-      }
-    },
-    "Addict RC": {
-      year: 2026,
-      sizes: {
-        "XXS": { stack: 522, reach: 372, sta: 75.0, hta: 71.3 },
-        "XS":  { stack: 534, reach: 378, sta: 75.0, hta: 71.8 },
-        "S":   { stack: 557, reach: 382, sta: 74.5, hta: 72.0 },
-        "M":   { stack: 578, reach: 386, sta: 74.0, hta: 72.2 },
-        "L":   { stack: 599, reach: 389, sta: 73.5, hta: 72.5 },
-        "XL":  { stack: 619, reach: 394, sta: 73.1, hta: 73.0 },
-        "XXL": { stack: 638, reach: 402, sta: 73.0, hta: 73.0 },
-      }
-    }
-  },
-  "BMC": {
-    "Teammachine R": {
-      year: 2026,
-      sizes: {
-        "47": { stack: null, reach: null, sta: null, hta: null },
-        "51": { stack: null, reach: null, sta: null, hta: null },
-        "54": { stack: null, reach: null, sta: null, hta: null },
-        "56": { stack: null, reach: null, sta: null, hta: null },
-        "58": { stack: null, reach: null, sta: null, hta: null },
-        "61": { stack: null, reach: null, sta: null, hta: null },
-      }
-    },
-    "Teammachine SLR": {
-      year: 2026,
-      sizes: {
-        "47": { stack: null, reach: null, sta: null, hta: null },
-        "51": { stack: null, reach: null, sta: null, hta: null },
-        "54": { stack: null, reach: null, sta: null, hta: null },
-        "56": { stack: null, reach: null, sta: null, hta: null },
-        "58": { stack: null, reach: null, sta: null, hta: null },
-        "61": { stack: null, reach: null, sta: null, hta: null },
-      }
-    },
-    "Roadmachine": {
-      year: 2026,
-      sizes: {
-        "47": { stack: null, reach: null, sta: null, hta: null },
-        "51": { stack: null, reach: null, sta: null, hta: null },
-        "54": { stack: null, reach: null, sta: null, hta: null },
-        "56": { stack: null, reach: null, sta: null, hta: null },
-        "58": { stack: null, reach: null, sta: null, hta: null },
-        "61": { stack: null, reach: null, sta: null, hta: null },
-      }
-    }
-  },
-  "Factor": {
-    "Ostro VAM": {
-      year: 2026,
-      sizes: {
-        "46": { stack: null, reach: null, sta: null, hta: null },
-        "49": { stack: null, reach: null, sta: null, hta: null },
-        "52": { stack: null, reach: null, sta: null, hta: null },
-        "54": { stack: null, reach: null, sta: null, hta: null },
-        "56": { stack: null, reach: null, sta: null, hta: null },
-        "58": { stack: null, reach: null, sta: null, hta: null },
-        "61": { stack: null, reach: null, sta: null, hta: null },
-      }
-    },
-    "ONE": {
-      year: 2026,
-      sizes: {
-        "46": { stack: null, reach: null, sta: null, hta: null },
-        "49": { stack: null, reach: null, sta: null, hta: null },
-        "52": { stack: null, reach: null, sta: null, hta: null },
-        "54": { stack: null, reach: null, sta: null, hta: null },
-        "56": { stack: null, reach: null, sta: null, hta: null },
-        "58": { stack: null, reach: null, sta: null, hta: null },
-        "61": { stack: null, reach: null, sta: null, hta: null },
-      }
-    }
-  },
-  "Cannondale": {
-    "SuperSix EVO": {
-      year: 2025,
-      sizes: {
-        "48": { stack: 520, reach: 374, sta: 74.3, hta: 71.2 },
-        "51": { stack: 535, reach: 378, sta: 74.3, hta: 71.2 },
-        "54": { stack: 555, reach: 384, sta: 73.7, hta: 71.2 },
-        "56": { stack: 575, reach: 389, sta: 73.3, hta: 73.0 },
-        "58": { stack: 595, reach: 395, sta: 72.9, hta: 73.0 },
-        "61": { stack: 625, reach: 403, sta: 72.3, hta: 73.0 },
-      }
-    },
-    "SystemSix": {
-      year: 2020,
-      sizes: {
-        "47": { stack: 500, reach: 375, sta: 75.1, hta: 71.2 },
-        "51": { stack: 520, reach: 381, sta: 74.7, hta: 71.2 },
-        "54": { stack: 540, reach: 386, sta: 74.3, hta: 73.0 },
-        "56": { stack: 560, reach: 392, sta: 73.9, hta: 73.0 },
-        "58": { stack: 580, reach: 398, sta: 73.5, hta: 73.0 },
-        "60": { stack: 600, reach: 403, sta: 73.1, hta: 72.9 },
-        "62": { stack: 620, reach: 409, sta: 72.7, hta: 72.9 },
-      }
-    },
-    "Synapse": {
-      year: 2025,
-      sizes: {
-        "44": { stack: 510, reach: 366, sta: 73.0, hta: 69.8 },
-        "48": { stack: 530, reach: 371, sta: 73.0, hta: 70.9 },
-        "51": { stack: 550, reach: 376, sta: 73.0, hta: 71.3 },
-        "54": { stack: 570, reach: 381, sta: 73.0, hta: 71.3 },
-        "56": { stack: 590, reach: 387, sta: 73.0, hta: 71.3 },
-        "58": { stack: 610, reach: 393, sta: 73.0, hta: 71.3 },
-        "61": { stack: 640, reach: 402, sta: 73.0, hta: 71.3 },
-      }
-    }
-  },
-  "Ridley": {
-    "Noah Fast 3.0": {
-      year: 2026,
-      sizes: {
-        "XXS": { stack: null, reach: null, sta: null, hta: null },
-        "XS":  { stack: null, reach: null, sta: null, hta: null },
-        "S":   { stack: null, reach: null, sta: null, hta: null },
-        "M":   { stack: null, reach: null, sta: null, hta: null },
-        "L":   { stack: null, reach: null, sta: null, hta: null },
-        "XL":  { stack: null, reach: null, sta: null, hta: null },
-      }
-    },
-    "Helium SLX": {
-      year: 2026,
-      sizes: {
-        "XXS": { stack: null, reach: null, sta: null, hta: null },
-        "XS":  { stack: null, reach: null, sta: null, hta: null },
-        "S":   { stack: null, reach: null, sta: null, hta: null },
-        "M":   { stack: null, reach: null, sta: null, hta: null },
-        "L":   { stack: null, reach: null, sta: null, hta: null },
-        "XL":  { stack: null, reach: null, sta: null, hta: null },
-      }
-    }
-  },
-  "Wilier": {
-    "Filante SLR": {
-      year: 2026,
-      sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
-      }
-    },
-    "Zero SLR": {
-      year: 2026,
-      sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
-      }
-    }
-  },
-  "Merida": {
-    "Reacto": {
-      year: 2026,
-      sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
-      }
-    },
-    "Scultura": {
-      year: 2026,
-      sizes: {
-        "XXS": { stack: null, reach: null, sta: null, hta: null },
-        "XS":  { stack: null, reach: null, sta: null, hta: null },
-        "S":   { stack: null, reach: null, sta: null, hta: null },
-        "M":   { stack: null, reach: null, sta: null, hta: null },
-        "L":   { stack: null, reach: null, sta: null, hta: null },
-        "XL":  { stack: null, reach: null, sta: null, hta: null },
-      }
-    }
-  }
-};
 
 let activePresetLabel = '';
 
@@ -1550,13 +1047,17 @@ function calcSaddlePosition(saddleHeight, sta, saddleSetback) {
   return { x: saddleX, y: saddleY };
 }
 
-function calcHoodPosition(frameReach, frameStack, hta, spacerStack, stemLength, stemAngle, barReach) {
+function calcHoodPosition(frameReach, frameStack, hta, spacerStack, stemLength, stemAngle, barReach, stemHeight, barDiameter) {
+  stemHeight = stemHeight || 0;
+  barDiameter = barDiameter || 0;
   const htaRad = rad(hta);
 
-  // Spacers continue along steerer from top of head tube
-  // Steerer direction (upward): goes backward and up
-  const stemBaseX = frameReach + spacerStack * (-Math.cos(htaRad));
-  const stemBaseY = frameStack + spacerStack * Math.sin(htaRad);
+  // Total steerer travel = spacers + stem clamp height
+  const totalSteerer = spacerStack + stemHeight;
+
+  // Stem base along steerer from top of head tube
+  const stemBaseX = frameReach + totalSteerer * (-Math.cos(htaRad));
+  const stemBaseY = frameStack + totalSteerer * Math.sin(htaRad);
 
   // Stem angle from horizontal
   // stem_angle is relative to steerer perpendicular (0 = perpendicular to steerer)
@@ -1567,8 +1068,9 @@ function calcHoodPosition(frameReach, frameStack, hta, spacerStack, stemLength, 
   const stemEndY = stemBaseY + stemLength * Math.sin(stemAngleHoriz);
 
   // Handlebar reach is horizontal forward from stem clamp
+  // Handlebar radius (half diameter) adds to the hood height (hoods sit on top of the bar)
   const hoodX = stemEndX + barReach;
-  const hoodY = stemEndY;
+  const hoodY = stemEndY + barDiameter / 2;
 
   return {
     stemBase: { x: stemBaseX, y: stemBaseY },
@@ -1581,7 +1083,8 @@ function forwardCalc(params) {
   const saddle = calcSaddlePosition(params.saddleHeight, params.sta, params.saddleSetback);
   const hood = calcHoodPosition(
     params.reach, params.stack, params.hta,
-    params.spacerStack, params.stemLength, params.stemAngle, params.barReach
+    params.spacerStack, params.stemLength, params.stemAngle, params.barReach,
+    params.stemHeight, params.barDiameter
   );
 
   const saddleToHoodReach = hood.hood.x - saddle.x;
@@ -1594,11 +1097,11 @@ function forwardCalc(params) {
   // Hood height above BB
   const hoodHeight = hood.hood.y;
 
-  // Stack-to-hood (how high hoods are relative to frame stack)
-  const stackToHood = hood.hood.y - params.stack;
+  // Hood reach from BB (horizontal distance from BB to hoods)
+  const hoodReachFromBB = hood.hood.x;
 
-  // Saddle to handlebar drop (vertical drop from saddle to stem/bar junction)
-  const saddleToBarDrop = saddle.y - hood.stemEnd.y;
+  // Saddle to bar reach (horizontal distance from saddle to stem/bar junction)
+  const saddleToBarReach = hood.stemEnd.x - saddle.x;
 
   // Effective seat tube angle (actual angle from BB to saddle, accounting for setback)
   const effectiveSTA = deg(Math.atan2(saddle.y, -saddle.x));
@@ -1616,8 +1119,8 @@ function forwardCalc(params) {
     saddleToHoodDist,
     saddleVertical,
     hoodHeight,
-    stackToHood,
-    saddleToBarDrop,
+    hoodReachFromBB,
+    saddleToBarReach,
     effectiveSTA,
     saddleBBSetback
   };
@@ -1632,31 +1135,36 @@ function reverseSolve(params) {
   const targetHoodY = saddle.y - params.targetDrop;
 
   const htaRad = rad(params.hta);
+  const stemHeight = params.stemHeight || 0;
+  const barDiameter = params.barDiameter || 0;
+
+  // The hood position includes bar radius (half diameter) vertically above the stem end,
+  // and the steerer travel is spacerStack + stemHeight.
+  // So we solve for T = spacerStack + stemHeight (total steerer travel),
+  // then spacerStack = T - stemHeight.
+  // The stem end Y needs to be: targetHoodY - barDiameter/2
+  // Effective target for stem end:
+  const effTargetHoodY = targetHoodY - barDiameter / 2;
 
   if (params.fixVar === 'stem-angle') {
-    // Known: stem angle, solve for spacers (S) and stem length (L)
+    // Known: stem angle, solve for total steerer (T) and stem length (L)
     const stemAngleHoriz = rad(90 - params.hta + params.fixStemAngle);
     const cosA = Math.cos(stemAngleHoriz);
     const sinA = Math.sin(stemAngleHoriz);
 
-    // targetHoodX = reach + S*(-cos(HTA)) + L*cos(θ) + barReach
-    // targetHoodY = stack + S*sin(HTA) + L*sin(θ)
-    //
-    // L*cos(θ) + S*(-cos(HTA)) = targetHoodX - reach - barReach
-    // L*sin(θ) + S*sin(HTA) = targetHoodY - stack
-
+    // targetHoodX = reach + T*(-cos(HTA)) + L*cos(θ) + barReach
+    // effTargetHoodY = stack + T*sin(HTA) + L*sin(θ)
     const rhs1 = targetHoodX - params.reach - params.barReach;
-    const rhs2 = targetHoodY - params.stack;
+    const rhs2 = effTargetHoodY - params.stack;
 
-    // [cosA, -cos(HTA)] [L]   [rhs1]
-    // [sinA,  sin(HTA)] [S] = [rhs2]
     const det = cosA * Math.sin(htaRad) - sinA * (-Math.cos(htaRad));
     if (Math.abs(det) < 0.001) {
       return { error: 'No solution (degenerate angle combination)' };
     }
 
     const stemLength = (rhs1 * Math.sin(htaRad) - rhs2 * (-Math.cos(htaRad))) / det;
-    const spacerStack = (cosA * rhs2 - sinA * rhs1) / det;
+    const T = (cosA * rhs2 - sinA * rhs1) / det;
+    const spacerStack = T - stemHeight;
 
     return {
       stemLength: Math.round(stemLength * 10) / 10,
@@ -1668,13 +1176,12 @@ function reverseSolve(params) {
   } else if (params.fixVar === 'spacers') {
     // Known: spacers, solve for stem length (L) and stem angle (θ)
     const S = params.fixSpacers;
-    const baseX = params.reach + S * (-Math.cos(htaRad));
-    const baseY = params.stack + S * Math.sin(htaRad);
+    const T = S + stemHeight;
+    const baseX = params.reach + T * (-Math.cos(htaRad));
+    const baseY = params.stack + T * Math.sin(htaRad);
 
-    // L*cos(θ) = targetHoodX - baseX - barReach
-    // L*sin(θ) = targetHoodY - baseY
     const dx = targetHoodX - baseX - params.barReach;
-    const dy = targetHoodY - baseY;
+    const dy = effTargetHoodY - baseY;
 
     const stemLength = Math.sqrt(dx * dx + dy * dy);
     const stemAngleHoriz = Math.atan2(dy, dx);
@@ -1688,19 +1195,14 @@ function reverseSolve(params) {
     };
 
   } else if (params.fixVar === 'stem-length') {
-    // Known: stem length, solve for spacers (S) and stem angle
-    // This is trickier — we have:
-    // (targetHoodX - reach - barReach - S*(-cos(HTA)))^2 + (targetHoodY - stack - S*sin(HTA))^2 = L^2
-    // This gives us S, then we find the angle.
+    // Known: stem length, solve for total steerer (T) and stem angle
     const L = params.fixStemLength;
     const A = targetHoodX - params.reach - params.barReach;
-    const B = targetHoodY - params.stack;
+    const B = effTargetHoodY - params.stack;
     const cx = -Math.cos(htaRad);
     const cy = Math.sin(htaRad);
 
-    // (A - S*cx)^2 + (B - S*cy)^2 = L^2
-    // (cx^2 + cy^2)*S^2 - 2*(A*cx + B*cy)*S + (A^2 + B^2 - L^2) = 0
-    // Note: cx^2 + cy^2 = cos^2 + sin^2 = 1
+    // (A - T*cx)^2 + (B - T*cy)^2 = L^2
     const a = 1;
     const b = -2 * (A * cx + B * cy);
     const c = A * A + B * B - L * L;
@@ -1710,26 +1212,29 @@ function reverseSolve(params) {
       return { error: 'No solution (stem too short to reach target)' };
     }
 
-    // Two solutions — pick the one with positive spacer stack
-    const s1 = (-b + Math.sqrt(disc)) / (2 * a);
-    const s2 = (-b - Math.sqrt(disc)) / (2 * a);
+    const t1 = (-b + Math.sqrt(disc)) / (2 * a);
+    const t2 = (-b - Math.sqrt(disc)) / (2 * a);
 
-    let S;
-    if (s1 >= 0 && s2 >= 0) S = Math.min(s1, s2); // prefer less spacers
-    else if (s1 >= 0) S = s1;
-    else if (s2 >= 0) S = s2;
+    // Convert T to spacerStack = T - stemHeight, pick valid (spacerStack >= 0)
+    const sp1 = t1 - stemHeight;
+    const sp2 = t2 - stemHeight;
+
+    let T, spacerStack;
+    if (sp1 >= 0 && sp2 >= 0) { spacerStack = Math.min(sp1, sp2); T = spacerStack + stemHeight; }
+    else if (sp1 >= 0) { spacerStack = sp1; T = t1; }
+    else if (sp2 >= 0) { spacerStack = sp2; T = t2; }
     else return { error: 'No valid solution (negative spacers required)' };
 
-    const baseX = params.reach + S * cx;
-    const baseY = params.stack + S * cy;
+    const baseX = params.reach + T * cx;
+    const baseY = params.stack + T * cy;
     const dx = targetHoodX - baseX - params.barReach;
-    const dy = targetHoodY - baseY;
+    const dy = effTargetHoodY - baseY;
     const stemAngleHoriz = Math.atan2(dy, dx);
     const stemAngle = deg(stemAngleHoriz) - (90 - params.hta);
 
     return {
       stemLength: L,
-      spacerStack: Math.round(S * 10) / 10,
+      spacerStack: Math.round(spacerStack * 10) / 10,
       stemAngle: Math.round(stemAngle * 10) / 10,
       saddle, targetHoodX, targetHoodY
     };
@@ -1917,7 +1422,9 @@ function recalculate() {
       stemLength: getVal('stem-length'),
       stemAngle: getVal('stem-angle'),
       spacerStack: getVal('spacer-stack'),
+      stemHeight: getVal('stem-height'),
       barReach: getVal('bar-reach'),
+      barDiameter: getVal('bar-diameter'),
       saddleHeight: getVal('saddle-height'),
       saddleSetback: getVal('saddle-setback')
     };
@@ -1939,6 +1446,8 @@ function recalculate() {
       saddleHeight: getVal('target-saddle-height'),
       saddleSetback: getVal('target-saddle-setback'),
       barReach: getVal('target-bar-reach'),
+      stemHeight: getVal('target-stem-height'),
+      barDiameter: getVal('target-bar-diameter'),
       targetReach: getVal('target-reach'),
       targetDrop: getVal('target-drop'),
       fixVar
@@ -1958,12 +1467,20 @@ function recalculate() {
         stemLength: result.stemLength,
         stemAngle: result.stemAngle,
         spacerStack: result.spacerStack,
+        stemHeight: params.stemHeight,
         barReach: params.barReach,
+        barDiameter: params.barDiameter,
         saddleHeight: params.saddleHeight,
         saddleSetback: params.saddleSetback
       };
       const fwdResults = forwardCalc(fwdParams);
       drawBikeDiagram(fwdParams, fwdResults);
+      const bbDisplayRev = document.getElementById('bb-setback-display-reverse');
+      if (bbDisplayRev) {
+        const tip = bbDisplayRev.querySelector('.tip-text');
+        const tipHtml = tip ? tip.outerHTML : '';
+        bbDisplayRev.innerHTML = '↳ ' + (Math.round(fwdResults.saddleBBSetback * 10) / 10) + 'mm behind BB ⓘ' + tipHtml;
+      }
     }
   }
 }
@@ -1974,12 +1491,12 @@ function renderForwardResults(r) {
   const items = [
     { label: 'Saddle → Hood Reach', value: r.saddleToHoodReach, unit: 'mm', highlight: true, tooltip: 'Horizontal distance from the saddle BRP (Biomechanical Reference Point) to the brake hoods. The primary measurement for how stretched out your position is.' },
     { label: 'Saddle → Hood Drop', value: r.saddleToHoodDrop, unit: 'mm', highlight: true, tooltip: 'Vertical drop from the saddle BRP to the brake hoods. Positive means hoods are lower than saddle. More drop = more aggressive.' },
-    { label: 'Saddle → Bar Drop', value: r.saddleToBarDrop, unit: 'mm', tooltip: 'Vertical drop from the saddle BRP to the stem/bar junction. Excludes handlebar reach, so reflects the frame and stem position only.' },
+    { label: 'Saddle → Bar Reach', value: r.saddleToBarReach, unit: 'mm', tooltip: 'Horizontal distance from the saddle BRP to the stem/bar junction. Excludes handlebar reach, so reflects the frame and stem position only.' },
     { label: 'Saddle → Hood Distance', value: r.saddleToHoodDist, unit: 'mm', tooltip: 'Straight-line distance from the saddle BRP to the brake hoods, combining both reach and drop.' },
     { label: 'Effective Seat Tube Angle', value: r.effectiveSTA, unit: '°', tooltip: 'Actual angle from the BB centre to the saddle BRP, accounting for any saddle setback. May differ from the frame seat tube angle.' },
     { label: 'Saddle Height (vertical)', value: r.saddleVertical, unit: 'mm', tooltip: 'True vertical height of the saddle BRP above the bottom bracket centre. Slightly less than the along-tube saddle height measurement.' },
     { label: 'Hood Height above BB', value: r.hoodHeight, unit: 'mm', tooltip: 'Vertical height of the brake hoods above the bottom bracket centre. Determined by frame stack, spacers, stem, and bar.' },
-    { label: 'Stack to Hood', value: r.stackToHood, unit: 'mm', tooltip: 'How much higher (or lower) the hoods sit relative to the top of the head tube. Shows the effect of spacers, stem angle, and stem length on bar height.' },
+    { label: 'Hood Reach from BB', value: r.hoodReachFromBB, unit: 'mm', tooltip: 'Horizontal distance from the bottom bracket centre to the brake hoods. Shows how far forward the hoods are from the BB, combining frame reach, spacers, stem, and handlebar reach.' },
   ];
 
   container.innerHTML = items.map(item => {
