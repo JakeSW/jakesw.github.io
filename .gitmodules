@@ -1,0 +1,3 @@
+[submodule "bikefit"]
+	path = bikefit
+	url = https://github.com/JakeSW/bikefitcalculator.git
