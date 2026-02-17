@@ -576,34 +576,37 @@ const BIKE_DATABASE = {
     "Orca Aero": {
       year: 2026,
       sizes: {
-        "47": { stack: null, reach: null, sta: null, hta: null },
-        "51": { stack: null, reach: null, sta: null, hta: null },
-        "53": { stack: null, reach: null, sta: null, hta: null },
-        "55": { stack: null, reach: null, sta: null, hta: null },
-        "57": { stack: null, reach: null, sta: null, hta: null },
-        "60": { stack: null, reach: null, sta: null, hta: null },
+        "47": { stack: 496, reach: 370, sta: 74.5, hta: 71.0 },
+        "49": { stack: 505, reach: 376, sta: 74.0, hta: 71.5 },
+        "51": { stack: 523, reach: 380, sta: 73.7, hta: 72.2 },
+        "53": { stack: 542, reach: 385, sta: 73.5, hta: 72.8 },
+        "55": { stack: 562, reach: 391, sta: 73.5, hta: 73.0 },
+        "57": { stack: 580, reach: 398, sta: 73.2, hta: 73.2 },
+        "60": { stack: 606, reach: 404, sta: 73.2, hta: 73.2 },
       }
     },
     "Orca": {
       year: 2026,
       sizes: {
-        "47": { stack: null, reach: null, sta: null, hta: null },
-        "51": { stack: null, reach: null, sta: null, hta: null },
-        "53": { stack: null, reach: null, sta: null, hta: null },
-        "55": { stack: null, reach: null, sta: null, hta: null },
-        "57": { stack: null, reach: null, sta: null, hta: null },
-        "60": { stack: null, reach: null, sta: null, hta: null },
+        "47": { stack: 506, reach: 370, sta: 74.5, hta: 71.0 },
+        "49": { stack: 515, reach: 375, sta: 74.0, hta: 71.5 },
+        "51": { stack: 533, reach: 380, sta: 73.7, hta: 72.2 },
+        "53": { stack: 552, reach: 385, sta: 73.5, hta: 72.8 },
+        "55": { stack: 572, reach: 391, sta: 73.5, hta: 73.0 },
+        "57": { stack: 590, reach: 398, sta: 73.2, hta: 73.2 },
+        "60": { stack: 616, reach: 404, sta: 73.2, hta: 73.2 },
       }
     },
     "Avant": {
       year: 2026,
       sizes: {
-        "47": { stack: null, reach: null, sta: null, hta: null },
-        "51": { stack: null, reach: null, sta: null, hta: null },
-        "53": { stack: null, reach: null, sta: null, hta: null },
-        "55": { stack: null, reach: null, sta: null, hta: null },
-        "57": { stack: null, reach: null, sta: null, hta: null },
-        "60": { stack: null, reach: null, sta: null, hta: null },
+        "47": { stack: 525, reach: 370, sta: 74.5, hta: 70.5 },
+        "49": { stack: 545, reach: 375, sta: 74.0, hta: 71.0 },
+        "51": { stack: 565, reach: 380, sta: 73.75, hta: 71.5 },
+        "53": { stack: 585, reach: 385, sta: 73.75, hta: 71.8 },
+        "55": { stack: 605, reach: 391, sta: 73.75, hta: 72.0 },
+        "57": { stack: 625, reach: 398, sta: 73.2, hta: 72.2 },
+        "60": { stack: 645, reach: 404, sta: 73.2, hta: 72.5 },
       }
     }
   },
@@ -742,21 +745,21 @@ const BIKE_DATABASE = {
     "785 Huez RS": {
       year: 2026,
       sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
+        "XS": { stack: 510, reach: 365, sta: 74.0, hta: 71.8 },
+        "S":  { stack: 534, reach: 375, sta: 74.0, hta: 71.8 },
+        "M":  { stack: 558, reach: 385, sta: 73.0, hta: 73.0 },
+        "L":  { stack: 582, reach: 395, sta: 73.0, hta: 73.0 },
+        "XL": { stack: 606, reach: 405, sta: 73.0, hta: 73.0 },
       }
     },
     "765 Optimum": {
       year: 2026,
       sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
+        "XS": { stack: 534, reach: 359, sta: 74.0, hta: 70.8 },
+        "S":  { stack: 558, reach: 369, sta: 74.0, hta: 70.8 },
+        "M":  { stack: 582, reach: 379, sta: 74.0, hta: 70.8 },
+        "L":  { stack: 606, reach: 389, sta: 74.0, hta: 70.8 },
+        "XL": { stack: 630, reach: 399, sta: 74.0, hta: 70.8 },
       }
     },
   }
