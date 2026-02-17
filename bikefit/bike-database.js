@@ -157,34 +157,34 @@ const BIKE_DATABASE = {
     "Propel Advanced SL": {
       year: 2026,
       sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "M/L": { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
+        "XS": { stack: 517, reach: 376, sta: 74.5, hta: 71.0 },
+        "S":  { stack: 528, reach: 383, sta: 74.0, hta: 72.3 },
+        "M":  { stack: 545, reach: 388, sta: 73.5, hta: 73.0 },
+        "ML": { stack: 562, reach: 393, sta: 73.0, hta: 73.0 },
+        "L":  { stack: 581, reach: 402, sta: 73.0, hta: 73.0 },
+        "XL": { stack: 596, reach: 412, sta: 72.5, hta: 73.0 },
       }
     },
     "TCR Advanced SL": {
       year: 2026,
       sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "M/L": { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
+        "XS": { stack: 517, reach: 376, sta: 74.5, hta: 71.0 },
+        "S":  { stack: 528, reach: 383, sta: 74.0, hta: 72.3 },
+        "M":  { stack: 545, reach: 388, sta: 73.5, hta: 73.5 },
+        "ML": { stack: 562, reach: 393, sta: 73.0, hta: 73.0 },
+        "L":  { stack: 581, reach: 402, sta: 73.0, hta: 73.0 },
+        "XL": { stack: 596, reach: 412, sta: 72.5, hta: 72.5 },
       }
     },
     "Defy Advanced": {
       year: 2026,
       sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "M/L": { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
+        "XS": { stack: 527, reach: 369, sta: 74.5, hta: 70.5 },
+        "S":  { stack: 541, reach: 375, sta: 74.0, hta: 71.8 },
+        "M":  { stack: 558, reach: 380, sta: 73.5, hta: 72.5 },
+        "ML": { stack: 577, reach: 384, sta: 73.0, hta: 72.5 },
+        "L":  { stack: 596, reach: 393, sta: 73.0, hta: 72.5 },
+        "XL": { stack: 615, reach: 402, sta: 73.0, hta: 72.5 },
       }
     }
   },
@@ -215,25 +215,24 @@ const BIKE_DATABASE = {
     "Roubaix": {
       year: 2026,
       sizes: {
-        "44": { stack: null, reach: null, sta: null, hta: null },
-        "49": { stack: null, reach: null, sta: null, hta: null },
-        "52": { stack: null, reach: null, sta: null, hta: null },
-        "54": { stack: null, reach: null, sta: null, hta: null },
-        "56": { stack: null, reach: null, sta: null, hta: null },
-        "58": { stack: null, reach: null, sta: null, hta: null },
-        "61": { stack: null, reach: null, sta: null, hta: null },
+        "44": { stack: 543, reach: 353, sta: 75.0, hta: 69.3 },
+        "49": { stack: 549, reach: 363, sta: 74.0, hta: 70.8 },
+        "52": { stack: 566, reach: 370, sta: 74.0, hta: 71.5 },
+        "54": { stack: 585, reach: 381, sta: 74.0, hta: 72.3 },
+        "56": { stack: 605, reach: 389, sta: 73.5, hta: 73.0 },
+        "58": { stack: 630, reach: 397, sta: 73.5, hta: 73.0 },
+        "61": { stack: 665, reach: 403, sta: 73.5, hta: 73.5 },
       }
     },
     "Allez Sprint": {
       year: 2026,
       sizes: {
-        "44": { stack: null, reach: null, sta: null, hta: null },
-        "49": { stack: null, reach: null, sta: null, hta: null },
-        "52": { stack: null, reach: null, sta: null, hta: null },
-        "54": { stack: null, reach: null, sta: null, hta: null },
-        "56": { stack: null, reach: null, sta: null, hta: null },
-        "58": { stack: null, reach: null, sta: null, hta: null },
-        "61": { stack: null, reach: null, sta: null, hta: null },
+        "49": { stack: 508, reach: 378, sta: 75.5, hta: 71.75 },
+        "52": { stack: 520, reach: 383, sta: 74.0, hta: 72.5 },
+        "54": { stack: 537, reach: 387, sta: 74.0, hta: 73.0 },
+        "56": { stack: 558, reach: 398, sta: 73.5, hta: 73.5 },
+        "58": { stack: 584, reach: 405, sta: 73.5, hta: 73.5 },
+        "61": { stack: 605, reach: 411, sta: 73.0, hta: 74.0 },
       }
     }
   },
@@ -257,33 +256,31 @@ const BIKE_DATABASE = {
     "F Series": {
       year: 2026,
       sizes: {
-        "43": { stack: null, reach: null, sta: null, hta: null },
-        "46.5": { stack: null, reach: null, sta: null, hta: null },
-        "50": { stack: null, reach: null, sta: null, hta: null },
-        "51.5": { stack: null, reach: null, sta: null, hta: null },
-        "53": { stack: null, reach: null, sta: null, hta: null },
-        "54": { stack: null, reach: null, sta: null, hta: null },
-        "55": { stack: null, reach: null, sta: null, hta: null },
-        "56": { stack: null, reach: null, sta: null, hta: null },
-        "57.5": { stack: null, reach: null, sta: null, hta: null },
-        "59.5": { stack: null, reach: null, sta: null, hta: null },
-        "62": { stack: null, reach: null, sta: null, hta: null },
+        "43":   { stack: 502.5, reach: 351.3, sta: 74.4, hta: 69.5 },
+        "46.5": { stack: 517.7, reach: 365.2, sta: 74.4, hta: 70.5 },
+        "50":   { stack: 525.5, reach: 372.1, sta: 74.0, hta: 71.4 },
+        "51.5": { stack: 532.3, reach: 378.1, sta: 73.7, hta: 72.0 },
+        "53":   { stack: 542.6, reach: 385.6, sta: 73.7, hta: 72.5 },
+        "54.5": { stack: 557.9, reach: 388.3, sta: 73.4, hta: 72.8 },
+        "56":   { stack: 570.3, reach: 390.8, sta: 73.0, hta: 73.2 },
+        "57.5": { stack: 599.3, reach: 395.4, sta: 73.0, hta: 73.7 },
+        "59.5": { stack: 633.5, reach: 400.3, sta: 72.4, hta: 73.4 },
       }
     },
-    "X Series": {
+    "Dogma X": {
       year: 2026,
       sizes: {
-        "43": { stack: null, reach: null, sta: null, hta: null },
-        "46.5": { stack: null, reach: null, sta: null, hta: null },
-        "50": { stack: null, reach: null, sta: null, hta: null },
-        "51.5": { stack: null, reach: null, sta: null, hta: null },
-        "53": { stack: null, reach: null, sta: null, hta: null },
-        "54": { stack: null, reach: null, sta: null, hta: null },
-        "55": { stack: null, reach: null, sta: null, hta: null },
-        "56": { stack: null, reach: null, sta: null, hta: null },
-        "57.5": { stack: null, reach: null, sta: null, hta: null },
-        "59.5": { stack: null, reach: null, sta: null, hta: null },
-        "62": { stack: null, reach: null, sta: null, hta: null },
+        "43":   { stack: 524.2, reach: 349.3, sta: 74.4, hta: 70.0 },
+        "46.5": { stack: 535.5, reach: 358.1, sta: 74.4, hta: 70.0 },
+        "50":   { stack: 542.1, reach: 365.4, sta: 74.0, hta: 70.5 },
+        "51.5": { stack: 548.6, reach: 371.7, sta: 73.7, hta: 71.0 },
+        "53":   { stack: 559, reach: 379.4, sta: 73.7, hta: 71.5 },
+        "54":   { stack: 568.4, reach: 381.2, sta: 73.4, hta: 72.0 },
+        "55":   { stack: 578.9, reach: 383, sta: 73.4, hta: 72.0 },
+        "56":   { stack: 588.4, reach: 384.6, sta: 73.0, hta: 72.5 },
+        "57.5": { stack: 601.7, reach: 390.8, sta: 73.0, hta: 72.8 },
+        "59.5": { stack: 632, reach: 395.3, sta: 72.4, hta: 73.0 },
+        "62":   { stack: 670.3, reach: 403.8, sta: 72.0, hta: 73.0 },
       }
     }
   },
@@ -614,31 +611,33 @@ const BIKE_DATABASE = {
     "Xelius": {
       year: 2026,
       sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
+        "XS":  { stack: 501, reach: 376, sta: 74.0, hta: 72.0 },
+        "S":   { stack: 516, reach: 383, sta: 74.0, hta: 72.0 },
+        "M":   { stack: 538, reach: 393, sta: 74.0, hta: 73.0 },
+        "L":   { stack: 557, reach: 403, sta: 73.5, hta: 73.0 },
+        "XL":  { stack: 580, reach: 415, sta: 73.5, hta: 74.0 },
+        "XXL": { stack: 599, reach: 428, sta: 73.5, hta: 74.0 },
       }
     },
     "Aircode": {
       year: 2026,
       sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
+        "XS": { stack: 501, reach: 376, sta: 74.0, hta: 72.0 },
+        "S":  { stack: 516, reach: 383, sta: 74.0, hta: 72.0 },
+        "M":  { stack: 538, reach: 393, sta: 74.0, hta: 73.0 },
+        "L":  { stack: 557, reach: 403, sta: 73.5, hta: 73.0 },
+        "XL": { stack: 580, reach: 415, sta: 73.5, hta: 74.0 },
       }
     },
     "Pulsium": {
       year: 2026,
       sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
+        "XS":  { stack: 527, reach: 375, sta: 74.5, hta: 71.0 },
+        "S":   { stack: 541, reach: 379, sta: 74.5, hta: 71.0 },
+        "M":   { stack: 562, reach: 384, sta: 74.0, hta: 71.5 },
+        "L":   { stack: 579, reach: 389, sta: 73.5, hta: 72.0 },
+        "XL":  { stack: 599, reach: 394, sta: 73.0, hta: 72.0 },
+        "XXL": { stack: 618, reach: 400, sta: 72.5, hta: 72.5 },
       }
     }
   },
@@ -676,24 +675,64 @@ const BIKE_DATABASE = {
     }
   },
   "Winspace": {
-    "T1500": {
+    "T1550": {
       year: 2026,
       sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
+        "XS": { stack: 504.72, reach: 363, sta: 75.1, hta: 70.7 },
+        "S":  { stack: 521.76, reach: 372, sta: 74.3, hta: 71.5 },
+        "M":  { stack: 534.88, reach: 381, sta: 74.0, hta: 72.0 },
+        "L":  { stack: 560.42, reach: 388, sta: 73.5, hta: 72.5 },
+        "XL": { stack: 585.7, reach: 397, sta: 73.0, hta: 72.9 },
       }
     },
-    "SLC 2.0": {
+    "T1600": {
       year: 2026,
       sizes: {
-        "XS": { stack: null, reach: null, sta: null, hta: null },
-        "S":  { stack: null, reach: null, sta: null, hta: null },
-        "M":  { stack: null, reach: null, sta: null, hta: null },
-        "L":  { stack: null, reach: null, sta: null, hta: null },
-        "XL": { stack: null, reach: null, sta: null, hta: null },
+        "XS": { stack: 498, reach: 365, sta: 74.8, hta: 70.7 },
+        "S":  { stack: 510, reach: 372, sta: 74.3, hta: 71.5 },
+        "M":  { stack: 524, reach: 382, sta: 74.0, hta: 72.0 },
+        "L":  { stack: 544, reach: 392, sta: 73.8, hta: 72.5 },
+        "XL": { stack: 565, reach: 407, sta: 73.4, hta: 72.9 },
+      }
+    },
+    "C5 Aero": {
+      year: 2026,
+      sizes: {
+        "XS": { stack: 512, reach: 365, sta: 75.35, hta: 70.6 },
+        "S":  { stack: 528, reach: 372, sta: 74.9, hta: 71.3 },
+        "M":  { stack: 542, reach: 382, sta: 74.0, hta: 72.1 },
+        "L":  { stack: 557, reach: 387, sta: 73.5, hta: 72.3 },
+        "XL": { stack: 571, reach: 397, sta: 72.3, hta: 72.3 },
+      }
+    },
+    "C5": {
+      year: 2026,
+      sizes: {
+        "XS": { stack: 512, reach: 365, sta: 75.35, hta: 70.6 },
+        "S":  { stack: 528, reach: 372, sta: 74.9, hta: 71.3 },
+        "M":  { stack: 542, reach: 382, sta: 74.0, hta: 72.1 },
+        "L":  { stack: 557, reach: 387, sta: 73.5, hta: 72.3 },
+        "XL": { stack: 571, reach: 397, sta: 73.1, hta: 72.3 },
+      }
+    },
+    "G3": {
+      year: 2026,
+      sizes: {
+        "XS": { stack: 539, reach: 363, sta: 73.5, hta: 69.5 },
+        "S":  { stack: 551, reach: 370, sta: 73.5, hta: 70.0 },
+        "M":  { stack: 568, reach: 377, sta: 73.5, hta: 70.5 },
+        "L":  { stack: 582, reach: 388, sta: 73.5, hta: 70.5 },
+        "XL": { stack: 601, reach: 399, sta: 73.5, hta: 70.5 },
+      }
+    },
+    "SLC5": {
+      year: 2026,
+      sizes: {
+        "XS": { stack: 508, reach: 366, sta: 74.9, hta: 70.7 },
+        "S":  { stack: 520, reach: 372, sta: 74.4, hta: 71.3 },
+        "M":  { stack: 535, reach: 382, sta: 74.0, hta: 72.0 },
+        "L":  { stack: 555, reach: 389, sta: 73.5, hta: 72.3 },
+        "XL": { stack: 575, reach: 399, sta: 73.0, hta: 72.6 },
       }
     },
   },
