@@ -1114,7 +1114,12 @@ function renderPresetModal() {
 
       anyModelVisible = true;
       let sizeBtns = '';
-      for (const [size, geo] of Object.entries(data.sizes)) {
+      const sizeEntries = Object.entries(data.sizes).sort(([a], [b]) => {
+        const na = parseFloat(a), nb = parseFloat(b);
+        if (!isNaN(na) && !isNaN(nb)) return na - nb;
+        return 0; // preserve original order for non-numeric sizes (XS, S, M, etc.)
+      });
+      for (const [size, geo] of sizeEntries) {
         const hasData = geo.stack !== null;
         const cls = hasData ? '' : ' no-data';
         const title = hasData
