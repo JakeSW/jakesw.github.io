@@ -1,0 +1,8 @@
+@inproceedings{pullin2025ear,
+  title={Ear-ECG Denoising Using Heart Sounds and the Extended Kalman Filter},
+  author={Pullin, Adam and Stuchbury-Wass, Jake and Ciliberto, Mathias and Butkow, Kayla-Jade and Lepold, Philipp and R{\"o}ddiger, Tobias and Mascolo, Cecilia},
+  booktitle={2025 IEEE 21st International Conference on Body Sensor Networks (BSN)},
+  pages={1--4},
+  year={2025},
+  organization={IEEE}
+}

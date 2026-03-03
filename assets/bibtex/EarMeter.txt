@@ -1,0 +1,10 @@
+@article{liu2025earmeter,
+  title={EarMeter: Continuous Respiration Volume Monitoring with Earables},
+  author={Liu, Yang and Yang, Qiang and Butkow, Kayla-Jade and Stuchbury-Wass, Jake and Ma, Dong and Mascolo, Cecilia},
+  journal={Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},
+  volume={9},
+  number={4},
+  pages={1--29},
+  year={2025},
+  publisher={ACM New York, NY, USA}
+}

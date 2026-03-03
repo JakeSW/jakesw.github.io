@@ -1,0 +1,7 @@
+@inproceedings{yang2025smarteeth,
+  title={Smarteeth: Augmenting manual toothbrushing with in-ear microphones},
+  author={Yang, Qiang and Liu, Yang and Stuchbury-Wass, Jake and Butkow, Kayla-Jade and Panariti, Emeli and Ma, Dong and Mascolo, Cecilia},
+  booktitle={Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems},
+  pages={1--19},
+  year={2025}
+}
