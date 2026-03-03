@@ -1,11 +1,21 @@
 main:
 
+  - title: "EarCalo: Earable-Based Energy Expenditure Estimation While Running"
+    authors: Yang Liu, Qiang Yang, <strong>Jake Stuchbury-Wass</strong>, Dong Ma, Cecilia Mascolo
+    conference_short: HotMobile
+    conference: Proceedings of the 27th International Workshop on Mobile Computing Systems and Applications, 2026.
+    pdf: ./
+    page: https://dl.acm.org/doi/10.1145/3789514.3792046
+    bibtex: ./assets/bibtex/EarCalo.txt
+    image: ./assets/img/earcalo.png
+
   - title: "Measuring Cardiac Stroke Volume Through In-ear Audio Sensing"
     authors: Kayla-Jade Butkow, Navazh Jalaludeen, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Qiang Yang, Mathias Ciliberto, Dong Ma, Joseph Cheriyan Cecilia Mascolo
     conference_short: Nature Comms
     conference: Nature Communications 2025.
     pdf: ./
     page: ./
+    bibtex: ./assets/bibtex/StrokeVolume.txt
     image: ./assets/img/strokevolume.png
 
   - title: "EarMeter: Continuous Respiration Volume Monitoring with Earables"
@@ -14,6 +24,7 @@ main:
     conference: IMWUT Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2025.
     pdf: ./
     page: ./
+    bibtex: ./assets/bibtex/EarMeter.txt
     image: ./assets/img/earmeter.png
 
   - title: "HearForce: Force Estimation for Manual Toothbrushing with Earables."
@@ -22,6 +33,7 @@ main:
     conference: IMWUT Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2025.
     pdf: ./
     page: ./
+    bibtex: ./assets/bibtex/HearForce.txt
     image: ./assets/img/hearforce.png
 
   - title: "Ear-ECG Denoising Using Heart Sounds and the Extended Kalman Filter"
@@ -30,6 +42,7 @@ main:
     conference: IEEE EMBS International Conference on Body Sensor Networks, 2025.
     pdf: https://openreview.net/pdf?id=eQE5YiQexy
     page: https://openreview.net/forum?id=eQE5YiQexy
+    bibtex: ./assets/bibtex/EarECG.txt
     image: ./assets/img/earecg.png
 
   - title: "Deep-Learning Based Segmentation of In-Ear Cardiac Sounds"
@@ -38,6 +51,7 @@ main:
     conference: EMBC International Conference of the IEEE Engineering in Medicine and Biology Society, 2025.
     pdf: ./
     page: ./
+    bibtex: ./assets/bibtex/Segments.txt
     image: ./assets/img/segments.png
 
   - title: "WalkEar: Holistic Gait Monitoring using Earables"
@@ -46,6 +60,7 @@ main:
     conference: PerCom 2025 IEEE International Conference on Pervasive Computing and Communications, 2025.
     pdf: https://mobile-systems.cl.cam.ac.uk/papers/walkear.pdf
     page: https://ieeexplore.ieee.org/abstract/document/11018731
+    bibtex: ./assets/bibtex/WalkEar.txt
     image: ./assets/img/WalkEar.png
 
   - title: "RespEar: Earable-Based Robust Respiratory Rate Monitoring"
@@ -64,6 +79,7 @@ main:
     conference: ACM CHI Conference on Human Factors in Computing Systems, 2025.
     pdf: https://www.cl.cam.ac.uk/~qy258/assets/files/paper/25-CHI-SmarTeeth.pdf
     page: ./
+    bibtex: ./assets/bibtex/SmarTeeth.txt
     image: ./assets/img/SmarTeeth.png
 
   - title: "BrushBuds: Toothbrushing Tracking Using Earphone IMUs"

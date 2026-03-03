@@ -1,0 +1,8 @@
+@inproceedings{stuchbury2025walkear,
+  title={WalkEar: holistic gait monitoring using earables},
+  author={Stuchbury-Wass, Jake and Liu, Yang and Butkow, Kayla-Jade and Carter, Josh and Yang, Qiang and Ciliberto, Mathias and Preatoni, Ezio and Ma, Dong and Mascolo, Cecilia},
+  booktitle={2025 IEEE International Conference on Pervasive Computing and Communications (PerCom)},
+  pages={99--109},
+  year={2025},
+  organization={IEEE}
+}

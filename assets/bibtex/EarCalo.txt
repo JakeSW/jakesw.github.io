@@ -1,0 +1,9 @@
+@inproceedings{liu2026earcalo,
+  title={EarCalo: Earable-Based Energy Expenditure Estimation While Running},
+  author={Liu, Yang and Yang, Qiang and Stuchbury-Wass, Jake and Ma, Dong and Mascolo, Cecilia},
+  booktitle={Proceedings of the 27th International Workshop on Mobile Computing Systems and Applications (HotMobile)},
+  pages={103--108},
+  year={2026},
+  publisher={ACM},
+  doi={10.1145/3789514.3792046}
+}

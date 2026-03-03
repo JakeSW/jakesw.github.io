@@ -1,0 +1,10 @@
+@article{yang2025hearforce,
+  title={HearForce: Force Estimation for Manual Toothbrushing with Earables},
+  author={Yang, Qiang and Liu, Yang and Stuchbury-Wass, Jake and Ciliberto, Mathias and R{\"o}ddiger, Tobias and Butkow, Kayla-Jade and Pullin, Adam Luke and Panariti, Emeli and Ma, Dong and Mascolo, Cecilia},
+  journal={Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},
+  volume={9},
+  number={4},
+  pages={1--22},
+  year={2025},
+  publisher={ACM New York, NY, USA}
+}

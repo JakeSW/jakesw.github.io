@@ -1,0 +1,6 @@
+@article{butkow2025measuring,
+  title={Measuring Cardiac Stroke Volume Through In-ear Audio Sensing},
+  author={Butkow, Kayla-Jade and Jalaludeen, Navazh and Liu, Yang and Stuchbury-Wass, Jake and Yang, Qiang and Ciliberto, Mathias and Ma, Dong and Cheriyan, Joseph and Mascolo, Cecilia},
+  journal={Nature Communications},
+  year={2025}
+}

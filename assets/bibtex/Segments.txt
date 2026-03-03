@@ -1,0 +1,8 @@
+@inproceedings{waters2025deep,
+  title={Deep-learning based segmentation of in-ear cardiac sounds},
+  author={Waters, Jordan and Stuchbury-Wass, Jake and Liu, Yang and Butkow, Kayla-Jade and Mascolo, Cecilia},
+  booktitle={2025 47th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)},
+  pages={1--7},
+  year={2025},
+  organization={IEEE}
+}
