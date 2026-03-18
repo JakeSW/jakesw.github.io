@@ -53,8 +53,10 @@ Please get in touch if you'd like to collaborate!
 - **Reviewing:**
   - [IEEE Transactions on Mobile Computing](https://www.computer.org/csdl/journal/tm)
   - [ACM IMWUT](https://dl.acm.org/journal/imwut)
+  - [PeerJ Journal](https://peerj.com)
   - [IEEE ICASSP](https://2025.ieeeicassp.org)
   - [ACM UbiComp/ISWC](https://www.ubicomp.org)
+
 - **Outreach:**
   - [Cambridge Festival 2025:](https://www.festival.cam.ac.uk/events/measure-your-heart-rate-your-earphones) Demonstrating our earable systems for vital sign estimation
   - Cambridge Festival 2023: Running a workshop on building sensor systems with Arduino
