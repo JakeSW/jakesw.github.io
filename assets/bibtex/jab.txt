@@ -1,0 +1,10 @@
+@article{stuchbury2026jab,
+  author={Stuchbury-Wass, Jake and Ciliberto, Mathias and Butkow, Kayla-Jade and Liu, Yang and Yang, Qiang and Preatoni, Ezio and Ma, Dong and Mascolo, Cecilia},  
+  title = {Ear-worn inertial sensors can predict gait metrics and reconstruct vertical ground reaction force curves during running},
+  journal = {Journal of Applied Biomechanics},
+  year = {2026},
+  volume = {42},
+  number = {2},
+  pages = {100--110},
+  doi = {10.1123/jab.2025-0337},
+}

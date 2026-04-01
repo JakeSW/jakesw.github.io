@@ -1,5 +1,14 @@
 main:
 
+  - title: "Ear-worn inertial sensors can predict gait metrics and reconstruct vertical ground reaction force curves during running"
+    authors: Jake Stuchbury-Wass, Mathias Ciliberto, Kayla-Jade Butkow, Yang Liu, Qiang Yang, Ezio Preatoni, Dong Ma, Cecilia Mascolo
+    conference_short: JAB
+    conference: Journal of Applied Biomechanics, 2026, Volume 42(2), Pages 100-110
+    pdf: ./
+    page: https://doi.org/10.1123/jab.2025-0337
+    bibtex: ./assets/bibtex/jab.txt
+    image: ./assets/img/jab.png
+
   - title: "EarCalo: Earable-Based Energy Expenditure Estimation While Running"
     authors: Yang Liu, Qiang Yang, <strong>Jake Stuchbury-Wass</strong>, Dong Ma, Cecilia Mascolo
     conference_short: HotMobile
