@@ -1,7 +1,7 @@
 main:
 
   - title: "Ear-worn inertial sensors can predict gait metrics and reconstruct vertical ground reaction force curves during running"
-    authors: Jake Stuchbury-Wass, Mathias Ciliberto, Kayla-Jade Butkow, Yang Liu, Qiang Yang, Ezio Preatoni, Dong Ma, Cecilia Mascolo
+    authors: <strong>Jake Stuchbury-Wass</strong>, Mathias Ciliberto, Kayla-Jade Butkow, Yang Liu, Qiang Yang, Ezio Preatoni, Dong Ma, Cecilia Mascolo
     conference_short: JAB
     conference: Journal of Applied Biomechanics, 2026, Volume 42(2), Pages 100-110
     pdf: ./
