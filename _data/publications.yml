@@ -1,11 +1,20 @@
 main:
 
+  - title: "A Survey of Earable Technology: Trends, Tools, and the Road Ahead"
+    authors: Changshuo Hu, Qiang Yang, Yang Liu, Tobias Roeddiger, Kayla-Jade Butkow, Mathias Ciliberto, Adam Pullin, <strong>Jake Stuchbury-Wass</strong>, Mahbub Hassan, Cecilia Mascolo, Dong Ma.
+    conference_short: IMWUT
+    conference: IMWUT Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2026.
+    pdf: https://arxiv.org/pdf/2506.05720
+    page: ./
+    bibtex: ./assets/bibtex/Survey.txt
+    image: ./assets/img/survey.png
+
   - title: "Ear-worn inertial sensors can predict gait metrics and reconstruct vertical ground reaction force curves during running"
     authors: <strong>Jake Stuchbury-Wass</strong>, Mathias Ciliberto, Kayla-Jade Butkow, Yang Liu, Qiang Yang, Ezio Preatoni, Dong Ma, Cecilia Mascolo
     conference_short: JAB
     conference: Journal of Applied Biomechanics, 2026, Volume 42(2), Pages 100-110
     pdf: ./
-    page: https://doi.org/10.1123/jab.2025-0337
+    page: ./
     bibtex: ./assets/bibtex/jab.txt
     image: ./assets/img/jab.png
 
@@ -13,7 +22,7 @@ main:
     authors: Yang Liu, Qiang Yang, <strong>Jake Stuchbury-Wass</strong>, Dong Ma, Cecilia Mascolo
     conference_short: HotMobile
     conference: Proceedings of the 27th International Workshop on Mobile Computing Systems and Applications, 2026.
-    pdf: ./
+    pdf: https://dl.acm.org/doi/pdf/10.1145/3789514.3792046
     page: https://dl.acm.org/doi/10.1145/3789514.3792046
     bibtex: ./assets/bibtex/EarCalo.txt
     image: ./assets/img/earcalo.png
@@ -31,8 +40,8 @@ main:
     authors: Yang Liu, Qiang Yang, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Dong Ma, Cecilia Mascolo
     conference_short: IMWUT
     conference: IMWUT Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2025.
-    pdf: ./
-    page: ./
+    pdf: https://dl.acm.org/doi/pdf/10.1145/3770655
+    page: https://dl.acm.org/doi/abs/10.1145/3770655
     bibtex: ./assets/bibtex/EarMeter.txt
     image: ./assets/img/earmeter.png
 
@@ -40,8 +49,8 @@ main:
     authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Mathias Ciliberto, Tobias Röddiger, Kayla-Jade Butkow, Adam Pullin, Emeli Panariti, Dong Ma, Cecilia Mascolo
     conference_short: IMWUT
     conference: IMWUT Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2025.
-    pdf: ./
-    page: ./
+    pdf: https://dl.acm.org/doi/pdf/10.1145/3770688
+    page: https://dl.acm.org/doi/abs/10.1145/3770688
     bibtex: ./assets/bibtex/HearForce.txt
     image: ./assets/img/hearforce.png
 
@@ -58,8 +67,8 @@ main:
     authors: Jordan Waters, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Kayla-Jade Butkow, Cecilia Mascolo
     conference_short: EMBC
     conference: EMBC International Conference of the IEEE Engineering in Medicine and Biology Society, 2025.
-    pdf: ./
-    page: ./
+    pdf: https://mobile-systems.cl.cam.ac.uk/papers/embc25-jordan.pdf
+    page: https://ieeexplore.ieee.org/abstract/document/11254370
     bibtex: ./assets/bibtex/Segments.txt
     image: ./assets/img/segments.png
 
@@ -86,8 +95,8 @@ main:
     authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli Panariti, Dong Ma, Cecilia Mascolo
     conference_short: ACM CHI
     conference: ACM CHI Conference on Human Factors in Computing Systems, 2025.
-    pdf: https://www.cl.cam.ac.uk/~qy258/assets/files/paper/25-CHI-SmarTeeth.pdf
-    page: ./
+    pdf: https://dl.acm.org/doi/pdf/10.1145/3706598.3713893
+    page: https://dl.acm.org/doi/full/10.1145/3706598.3713893
     bibtex: ./assets/bibtex/SmarTeeth.txt
     image: ./assets/img/SmarTeeth.png
 
