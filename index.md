@@ -49,6 +49,7 @@ Please get in touch if you'd like to collaborate!
 
 - **Committees:**
   - [HeadSys 2026](https://www.eventcreate.com/e/headsys26) General co-chair
+  - [MobiSys 2026](https://www.sigmobile.org/mobisys/2026/call_for_demos/) Demo TPC
   - [EarComp'25](http://esense.io/earcomp2025/) and [EarComp'24](http://esense.io/earcomp2024/) Web and Publication chair
 - **Reviewing:**
   - [IEEE Transactions on Mobile Computing](https://www.computer.org/csdl/journal/tm)
