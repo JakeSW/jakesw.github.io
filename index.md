@@ -16,7 +16,7 @@ Please get in touch if you'd like to collaborate!
 
 ## News
 
-- **[Nov. 2025]** Two papers accepted to IMWUT
+- **[June. 2026]** Accepted to MobiSys'26 Rising Stars Forum
 - **[July 2025]** MobiUK talk awarded best presentation!
 - **[June 2025]** Starting as a Research Intern at Nokia Bell Labs Cambridge
 - **[March 2025]** RespEar wins IEEE Percom Best Paper Award!

@@ -1,5 +1,14 @@
 main:
 
+  - title: "Towards Personalised DPOAE Protocols: Bayesian Optimisation of Secondary Stimulus Levels"
+    authors: <strong>Jake Stuchbury-Wass</strong>, Argha Sen, Khaldoon Al-Naimi, Alessandro Montanari.
+    conference_short: Workshop
+    conference: HeadSys'26 Workshop Colocated with MobiSys'26 2026.
+    pdf: ./
+    page: https://dl.acm.org/doi/abs/10.1145/3812836.3814766
+    bibtex: ./
+    image: ./
+
   - title: "A Survey of Earable Technology: Trends, Tools, and the Road Ahead"
     authors: Changshuo Hu, Qiang Yang, Yang Liu, Tobias Roeddiger, Kayla-Jade Butkow, Mathias Ciliberto, Adam Pullin, <strong>Jake Stuchbury-Wass</strong>, Mahbub Hassan, Cecilia Mascolo, Dong Ma.
     conference_short: IMWUT
