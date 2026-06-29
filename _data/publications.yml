@@ -1,7 +1,7 @@
 main:
 
   - title: "Towards Personalised DPOAE Protocols: Bayesian Optimisation of Secondary Stimulus Levels"
-    authors: <strong>Jake Stuchbury-Wass</strong>, Argha Sen, Khaldoon Al-Naimi, Alessandro Montanari.
+    authors: <strong>Jake Stuchbury-Wass</strong>, Argha Sen, Khaldoon Al-Naimi, Yang Liu, Alessandro Montanari.
     conference_short: Workshop
     conference: HeadSys'26 Workshop Colocated with MobiSys'26 2026.
     pdf: ./
