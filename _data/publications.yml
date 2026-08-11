@@ -10,10 +10,10 @@ main:
     image: ./assets/img/survey.png
 
   - title: "Ear-worn inertial sensors can predict gait metrics and reconstruct vertical ground reaction force curves during running"
-    authors: <strong>Jake Stuchbury-Wass</strong>, Mathias Ciliberto, Kayla-Jade Butkow, Yang Liu, Qiang Yang, Ezio Preatoni, Dong Ma, Cecilia Mascolo
+    authors: <strong>Jake Stuchbury-Wass</strong>, Mathias Ciliberto, Kayla-Jade Butkow, Qiang Yang, Yang Liu, Ezio Preatoni, Dong Ma, Cecilia Mascolo
     conference_short: JAB
-    conference: Journal of Applied Biomechanics, 2026
-    pdf: https://caps.luminad.com:8443///stockage/stock/LDL-HK-JAB-2025-0337/JAB-2025-0337_online.pdf
+    conference: Journal of Applied Biomechanics, 2026.
+    pdf: https://journals.humankinetics.com/downloadpdf/journals/jab/aop/article-10.1123-jab.2025-0337/article-10.1123-jab.2025-0337.pdf
     page: https://journals.humankinetics.com/view/journals/jab/aop/article-10.1123-jab.2025-0337/article-10.1123-jab.2025-0337.xml
     bibtex: ./assets/bibtex/jab.txt
     image: ./assets/img/jab.png
@@ -36,7 +36,7 @@ main:
     bibtex: ./assets/bibtex/EarMeter.txt
     image: ./assets/img/earmeter.png
 
-  - title: "HearForce: Force Estimation for Manual Toothbrushing with Earables."
+  - title: "HearForce: Force Estimation for Manual Toothbrushing with Earables"
     authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Mathias Ciliberto, Tobias Röddiger, Kayla-Jade Butkow, Adam Pullin, Emeli Panariti, Dong Ma, Cecilia Mascolo
     conference_short: IMWUT
     conference: IMWUT Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2025.
@@ -77,7 +77,7 @@ main:
     conference_short: PerCom
     conference: PerCom 2025 IEEE International Conference on Pervasive Computing and Communications, 2025.
     pdf: https://arxiv.org/pdf/2407.06901
-    page: https://arxiv.org/pdf/2407.06901
+    page: https://ieeexplore.ieee.org/document/11018733
     bibtex: ./assets/bibtex/RespEar.txt
     notes: Best Paper Award!
     image: ./assets/img/RespEar.png
@@ -103,9 +103,11 @@ main:
 workshops:
 
   - title: "Towards Personalised DPOAE Protocols: Bayesian Optimisation of Secondary Stimulus Levels"
-    authors: <strong>Jake Stuchbury-Wass</strong>, Argha Sen, Khaldoon Al-Naimi, Yang Liu, Alessandro Montanari.
+    authors: <strong>Jake Stuchbury-Wass</strong>, Argha Sen, Khaldoon Al-Naimi, Yang Liu, Alessandro Montanari
     conference: HeadSys'26 Workshop Colocated with MobiSys'26, 2026.
+    pdf: https://dl.acm.org/doi/pdf/10.1145/3812836.3814766
     page: https://dl.acm.org/doi/abs/10.1145/3812836.3814766
+    bibtex: ./assets/bibtex/DPOAE.txt
 
   - title: "EarCalo: Earable-Based Energy Expenditure Estimation While Running"
     authors: Yang Liu, Qiang Yang, <strong>Jake Stuchbury-Wass</strong>, Dong Ma, Cecilia Mascolo
@@ -122,29 +124,29 @@ workshops:
     bibtex: ./assets/bibtex/OpenBrush.txt
 
   - title: "BrushBuds: Toothbrushing Tracking Using Earphone IMUs"
-    authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli P, Dong Ma, Cecilia Mascolo
+    authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli Panariti, Dong Ma, Cecilia Mascolo
     conference: UbiComp/ISWC'24 Adjunct Proceedings, 2024.
     pdf: https://www.repository.cam.ac.uk/bitstreams/6151270d-131a-4fbf-ade4-df043f56f828/download
-    page: https://dl.acm.org/doi/pdf/10.1145/3675094.3680521
+    page: https://dl.acm.org/doi/abs/10.1145/3675094.3680521
     bibtex: ./assets/bibtex/brushbuds.txt
 
   - title: "OpenEarable 1.4: Dual Microphones Earpiece to Capture In-Ear and Outer-Ear Audio Signals"
     authors: Tobias Röddiger*, <strong>Jake Stuchbury-Wass*</strong>, Mathias Ciliberto, Philipp Lepold, Michael Beigl (* first authors)
     conference: UbiComp/ISWC'24 Adjunct Proceedings, 2024.
-    pdf: https://scholar.google.com/scholar?oi=bibs&cluster=7704136617244556642&btnI=1&hl=en
-    page: https://scholar.google.com/scholar?oi=bibs&cluster=7704136617244556642&btnI=1&hl=en
+    pdf: https://dl.acm.org/doi/pdf/10.1145/3675094.3678483
+    page: https://dl.acm.org/doi/abs/10.1145/3675094.3678483
     bibtex: ./assets/bibtex/Openearable.txt
 
   - title: "Detecting Foot Strikes during Running with Earbuds"
     authors: Changshuo Hu, Thivya Kandappu, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Anthony Tang, Cecilia Mascolo, Dong Ma
     conference: "BodySys'23 The 8th Workshop on Body-Centric Computing Systems, 2024."
     pdf: https://mobile-systems.cl.cam.ac.uk/papers/bodysys24-dong.pdf
-    page: https://dl.acm.org/doi/pdf/10.1145/3662009.3662023
+    page: https://dl.acm.org/doi/abs/10.1145/3662009.3662023
     bibtex: ./assets/bibtex/Footstrike.txt
 
   - title: Multimodal attention networks for human activity recognition from earable devices
     authors: <strong>Jake Stuchbury-Wass</strong>, Andrea Ferlini, Cecilia Mascolo
     conference: UbiComp/ISWC'22 Adjunct Proceedings, 2022.
     pdf: https://dl.acm.org/doi/pdf/10.1145/3544793.3563422
-    page: https://dl.acm.org/doi/pdf/10.1145/3544793.3563422
+    page: https://dl.acm.org/doi/abs/10.1145/3544793.3563422
     bibtex: ./assets/bibtex/EarComp22.txt
