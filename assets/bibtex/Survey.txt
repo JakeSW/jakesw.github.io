@@ -1,0 +1,11 @@
+@article{hu2026survey,
+  title={A Survey of Earable Technology: Trends, Tools, and the Road Ahead},
+  author={Hu, Changshuo and Yang, Qiang and Liu, Yang and R{\"o}ddiger, Tobias and Butkow, Kayla-Jade and Ciliberto, Mathias and Pullin, Adam Luke and Stuchbury-Wass, Jake and Hassan, Mahbub and Mascolo, Cecilia and Ma, Dong},
+  journal={Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},
+  volume={10},
+  number={2},
+  pages={1--41},
+  year={2026},
+  publisher={ACM New York, NY, USA},
+  doi={10.1145/3810217}
+}

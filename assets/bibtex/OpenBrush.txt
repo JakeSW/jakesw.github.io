@@ -1,0 +1,7 @@
+@inproceedings{yang2025openbrush,
+  title={OpenBrush: An Open-Source Manual Toothbrush for Force and Motion Sensing},
+  author={Yang, Qiang and Stuchbury-Wass, Jake and Bytheway, Thomas A and Mascolo, Cecilia},
+  booktitle={Companion of the 2025 ACM International Joint Conference on Pervasive and Ubiquitous Computing},
+  pages={1297--1300},
+  year={2025}
+}

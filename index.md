@@ -27,6 +27,7 @@ Please get in touch if you'd like to collaborate!
 
 ## Talks
 
+- HeadSys'26 Workshop, Cambridge, June 2026
 - TECO Group, Karlsruhe Institute of Techology, Karlsruhe, Dec. 2025
 - Sensors Day 2025, Cambridge, Nov. 2025
 - ISB 2025 Congress, Stockholm, July 2025
