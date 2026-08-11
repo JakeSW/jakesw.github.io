@@ -40,6 +40,7 @@ Please get in touch if you'd like to collaborate!
 ## Teaching
 
 - **Student Project Supervision:**
+  - Dissertation: Gait curve reconstruction using smart watches, Emiri Hosokawa, 2025-2026. Published results in HASCA Workshop colocated with UbiComp.
   - Dissertation: Deep learning based heart sound segmentation from in-ear audio, Jordan Waters, 2023-2024. Published results in EMBC.
 - **Teaching Assistant:**
   - [Mobile Health](https://www.cl.cam.ac.uk/teaching/2425/MH/), MPhil course, 2024-25, 2025-26.
