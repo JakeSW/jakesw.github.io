@@ -23,6 +23,8 @@ Please get in touch if you'd like to collaborate!
 
 {% include_relative _includes/publications.md %}
 
+{% include_relative _includes/workshops.md %}
+
 ## Talks
 
 - TECO Group, Karlsruhe Institute of Techology, Karlsruhe, Dec. 2025

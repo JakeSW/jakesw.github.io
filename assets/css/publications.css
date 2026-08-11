@@ -80,3 +80,9 @@ blockquote { background: var(--global-bg-color); border-left: 2px solid var(--gl
 .publications ol.bibliography li div.abstract.hidden.open { border-color: var(--global-text-color); }
 
 .publications ol.bibliography li .teaser { border-radius: 8px; box-shadow: 3px 3px 6px #888; height: 123px; width: 270px; margin-top: 5px; margin-left: 5px; margin-bottom: 5px; object-fit: cover; }
+
+.publications.workshops { margin-top: 1rem; }
+
+.publications.workshops ol.bibliography li { min-height: 0; margin-bottom: 1.2rem; }
+
+.publications.workshops ol.bibliography li .links { margin-top: 0.2rem; }

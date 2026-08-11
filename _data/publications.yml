@@ -1,14 +1,5 @@
 main:
 
-  - title: "Towards Personalised DPOAE Protocols: Bayesian Optimisation of Secondary Stimulus Levels"
-    authors: <strong>Jake Stuchbury-Wass</strong>, Argha Sen, Khaldoon Al-Naimi, Yang Liu, Alessandro Montanari.
-    conference_short: Workshop
-    conference: HeadSys'26 Workshop Colocated with MobiSys'26 2026.
-    pdf: ./
-    page: https://dl.acm.org/doi/abs/10.1145/3812836.3814766
-    bibtex: ./
-    image: ./
-
   - title: "A Survey of Earable Technology: Trends, Tools, and the Road Ahead"
     authors: Changshuo Hu, Qiang Yang, Yang Liu, Tobias Roeddiger, Kayla-Jade Butkow, Mathias Ciliberto, Adam Pullin, <strong>Jake Stuchbury-Wass</strong>, Mahbub Hassan, Cecilia Mascolo, Dong Ma.
     conference_short: IMWUT
@@ -26,15 +17,6 @@ main:
     page: https://journals.humankinetics.com/view/journals/jab/aop/article-10.1123-jab.2025-0337/article-10.1123-jab.2025-0337.xml
     bibtex: ./assets/bibtex/jab.txt
     image: ./assets/img/jab.png
-
-  - title: "EarCalo: Earable-Based Energy Expenditure Estimation While Running"
-    authors: Yang Liu, Qiang Yang, <strong>Jake Stuchbury-Wass</strong>, Dong Ma, Cecilia Mascolo
-    conference_short: HotMobile
-    conference: Proceedings of the 27th International Workshop on Mobile Computing Systems and Applications, 2026.
-    pdf: https://dl.acm.org/doi/pdf/10.1145/3789514.3792046
-    page: https://dl.acm.org/doi/10.1145/3789514.3792046
-    bibtex: ./assets/bibtex/EarCalo.txt
-    image: ./assets/img/earcalo.png
 
   - title: "Measuring Cardiac Stroke Volume Through In-ear Audio Sensing"
     authors: Kayla-Jade Butkow, Navazh Jalaludeen, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Qiang Yang, Mathias Ciliberto, Dong Ma, Joseph Cheriyan Cecilia Mascolo
@@ -109,33 +91,6 @@ main:
     bibtex: ./assets/bibtex/SmarTeeth.txt
     image: ./assets/img/SmarTeeth.png
 
-  - title: "BrushBuds: Toothbrushing Tracking Using Earphone IMUs"
-    authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli P, Dong Ma, Cecilia Mascolo
-    conference_short: Workshop
-    conference: Companion of the 2024 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2024.
-    pdf: https://www.repository.cam.ac.uk/bitstreams/6151270d-131a-4fbf-ade4-df043f56f828/download
-    page: https://dl.acm.org/doi/pdf/10.1145/3675094.3680521
-    bibtex: ./assets/bibtex/brushbuds.txt
-    image: ./assets/img/BrushBuds.png
-
-  - title: "OpenEarable 1.4: Dual Microphones Earpiece to Capture In-Ear and Outer-Ear Audio Signals"
-    authors: Tobias Röddiger*, <strong>Jake Stuchbury-Wass*</strong>, Mathias Ciliberto, Philipp Lepold, Michael Beigl (* first authors)
-    conference_short: Workshop
-    conference: Companion of the 2024 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2024.
-    pdf: https://scholar.google.com/scholar?oi=bibs&cluster=7704136617244556642&btnI=1&hl=en
-    page: https://scholar.google.com/scholar?oi=bibs&cluster=7704136617244556642&btnI=1&hl=en
-    bibtex: ./assets/bibtex/Openearable.txt
-    image: ./assets/img/Openearable.png
-
-  - title: "Detecting Foot Strikes during Running with Earbuds"
-    authors: Changshuo Hu, Thivya Kandappu, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Anthony Tang, Cecilia Mascolo, Dong Ma
-    conference_short: Workshop
-    conference: "BodySys '23 The 8th Workshop on Body-Centric Computing Systems, 2024."
-    pdf: https://mobile-systems.cl.cam.ac.uk/papers/bodysys24-dong.pdf
-    page: https://dl.acm.org/doi/pdf/10.1145/3662009.3662023
-    bibtex: ./assets/bibtex/Footstrike.txt
-    image: ./assets/img/Footstrike.png
-
   - title: Heart Rate Extraction from Abdominal Audio Signals
     authors: <strong>Jake Stuchbury-Wass</strong>, Erika Bondareva, Kayla-Jade Butkow, Sanja Scepanovic, Zoran Radivojevic, Cecilia Mascolo
     conference_short: ICASSP
@@ -145,11 +100,44 @@ main:
     bibtex: ./assets/bibtex/ABS.txt
     image: ./assets/img/ABS.png
 
+workshops:
+
+  - title: "Towards Personalised DPOAE Protocols: Bayesian Optimisation of Secondary Stimulus Levels"
+    authors: <strong>Jake Stuchbury-Wass</strong>, Argha Sen, Khaldoon Al-Naimi, Yang Liu, Alessandro Montanari.
+    conference: HeadSys'26 Workshop Colocated with MobiSys'26, 2026.
+    page: https://dl.acm.org/doi/abs/10.1145/3812836.3814766
+
+  - title: "EarCalo: Earable-Based Energy Expenditure Estimation While Running"
+    authors: Yang Liu, Qiang Yang, <strong>Jake Stuchbury-Wass</strong>, Dong Ma, Cecilia Mascolo
+    conference: HotMobile'26 The 27th International Workshop on Mobile Computing Systems and Applications, 2026.
+    pdf: https://dl.acm.org/doi/pdf/10.1145/3789514.3792046
+    page: https://dl.acm.org/doi/10.1145/3789514.3792046
+    bibtex: ./assets/bibtex/EarCalo.txt
+
+  - title: "BrushBuds: Toothbrushing Tracking Using Earphone IMUs"
+    authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli P, Dong Ma, Cecilia Mascolo
+    conference: UbiComp/ISWC'24 Adjunct Proceedings, 2024.
+    pdf: https://www.repository.cam.ac.uk/bitstreams/6151270d-131a-4fbf-ade4-df043f56f828/download
+    page: https://dl.acm.org/doi/pdf/10.1145/3675094.3680521
+    bibtex: ./assets/bibtex/brushbuds.txt
+
+  - title: "OpenEarable 1.4: Dual Microphones Earpiece to Capture In-Ear and Outer-Ear Audio Signals"
+    authors: Tobias Röddiger*, <strong>Jake Stuchbury-Wass*</strong>, Mathias Ciliberto, Philipp Lepold, Michael Beigl (* first authors)
+    conference: UbiComp/ISWC'24 Adjunct Proceedings, 2024.
+    pdf: https://scholar.google.com/scholar?oi=bibs&cluster=7704136617244556642&btnI=1&hl=en
+    page: https://scholar.google.com/scholar?oi=bibs&cluster=7704136617244556642&btnI=1&hl=en
+    bibtex: ./assets/bibtex/Openearable.txt
+
+  - title: "Detecting Foot Strikes during Running with Earbuds"
+    authors: Changshuo Hu, Thivya Kandappu, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Anthony Tang, Cecilia Mascolo, Dong Ma
+    conference: "BodySys'23 The 8th Workshop on Body-Centric Computing Systems, 2024."
+    pdf: https://mobile-systems.cl.cam.ac.uk/papers/bodysys24-dong.pdf
+    page: https://dl.acm.org/doi/pdf/10.1145/3662009.3662023
+    bibtex: ./assets/bibtex/Footstrike.txt
+
   - title: Multimodal attention networks for human activity recognition from earable devices
     authors: <strong>Jake Stuchbury-Wass</strong>, Andrea Ferlini, Cecilia Mascolo
-    conference_short: Workshop
-    conference: Companion of the 2022 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2022.
+    conference: UbiComp/ISWC'22 Adjunct Proceedings, 2022.
     pdf: https://dl.acm.org/doi/pdf/10.1145/3544793.3563422
     page: https://dl.acm.org/doi/pdf/10.1145/3544793.3563422
     bibtex: ./assets/bibtex/EarComp22.txt
-    image: ./assets/img/EarComp22.png
