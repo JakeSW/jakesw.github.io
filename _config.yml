@@ -59,6 +59,12 @@ google_analytics: G-BL3739P82D
 # See the guide here: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
 remote_theme: yaoyao-liu/minimal-light
 
+# Plugins. jekyll-sitemap generates /sitemap.xml at build time and needs the
+# "url" set above to emit absolute URLs. It is on the GitHub Pages allow-list,
+# so the standard Pages build runs it without a custom Actions workflow.
+plugins:
+  - jekyll-sitemap
+
 # The following files will be removed from the generated website.
 exclude:
   - Gemfile
