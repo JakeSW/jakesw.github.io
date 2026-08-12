@@ -6,9 +6,15 @@ email: js2372 (at) cam.ac.uk
 
 # Search Engine Optimization (SEO)
 # The following information is used to improve the website traffic from search engines, e.g., Google.
-keywords: Jake Stuchbury-Wass, PhD, Cambridge
-description: Jake Stuchbury-Wass academic website.
-canonical: https://www.jakesw.com/
+keywords: Jake Stuchbury-Wass, earables, ear-worn wearables, wearable sensing, mobile health, gait analysis, in-ear audio, inertial sensing, ubiquitous computing, PhD, University of Cambridge
+description: Jake Stuchbury-Wass is a PhD student in the Mobile Systems Group at the University of Cambridge, working on ear-worn wearables (earables) for gait, health and sport sensing.
+canonical: https://jakesw.com/
+
+# Site URL, used to build absolute links for social sharing cards and structured data.
+url: https://jakesw.com
+
+# Social sharing card (Open Graph / Twitter). Handle is used for the Twitter card attribution.
+twitter_handle: "@Jake_S_W"
 
 # Links 
 # If you don't need one of them, you may delete the corresponding line.
@@ -56,4 +62,3 @@ exclude:
   - README_de.md
   - LICENSE
   - minimal-light.gemspec
-  - html_source_file/

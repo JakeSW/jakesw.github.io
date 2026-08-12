@@ -16,7 +16,7 @@ Please get in touch if you'd like to collaborate!
 
 ## News
 
-- **[June. 2026]** Accepted to MobiSys'26 Rising Stars Forum
+- **[June 2026]** Accepted to MobiSys'26 Rising Stars Forum
 - **[July 2025]** MobiUK talk awarded best presentation!
 - **[June 2025]** Starting as a Research Intern at Nokia Bell Labs Cambridge
 - **[March 2025]** RespEar wins IEEE Percom Best Paper Award!
@@ -28,12 +28,12 @@ Please get in touch if you'd like to collaborate!
 ## Talks
 
 - HeadSys'26 Workshop, Cambridge, June 2026
-- TECO Group, Karlsruhe Institute of Techology, Karlsruhe, Dec. 2025
+- TECO Group, Karlsruhe Institute of Technology, Karlsruhe, Dec. 2025
 - Sensors Day 2025, Cambridge, Nov. 2025
 - ISB 2025 Congress, Stockholm, July 2025
 - MobiUK Symposium, Edinburgh, July 2025, <strong> <i style="color:#e74d3c">Best Presentation Award</i></strong>
 - IEEE PerCom 2025, Washington DC, March 2025
-- Institue for the Augmented Human, University of Bath, Bath,  Feb. 2025
+- Institute for the Augmented Human, University of Bath, Bath, Feb. 2025
 - MobiUK Symposium, Lancaster, July 2023
 - EarComp'22, Cambridge, Oct. 2022
 

@@ -1,9 +1,16 @@
 <h2 id="workshops" style="margin: 2px 0px -15px;">Workshops</h2>
 
 <div class="publications workshops">
-<ol class="bibliography">
 
+{% assign current_year = "" %}
 {% for link in site.data.publications.workshops %}
+
+{% if link.year != current_year %}
+{% unless forloop.first %}</ol>{% endunless %}
+<h2 class="year">{{ link.year }}</h2>
+<ol class="bibliography">
+{% assign current_year = link.year %}
+{% endif %}
 
 <li>
 <div class="pub-row">
@@ -14,16 +21,16 @@
       </div>
     <div class="links">
       {% if link.pdf and link.pdf != './' %}
-      <a href="{{ link.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">PDF</a>
+      <a href="{{ link.pdf }}" class="btn btn-sm" role="button" target="_blank" rel="noopener" style="font-size:12px;">PDF</a>
       {% endif %}
       {% if link.code and link.code != './' %}
-      <a href="{{ link.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">Code</a>
+      <a href="{{ link.code }}" class="btn btn-sm" role="button" target="_blank" rel="noopener" style="font-size:12px;">Code</a>
       {% endif %}
       {% if link.page and link.page != './' %}
-      <a href="{{ link.page }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">Webpage</a>
+      <a href="{{ link.page }}" class="btn btn-sm" role="button" target="_blank" rel="noopener" style="font-size:12px;">Webpage</a>
       {% endif %}
       {% if link.bibtex and link.bibtex != './' %}
-      <a href="{{ link.bibtex }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">BibTex</a>
+      <a href="{{ link.bibtex }}" class="btn btn-sm" role="button" target="_blank" rel="noopener" style="font-size:12px;">BibTex</a>
       {% endif %}
       {% if link.notes %}
       <strong> <i style="color:#e74d3c">{{ link.notes }}</i></strong>

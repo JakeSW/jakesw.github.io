@@ -34,7 +34,13 @@ blockquote { background: var(--global-bg-color); border-left: 2px solid var(--gl
 
 .publications h2 span { font-size: 1.5rem; }
 
-.publications h2.year { color: #e8e8e8; border-top: 1px solid #e8e8e8; margin-top: 2rem; margin-bottom: 0rem; text-align: right; }
+.publications h2.year { font-size: 1.05rem; font-weight: 600; color: #6a6a6a; border-top: 1px solid #dcdcdc; padding-top: 0.35rem; margin-top: 2rem; margin-bottom: 0.9rem; text-align: right; }
+
+.publications > h2.year:first-child { margin-top: 1.2rem; border-top: none; padding-top: 0; }
+
+@media (prefers-color-scheme: dark) {
+.publications h2.year { color: #a9a9b4; border-top-color: #3a3b47; }
+}
 
 .publications ol.bibliography { list-style: none; padding: 0; margin-top: 0; }
 
