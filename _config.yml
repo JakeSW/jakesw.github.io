@@ -16,6 +16,13 @@ url: https://jakesw.com
 # Social sharing card (Open Graph / Twitter). Handle is used for the Twitter card attribution.
 twitter_handle: "@Jake_S_W"
 
+# Image used on link-preview cards (LinkedIn, X, Slack, Bluesky). Must be at least
+# 144x144 for X and 200x200 for LinkedIn; 1200x1200 is comfortably above both.
+# Keep the width/height in step with the file if you replace it.
+social_image: ./assets/img/social-card.jpg
+social_image_width: 1200
+social_image_height: 1200
+
 # Links 
 # If you don't need one of them, you may delete the corresponding line.
 google_scholar: https://scholar.google.com/citations?user=Xh-MHssAAAAJ&hl=en
@@ -28,7 +35,7 @@ strava: https://www.strava.com/athletes/41008546
 
 # Images (e.g., your profile picture and your website's favicon) 
 # "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
-avatar: ./assets/img/avatar.png
+avatar: ./assets/img/avatar.jpg
 favicon: ./assets/img/favicon.png
 favicon_dark: ./assets/img/favicon-dark.png
 

@@ -16,7 +16,8 @@
 
     {% comment %} Social sharing cards: Open Graph (LinkedIn, Slack, Bluesky, Facebook) and Twitter/X. {% endcomment %}
     {% assign page_url = site.canonical | default: site.url %}
-    {% assign share_image = site.avatar | replace_first: './', '' | prepend: '/' | prepend: site.url %}
+    {% assign share_src = site.social_image | default: site.avatar %}
+    {% assign share_image = share_src | replace_first: './', '' | prepend: '/' | prepend: site.url %}
     <meta property="og:type" content="profile">
     <meta property="og:title" content="{{ site.title }} | {{ site.affiliation }}">
     <meta property="og:description" content="{{ site.description }}">
@@ -25,6 +26,10 @@
     <meta property="og:locale" content="en_GB">
     <meta property="og:image" content="{{ share_image }}">
     <meta property="og:image:alt" content="Portrait of {{ site.title }}">
+    {% if site.social_image_width %}
+    <meta property="og:image:width" content="{{ site.social_image_width }}">
+    <meta property="og:image:height" content="{{ site.social_image_height }}">
+    {% endif %}
     <meta property="profile:first_name" content="Jake">
     <meta property="profile:last_name" content="Stuchbury-Wass">
 
@@ -106,7 +111,7 @@
       <header>
         
         {% if site.avatar %}
-        <a class="image avatar"><img src="{{ site.avatar }}" alt="avatar" /></a>
+        <a class="image avatar"><img src="{{ site.avatar }}" alt="{{ site.title }}" /></a>
         {% endif %}
 
         <h1>{{ site.title }}</h1>
