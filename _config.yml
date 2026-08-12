@@ -65,6 +65,16 @@ remote_theme: yaoyao-liu/minimal-light
 plugins:
   - jekyll-sitemap
 
+# The remote theme ships a placeholder assets/files/curriculum_vitae.pdf, which
+# is served because theme assets are copied in unless a file of our own shadows
+# them. jekyll-sitemap indexes .pdf static files, so without this it advertises
+# that placeholder to search engines as if it were a real CV.
+defaults:
+  - scope:
+      path: "assets/files"
+    values:
+      sitemap: false
+
 # The following files will be removed from the generated website.
 exclude:
   - Gemfile
