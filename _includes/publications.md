@@ -15,7 +15,7 @@
 <li>
 <div class="pub-row">
   <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-    {% if link.image %} 
+    {% if link.image and link.image != './' %} 
     <img src="{{ link.image }}" class="teaser" alt="{{ link.title }} teaser figure" loading="lazy">
     {% if link.conference_short %} 
     <abbr class="badge">{{ link.conference_short }}</abbr>
@@ -23,21 +23,24 @@
     {% endif %}
   </div>
   <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 20px;">
-      <div class="title"><a href="{{ link.pdf }}">{{ link.title }}</a></div>
+      {% comment %} Fall back to plain text when there is no real target yet ('./' placeholder). {% endcomment %}
+      {% assign target = "" %}
+      {% if link.pdf and link.pdf != './' %}{% assign target = link.pdf %}{% elsif link.page and link.page != './' %}{% assign target = link.page %}{% endif %}
+      <div class="title">{% if target != "" %}<a href="{{ target }}">{{ link.title }}</a>{% else %}{{ link.title }}{% endif %}</div>
       <div class="author">{{ link.authors }}</div>
       <div class="periodical"><em>{{ link.conference }}</em>
       </div>
     <div class="links">
-      {% if link.pdf %} 
+      {% if link.pdf and link.pdf != './' %} 
       <a href="{{ link.pdf }}" class="btn btn-sm" role="button" target="_blank" rel="noopener" style="font-size:12px;">PDF</a>
       {% endif %}
-      {% if link.code %} 
+      {% if link.code and link.code != './' %} 
       <a href="{{ link.code }}" class="btn btn-sm" role="button" target="_blank" rel="noopener" style="font-size:12px;">Code</a>
       {% endif %}
-      {% if link.page %} 
+      {% if link.page and link.page != './' %} 
       <a href="{{ link.page }}" class="btn btn-sm" role="button" target="_blank" rel="noopener" style="font-size:12px;">Webpage</a>
       {% endif %}
-      {% if link.bibtex %} 
+      {% if link.bibtex and link.bibtex != './' %} 
       <a href="{{ link.bibtex }}" class="btn btn-sm" role="button" target="_blank" rel="noopener" style="font-size:12px;">BibTex</a>
       {% endif %}
       {% if link.notes %} 

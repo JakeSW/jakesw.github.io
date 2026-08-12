@@ -7,7 +7,7 @@ main:
     pdf: ./
     page: ./
     bibtex: ./
-    image: ./
+    image: ./assets/img/impactear.jpg
 
   - title: "A Survey of Earable Technology: Trends, Tools, and the Road Ahead"
     authors: Changshuo Hu, Qiang Yang, Yang Liu, Tobias Röddiger, Kayla-Jade Butkow, Mathias Ciliberto, Adam Pullin, <strong>Jake Stuchbury-Wass</strong>, Mahbub Hassan, Cecilia Mascolo, Dong Ma
@@ -163,7 +163,7 @@ workshops:
     bibtex: ./assets/bibtex/brushbuds.txt
 
   - title: "OpenEarable 1.4: Dual Microphones Earpiece to Capture In-Ear and Outer-Ear Audio Signals"
-    authors: Tobias Röddiger*, <strong>Jake Stuchbury-Wass*</strong>, Mathias Ciliberto, Philipp Lepold, Michael Beigl (* first authors)
+    authors: Tobias Röddiger*, <strong>Jake Stuchbury-Wass*</strong>, Mathias Ciliberto, Philipp Lepold, Michael Beigl (* equal contributors)
     conference: UbiComp/ISWC'24 Adjunct Proceedings, 2024.
     year: 2024
     pdf: https://dl.acm.org/doi/pdf/10.1145/3675094.3678483
