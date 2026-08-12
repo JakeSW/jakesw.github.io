@@ -15,7 +15,10 @@
 <li>
 <div class="pub-row">
   <div style="position: relative;">
-      <div class="title"><a href="{% if link.page and link.page != './' %}{{ link.page }}{% else %}{{ link.pdf }}{% endif %}">{{ link.title }}</a></div>
+      {% comment %} Fall back to plain text when there is no real target yet ('./' placeholder). {% endcomment %}
+      {% assign target = "" %}
+      {% if link.page and link.page != './' %}{% assign target = link.page %}{% elsif link.pdf and link.pdf != './' %}{% assign target = link.pdf %}{% endif %}
+      <div class="title">{% if target != "" %}<a href="{{ target }}">{{ link.title }}</a>{% else %}{{ link.title }}{% endif %}</div>
       <div class="author">{{ link.authors }}</div>
       <div class="periodical"><em>{{ link.conference }}</em>
       </div>

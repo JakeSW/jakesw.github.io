@@ -1,4 +1,13 @@
 main:
+  - title: "ImpactEar: Cross Activity Ground Reaction Force Estimation using Earable IMUs"
+    authors: <strong>Jake Stuchbury-Wass</strong>, Mathias Ciliberto, Qiang Yang, Kayla-Jade Butkow, Yang Liu, Tobias Röddiger, Dong Ma, Ezio Preatoni, Cecilia Mascolo
+    conference_short: IMWUT
+    conference: IMWUT Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2026.
+    year: 2026
+    pdf: ./
+    page: ./
+    bibtex: ./
+    image: ./
 
   - title: "A Survey of Earable Technology: Trends, Tools, and the Road Ahead"
     authors: Changshuo Hu, Qiang Yang, Yang Liu, Tobias Röddiger, Kayla-Jade Butkow, Mathias Ciliberto, Adam Pullin, <strong>Jake Stuchbury-Wass</strong>, Mahbub Hassan, Cecilia Mascolo, Dong Ma
@@ -113,6 +122,14 @@ main:
 
 workshops:
 
+  - title: "Reconstructing Running Ground Reaction Force Waveforms from a Single Smartwatch IMU"
+    authors: Emiri Hosokawa, <strong>Jake Stuchbury-Wass</strong>, Ezio Preatoni, Cecilia Mascolo
+    conference: UbiComp/ISWC'26 Adjunct Proceedings, 2026.
+    year: 2026
+    pdf: ./
+    page: ./
+    bibtex: ./
+
   - title: "Towards Personalised DPOAE Protocols: Bayesian Optimisation of Secondary Stimulus Levels"
     authors: <strong>Jake Stuchbury-Wass</strong>, Argha Sen, Khaldoon Al-Naimi, Yang Liu, Alessandro Montanari
     conference: HeadSys'26 Workshop Colocated with MobiSys'26, 2026.
@@ -155,7 +172,7 @@ workshops:
 
   - title: "Detecting Foot Strikes during Running with Earbuds"
     authors: Changshuo Hu, Thivya Kandappu, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Anthony Tang, Cecilia Mascolo, Dong Ma
-    conference: "BodySys'23 The 8th Workshop on Body-Centric Computing Systems, 2024."
+    conference: "BodySys'24 The 8th Workshop on Body-Centric Computing Systems, 2024."
     year: 2024
     pdf: https://mobile-systems.cl.cam.ac.uk/papers/bodysys24-dong.pdf
     page: https://dl.acm.org/doi/abs/10.1145/3662009.3662023
