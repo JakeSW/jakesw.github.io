@@ -1,3 +1,9 @@
+{% comment %}
+  Wrapped in nomarkdown so kramdown passes this block through verbatim.
+  Without it kramdown rewrites void elements as <img ... />, which the W3C
+  validator flags as a pointless trailing slash.
+{% endcomment %}
+{::nomarkdown}
 <h2 id="publications" style="margin: 2px 0px -15px;">Publications</h2>
 
 <div class="publications">
@@ -52,10 +58,12 @@
     </div>
   </div>
 </div>
-</li>
+{% comment %} Inside the <li>, not between list items: an <ol> may only contain <li>. Same empty line box, so spacing is unchanged. {% endcomment %}
 <br>
+</li>
 
 {% endfor %}
 
 </ol>
 </div>
+{:/nomarkdown}
