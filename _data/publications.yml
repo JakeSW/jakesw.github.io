@@ -59,26 +59,6 @@ main:
     bibtex: ./assets/bibtex/HearForce.txt
     image: ./assets/img/hearforce.jpg
 
-  - title: "Ear-ECG Denoising Using Heart Sounds and the Extended Kalman Filter"
-    authors: Adam Pullin, <strong>Jake Stuchbury-Wass</strong>, Mathias Ciliberto, Kayla-Jade Butkow, Philipp Lepold, Tobias Röddiger, Cecilia Mascolo
-    conference_short: IEEE BSN
-    conference: IEEE EMBS International Conference on Body Sensor Networks, 2025.
-    year: 2025
-    pdf: https://openreview.net/pdf?id=eQE5YiQexy
-    page: https://openreview.net/forum?id=eQE5YiQexy
-    bibtex: ./assets/bibtex/EarECG.txt
-    image: ./assets/img/earecg.jpg
-
-  - title: "Deep-Learning Based Segmentation of In-Ear Cardiac Sounds"
-    authors: Jordan Waters, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Kayla-Jade Butkow, Cecilia Mascolo
-    conference_short: EMBC
-    conference: EMBC International Conference of the IEEE Engineering in Medicine and Biology Society, 2025.
-    year: 2025
-    pdf: https://mobile-systems.cl.cam.ac.uk/papers/embc25-jordan.pdf
-    page: https://ieeexplore.ieee.org/abstract/document/11254370
-    bibtex: ./assets/bibtex/Segments.txt
-    image: ./assets/img/segments.jpg
-
   - title: "WalkEar: Holistic Gait Monitoring using Earables"
     authors: <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Kayla-Jade Butkow, Josh Carter, Qiang Yang, Mathias Ciliberto, Ezio Preatoni, Dong Ma, Cecilia Mascolo
     conference_short: PerCom
@@ -109,16 +89,6 @@ main:
     page: https://dl.acm.org/doi/full/10.1145/3706598.3713893
     bibtex: ./assets/bibtex/SmarTeeth.txt
     image: ./assets/img/SmarTeeth.jpg
-
-  - title: Heart Rate Extraction from Abdominal Audio Signals
-    authors: <strong>Jake Stuchbury-Wass</strong>, Erika Bondareva, Kayla-Jade Butkow, Sanja Scepanovic, Zoran Radivojevic, Cecilia Mascolo
-    conference_short: ICASSP
-    conference: ICASSP 2023 IEEE International Conference on Acoustics, Speech and Signal Processing, 2023.
-    year: 2023
-    pdf: https://arxiv.org/pdf/2304.11020
-    page: https://ieeexplore.ieee.org/abstract/document/10096600/
-    bibtex: ./assets/bibtex/ABS.txt
-    image: ./assets/img/ABS.jpg
 
 workshops:
 
@@ -162,6 +132,26 @@ workshops:
     page: https://dl.acm.org/doi/abs/10.1145/3714394.3756253
     bibtex: ./assets/bibtex/OpenBrush.txt
 
+  - title: "Ear-ECG Denoising Using Heart Sounds and the Extended Kalman Filter"
+    authors: Adam Pullin, <strong>Jake Stuchbury-Wass</strong>, Mathias Ciliberto, Kayla-Jade Butkow, Philipp Lepold, Tobias Röddiger, Cecilia Mascolo
+    conference_short: IEEE BSN
+    conference: IEEE EMBS International Conference on Body Sensor Networks, 2025.
+    year: 2025
+    pdf: https://openreview.net/pdf?id=eQE5YiQexy
+    page: https://openreview.net/forum?id=eQE5YiQexy
+    bibtex: ./assets/bibtex/EarECG.txt
+    image: ./assets/img/earecg.jpg
+
+  - title: "Deep-Learning Based Segmentation of In-Ear Cardiac Sounds"
+    authors: Jordan Waters, <strong>Jake Stuchbury-Wass</strong>, Yang Liu, Kayla-Jade Butkow, Cecilia Mascolo
+    conference_short: EMBC
+    conference: EMBC International Conference of the IEEE Engineering in Medicine and Biology Society, 2025.
+    year: 2025
+    pdf: https://mobile-systems.cl.cam.ac.uk/papers/embc25-jordan.pdf
+    page: https://ieeexplore.ieee.org/abstract/document/11254370
+    bibtex: ./assets/bibtex/Segments.txt
+    image: ./assets/img/segments.jpg
+
   - title: "BrushBuds: Toothbrushing Tracking Using Earphone IMUs"
     authors: Qiang Yang, Yang Liu, <strong>Jake Stuchbury-Wass</strong>, Kayla-Jade Butkow, Emeli Panariti, Dong Ma, Cecilia Mascolo
     conference: UbiComp/ISWC'24 Adjunct Proceedings, 2024.
@@ -185,6 +175,16 @@ workshops:
     pdf: https://mobile-systems.cl.cam.ac.uk/papers/bodysys24-dong.pdf
     page: https://dl.acm.org/doi/abs/10.1145/3662009.3662023
     bibtex: ./assets/bibtex/Footstrike.txt
+
+  - title: Heart Rate Extraction from Abdominal Audio Signals
+    authors: <strong>Jake Stuchbury-Wass</strong>, Erika Bondareva, Kayla-Jade Butkow, Sanja Scepanovic, Zoran Radivojevic, Cecilia Mascolo
+    conference_short: ICASSP
+    conference: ICASSP 2023 IEEE International Conference on Acoustics, Speech and Signal Processing, 2023.
+    year: 2023
+    pdf: https://arxiv.org/pdf/2304.11020
+    page: https://ieeexplore.ieee.org/abstract/document/10096600/
+    bibtex: ./assets/bibtex/ABS.txt
+    image: ./assets/img/ABS.jpg
 
   - title: Multimodal attention networks for human activity recognition from earable devices
     authors: <strong>Jake Stuchbury-Wass</strong>, Andrea Ferlini, Cecilia Mascolo

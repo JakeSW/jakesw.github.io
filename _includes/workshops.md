@@ -1,6 +1,6 @@
 {% comment %} nomarkdown: kramdown would otherwise rewrite void elements with a trailing slash. {% endcomment %}
 {::nomarkdown}
-<h2 id="workshops" style="margin: 2px 0px -15px;">Workshops</h2>
+<h2 id="workshops" style="margin: 2px 0px -15px;">Short Papers and Workshops</h2>
 
 <div class="publications workshops">
 
