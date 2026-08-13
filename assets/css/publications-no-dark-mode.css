@@ -32,9 +32,9 @@ blockquote { background: var(--global-bg-color); border-left: 2px solid var(--gl
 
 .publications h2 span { font-size: 1.5rem; }
 
-.publications h2.year { font-size: 1.05rem; font-weight: 600; color: #6a6a6a; border-top: 1px solid #dcdcdc; padding-top: 0.35rem; margin-top: 2rem; margin-bottom: 0.9rem; text-align: right; }
+.publications h3.year { font-size: 1.05rem; font-weight: 600; color: #6a6a6a; border-top: 1px solid #dcdcdc; padding-top: 0.35rem; margin-top: 2rem; margin-bottom: 0.9rem; text-align: right; }
 
-.publications > h2.year:first-child { margin-top: 1.2rem; border-top: none; padding-top: 0; }
+.publications > h3.year:first-child { margin-top: 1.2rem; border-top: none; padding-top: 0; }
 
 .publications ol.bibliography { list-style: none; padding: 0; margin-top: 0; }
 

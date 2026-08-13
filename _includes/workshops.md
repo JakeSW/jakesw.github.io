@@ -7,7 +7,7 @@
 
 {% if link.year != current_year %}
 {% unless forloop.first %}</ol>{% endunless %}
-<h2 class="year">{{ link.year }}</h2>
+<h3 class="year">{{ link.year }}</h3>
 <ol class="bibliography">
 {% assign current_year = link.year %}
 {% endif %}
