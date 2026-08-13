@@ -138,6 +138,14 @@ workshops:
     page: https://dl.acm.org/doi/abs/10.1145/3812836.3814766
     bibtex: ./assets/bibtex/DPOAE.txt
 
+  - title: "Unlocking Human Movement: Detailed Gait and Impact Assessment from Consumer Earable Devices"
+    authors: <strong>Jake Stuchbury-Wass</strong>
+    conference: MobiSys'26 Companion Proceedings, 2026.
+    year: 2026
+    pdf: https://dl.acm.org/doi/pdf/10.1145/3812835.3814810
+    page: https://dl.acm.org/doi/abs/10.1145/3812835.3814810
+    bibtex: ./assets/bibtex/UnlockingMovement.txt
+
   - title: "EarCalo: Earable-Based Energy Expenditure Estimation While Running"
     authors: Yang Liu, Qiang Yang, <strong>Jake Stuchbury-Wass</strong>, Dong Ma, Cecilia Mascolo
     conference: HotMobile'26 The 27th International Workshop on Mobile Computing Systems and Applications, 2026.

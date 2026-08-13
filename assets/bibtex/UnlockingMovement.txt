@@ -1,0 +1,9 @@
+@inproceedings{stuchburywass2026unlocking,
+  title={Unlocking Human Movement: Detailed Gait and Impact Assessment from Consumer Earable Devices},
+  author={Stuchbury-Wass, Jake},
+  booktitle={Proceedings of the 24th Annual International Conference on Mobile Systems, Applications and Services Companion},
+  pages={90--91},
+  year={2026},
+  publisher={ACM New York, NY, USA},
+  doi={10.1145/3812835.3814810}
+}
