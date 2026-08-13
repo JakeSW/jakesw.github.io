@@ -1,8 +1,19 @@
 ---
 ---
 # https://www.robotstxt.org/robotstxt.html
-# Everything here is public and intended to be indexed.
 User-agent: *
 Allow: /
+
+# Utility files that exist to be clicked from the publications list, not to be
+# landed on from a search engine. Indexed, they surface as results titled
+# "BibTex" or "@inproceedings{...}" competing with the homepage.
+Disallow: /assets/bibtex/
+
+# Holds only the remote theme's placeholder curriculum_vitae.pdf, which is not
+# mine and should not appear in search results.
+Disallow: /assets/files/
+
+# CSS, JS and images are deliberately left crawlable: Google needs them to
+# render the page, and blocking them harms how the site is assessed.
 
 Sitemap: {{ site.url }}/sitemap.xml
