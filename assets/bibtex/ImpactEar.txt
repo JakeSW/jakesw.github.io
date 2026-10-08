@@ -1,0 +1,11 @@
+@article{stuchburywass2026impactear,
+  title={ImpactEar: Cross Activity Ground Reaction Force Estimation using Earable IMUs},
+  author={Stuchbury-Wass, Jake and Ciliberto, Mathias and Yang, Qiang and Butkow, Kayla-Jade and Liu, Yang and R{\"o}ddiger, Tobias and Ma, Dong and Preatoni, Ezio and Mascolo, Cecilia},
+  journal={Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},
+  volume={10},
+  number={3},
+  pages={1--25},
+  year={2026},
+  publisher={ACM New York, NY, USA},
+  doi={10.1145/3831649}
+}

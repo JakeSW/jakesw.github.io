@@ -4,9 +4,9 @@ main:
     conference_short: IMWUT
     conference: IMWUT Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2026.
     year: 2026
-    pdf: ./
-    page: ./
-    bibtex: ./
+    pdf: https://dl.acm.org/doi/pdf/10.1145/3831649
+    page: https://dl.acm.org/doi/abs/10.1145/3831649
+    bibtex: ./assets/bibtex/ImpactEar.txt
     image: ./assets/img/impactear.jpg
 
   - title: "A Survey of Earable Technology: Trends, Tools, and the Road Ahead"
