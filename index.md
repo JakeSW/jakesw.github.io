@@ -27,6 +27,7 @@ Please get in touch if you'd like to collaborate!
 
 ## Talks
 
+- UbiComp'26, Shanghai, Oct. 2026
 - HeadSys'26 Workshop, Cambridge, June 2026
 - TECO Group, Karlsruhe Institute of Technology, Karlsruhe, Dec. 2025
 - Sensors Day 2025, Cambridge, Nov. 2025
